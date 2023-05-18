@@ -167,7 +167,8 @@
 
     <section class="container-fluid p-5" id="contactanos">
         <h1>¡Contactanos!</h1>
-        <div class="bg-light border rounded p-3 m-3">
+        <div class="container bg-light border rounded">
+            <form action="https://formspree.io/f/meqwddpy" method="POST">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
                     <div class="m-3">
@@ -186,7 +187,7 @@
                 <div class="col-12">
                     <div class="m-3">
                         <label for="formEmail" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="formEmail">
+                        <input type="text" class="form-control" id="formEmail" name="_replyto">
                     </div>
                 </div>
             </div>
@@ -194,19 +195,19 @@
                 <div class="col-12">
                     <div class="m-3">
                         <label for="formMensaje" class="form-label">Mensaje</label>
-                        <textarea name="" id="formMensaje" cols="30" rows="5" class="form-control"></textarea>
+                        <input type="text" class="form-control" id="formMensaje" name="message">
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
                     <div class="m-3">
-                        <button type="button" class="btn btn-outline-success">Enviar</button>
+                        <button type="submit" class="btn btn-outline-primary">Enviar</button>
                     </div>
                 </div>
                 <div class="col-6">
                     <div class="m-3">
-                        <h5 class="text-end">¡Gracias por tu mensaje!</h5>
+                        <p class="text-end">¡Gracias por tu mensaje!</p>
                     </div>
                 </div>
             </div>
