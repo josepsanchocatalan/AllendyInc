@@ -9,13 +9,20 @@ public class Usuario {
     private String NickName;
     private String Email;
     private String Password;
-
-    private HashMap<Usuario, Rol> Rol;
+    private String Rol;
 
 /*  constructores */
 
-    public Usuario(Integer idUsuario, String nombre, String nickName, String email, String password, HashMap<Usuario, com.example.allendy.Rol> rol) {
-        IdUsuario = idUsuario;
+
+
+
+    public Usuario(String email, String password) {
+        Email = email;
+        Password = password;
+
+}
+
+    public Usuario( String nombre, String nickName, String email, String password, String rol) {
         Nombre = nombre;
         NickName = nickName;
         Email = email;
@@ -27,11 +34,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public HashMap<Usuario, com.example.allendy.Rol> getRol() {
+    public String getRol() {
         return Rol;
     }
 
-    public void setRol(HashMap<Usuario, com.example.allendy.Rol> rol) {
+    public void setRol(String rol) {
         Rol = rol;
     }
 

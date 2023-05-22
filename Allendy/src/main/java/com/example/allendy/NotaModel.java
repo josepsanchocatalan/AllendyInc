@@ -10,13 +10,15 @@ public class NotaModel {
     public boolean InsertarNota(Nota n1){
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -28,13 +30,15 @@ public class NotaModel {
     public boolean EliminarNota(Nota n1){
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -46,13 +50,14 @@ public class NotaModel {
     public boolean ModificarNota(Nota n1){
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -64,13 +69,15 @@ public class NotaModel {
     public boolean RecuperarNota(Nota n1){
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){

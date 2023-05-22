@@ -9,8 +9,8 @@ import java.sql.Statement;
 import java.sql.*;
 
 public class DBUtil {
-    private Connection conn;
-    private  String cadenaConexion = "jdbc:mysql://localhost:3306/intellij";
+    private Connection con;
+    private  String cadenaConexion = "jdbc:mysql://localhost:3306/allendy";
     private  String nombreUsuario = "root";
     private  String password = "1234";
 
@@ -18,8 +18,8 @@ public class DBUtil {
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            this.conn = DriverManager.getConnection(this.cadenaConexion, this.nombreUsuario, this.password);
-            return this.conn;
+            this.con = DriverManager.getConnection(this.cadenaConexion, this.nombreUsuario, this.password);
+            return this.con;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -28,7 +28,7 @@ public class DBUtil {
 
     public void cerrarConexion() {
         try {
-            this.conn.close();
+            this.con.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

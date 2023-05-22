@@ -51,44 +51,13 @@ public class Agenda {
     public String getNombreAgenda() {
         return NombreAgenda;
     }
+
     public void setNombreAgenda(String nombreAgenda) {
         NombreAgenda = nombreAgenda;
     }
 
     /*funciones*/
 
-    private boolean CrearAgenda(){
-        boolean verificacion = false;
-        DBUtil db = new DBUtil();
-        Connection con = db.getConexion();
 
-        try {
-            String insertSQL = "INSERT INTO x (nombre) values (?)";
-            PreparedStatement stmt = con.prepareStatement(insertSQL);
-            stmt.setString(1, NombreAgenda);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return verificacion;
-    }
-    private boolean BorrarAgenda(){
-
-    private boolean EditarAgenda(){
-        boolean verificacion = false;
-        return verificacion;
-
-    private void CrearAgenda(){
-
-    }
-    private void BorrarAgenda(){
-
-    }
-    private void EditarAgenda(){
-
-    }
-    private void CompartirAgenda(){
-
-    }
 
 }

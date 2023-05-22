@@ -7,34 +7,42 @@ import java.sql.SQLException;
 
 public class UsuarioModel {
 
-    public boolean InsertarUsuario(Usuario u1){
-        boolean verificacion = false;
+    public static void InsertarUsuario(Usuario a){
+
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
+        String password= a.getPassword();
+        String correo= a.getEmail();
+        String nombre = a.getNombre();
+        String nick = a.getNickName();
+        String rol =a.getRol();
 
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+            String insertSql = "INSERT INTO allendy.usuarios ( nombre, nickname, passsword, mail, rol) VALUES (?, ?, ?, ?,?)";
+            PreparedStatement stmt = con.prepareStatement(insertSql);
 
-            String query = "";
-
-            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, nombre);
+            stmt.setString(2, nick);
+            stmt.setString(3, password);
+            stmt.setString(4, correo);
+            stmt.setString(5,rol);
             stmt.execute();
-
-        }catch(SQLException e){
+            int rowsAffected = stmt.executeUpdate();
+            stmt.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return verificacion;
     }
     public boolean EliminarUsuario(Usuario u1){
         boolean verificacion = false;
-
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
-
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -46,13 +54,14 @@ public class UsuarioModel {
     public boolean ModificarUsuario(Usuario u1){
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -62,18 +71,26 @@ public class UsuarioModel {
         return verificacion;
     }
     public boolean RecuperarUsuario(Usuario u1){
+        String password= u1.getPassword();
+        String correo= u1.getEmail();
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
 
-            String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            String insertSql = "select * from usuario where password=? and correo=? ";
+            PreparedStatement stmt = con.prepareStatement(insertSql);
+
+
+            stmt.setString(1, password);
+            stmt.setString(2, correo);
+
             stmt.execute();
-
-        }catch(SQLException e){
+            int rowsAffected = stmt.executeUpdate();
+            stmt.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

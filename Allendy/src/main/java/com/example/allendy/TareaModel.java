@@ -12,8 +12,7 @@ public class TareaModel {
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
-
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
             String query = "";
 
             PreparedStatement stmt = conn.prepareStatement(query);
@@ -30,7 +29,7 @@ public class TareaModel {
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
 
             String query = "";
 
@@ -48,7 +47,7 @@ public class TareaModel {
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
 
             String query = "";
 
@@ -66,7 +65,7 @@ public class TareaModel {
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
 
             String query = "";
 

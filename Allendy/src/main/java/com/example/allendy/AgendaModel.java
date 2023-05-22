@@ -7,16 +7,18 @@ import java.sql.SQLException;
 
 public class AgendaModel {
 
+    //Funcion insertar agenda
     public boolean InsertarAgenda(Agenda a1){
         boolean verificacion = false;
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
 
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -25,16 +27,18 @@ public class AgendaModel {
 
         return verificacion;
     }
+
+    //Funcion eliminar agenda/
     public boolean EliminarAgenda(Agenda a1){
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -43,16 +47,21 @@ public class AgendaModel {
 
         return verificacion;
     }
+
+    //Funcion modificar agenda
     public boolean ModificarAgenda(Agenda a1){
         boolean verificacion = false;
 
+
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
+
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
@@ -61,16 +70,19 @@ public class AgendaModel {
 
         return verificacion;
     }
+
+    //Funcion recuperar agenda
     public boolean RecuperarAgenda(Agenda a1){
         boolean verificacion = false;
 
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+
         try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("","","");
 
             String query = "";
 
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
 
         }catch(SQLException e){
