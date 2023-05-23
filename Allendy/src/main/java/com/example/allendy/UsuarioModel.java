@@ -28,7 +28,6 @@ public class UsuarioModel {
             stmt.setString(4, correo);
             stmt.setString(5,rol);
             stmt.execute();
-            int rowsAffected = stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();

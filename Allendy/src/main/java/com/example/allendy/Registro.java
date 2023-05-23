@@ -51,8 +51,7 @@ public class Registro {
         String nUsuario = nombreUsuario.getText();
         String pass = password.getText();
         Usuario a = new Usuario(nCompleto,nUsuario,pass,correo,"user");
-
-
+        UsuarioModel.InsertarUsuario(a);
     }
     
 }

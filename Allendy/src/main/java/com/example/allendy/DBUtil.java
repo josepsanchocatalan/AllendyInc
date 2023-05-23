@@ -19,11 +19,16 @@ public class DBUtil {
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             this.con = DriverManager.getConnection(this.cadenaConexion, this.nombreUsuario, this.password);
+            if(con!=null){
+                System.out.println("Conexion exitosa");
+            }
             return this.con;
         } catch (SQLException e) {
+            System.out.println("error"+e.getMessage());
             e.printStackTrace();
-            return null;
+
         }
+        return null;
     }
 
     public void cerrarConexion() {
