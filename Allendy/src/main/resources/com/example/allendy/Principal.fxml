@@ -7,7 +7,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< HEAD
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.PrincipalController">
+=======
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1265.0" spacing="20.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.principalController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+>>>>>>> AllendyInc/master
    <children>
       <MenuBar>
         <menus>
