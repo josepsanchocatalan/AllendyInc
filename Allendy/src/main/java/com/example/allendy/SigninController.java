@@ -10,7 +10,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
-public class Registro {
+public class SigninController {
 
     @javafx.fxml.FXML
     private TextField password;
@@ -36,12 +36,8 @@ public class Registro {
 
     public void vueltaLoguin(javafx.event.ActionEvent actionEvent) {
 
-        try {
-            Pane vueltaInicio = FXMLLoader.load(getClass().getResource("login.fxml"));
-            this.paneRegistro.getChildren().setAll(vueltaInicio);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        PrincipalController principal = new PrincipalController();
+        principal.changeToLogin();
 
     }
 
@@ -54,5 +50,4 @@ public class Registro {
 
 
     }
-    
 }

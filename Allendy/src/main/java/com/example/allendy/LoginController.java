@@ -1,15 +1,15 @@
 package com.example.allendy;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
-public class InicioSesion {
+public class LoginController {
 
     @javafx.fxml.FXML
     private TextField correoElectronico;
@@ -40,12 +40,8 @@ public class InicioSesion {
 
     public void vueltaSignIn(javafx.event.ActionEvent actionEvent) {
 
-        try {
-            Pane vueltaRegistro = FXMLLoader.load(getClass().getResource("registro.fxml"));
-            this.pane.getChildren().setAll(vueltaRegistro);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        PrincipalController principal = new PrincipalController();
+        principal.changeToSignin();
 
     }
 
