@@ -12,16 +12,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<<<<<<< HEAD:Allendy/src/main/resources/com/example/allendy/Signin.fxml
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="965.0" spacing="20.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.SigninController">
-=======
-<VBox alignment="CENTER" prefHeight="600.0" prefWidth="1065.0" spacing="20.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.Registro">
->>>>>>> AllendyInc/master:Allendy/src/main/resources/com/example/allendy/registro.fxml
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.SigninController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Pane fx:id="paneRegistro" prefHeight="796.0" prefWidth="925.0">
+      <Pane fx:id="rootPane" prefHeight="800.0" prefWidth="1000.0">
          <children>
             <Pane layoutX="280.0" layoutY="183.0" prefHeight="429.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;">
                <children>
@@ -75,7 +71,7 @@
             </ImageView>
             <Pane layoutX="277.0" layoutY="631.0" prefHeight="78.0" prefWidth="377.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;">
                <children>
-                  <Button fx:id="botonYaRegistrado" layoutX="96.0" layoutY="27.0" mnemonicParsing="false" onAction="#vueltaLoguin" style="-fx-background-color: #e8edf2;" text="¿Ya te has registrado? Clica aquí" textFill="BLUE" underline="true" />
+                  <Button fx:id="vueltaLogin" layoutX="96.0" layoutY="27.0" mnemonicParsing="false" onAction="#onVueltaLoguin" style="-fx-background-color: #e8edf2;" text="¿Ya te has registrado? Clica aquí" textFill="BLUE" underline="true" />
                </children>
             </Pane>
          </children>

@@ -12,12 +12,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="965.0" spacing="20.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.LoginController">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.LoginController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
-      <Pane fx:id="paneInicio" prefHeight="796.0" prefWidth="925.0">
+      <Pane fx:id="rootPane" prefHeight="800.0" prefWidth="1000.0">
          <children>
             <Pane layoutX="280.0" layoutY="183.0" prefHeight="429.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;">
                <children>
@@ -45,7 +45,7 @@
                   </Button>
                   <Line endX="37.0" layoutX="128.0" layoutY="320.0" startX="-100.0" />
                   <Line endX="37.0" layoutX="305.0" layoutY="320.0" startX="-100.0" />
-                  <Button fx:id="OlvidoContrasenya" layoutX="70.0" layoutY="357.0" mnemonicParsing="false" onAction="#vueltaSignIn" style="-fx-background-color: #e8edf2;" text="¿Has olvidado tu contraseña? Pulsa aquí" textFill="BLUE" underline="true" />
+                  <Button fx:id="OlvidoContrasenya" layoutX="70.0" layoutY="357.0" mnemonicParsing="false" style="-fx-background-color: #e8edf2;" text="¿Has olvidado tu contraseña? Pulsa aquí" textFill="BLUE" underline="true" />
                </children>
             </Pane>
             <ImageView fitHeight="124.0" fitWidth="119.0" layoutX="405.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
@@ -55,7 +55,7 @@
             </ImageView>
             <Pane layoutX="277.0" layoutY="631.0" prefHeight="78.0" prefWidth="377.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;">
                <children>
-                  <Button fx:id="BotonNoRegistrado" layoutX="83.0" layoutY="27.0" mnemonicParsing="false" onAction="#vueltaSignIn" style="-fx-background-color: #e8edf2;" text="¿Aún no te has registrado? Clica aquí" textFill="BLUE" underline="true" />
+                  <Button fx:id="vueltaSignIn" layoutX="83.0" layoutY="27.0" mnemonicParsing="false" onAction="#onVueltaSignIn" style="-fx-background-color: #e8edf2;" text="¿Aún no te has registrado? Clica aquí" textFill="BLUE" underline="true" />
                </children>
             </Pane>
          </children>
