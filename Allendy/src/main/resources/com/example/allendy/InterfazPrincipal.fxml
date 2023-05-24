@@ -25,7 +25,7 @@
                   <Button fx:id="BotonBorrarTarea" layoutX="199.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBontonBorrarTarea" prefHeight="25.0" prefWidth="139.0" text="Borrar Tarea" />
                   <CheckBox fx:id="checkTrabajo" layoutX="28.0" layoutY="380.0" mnemonicParsing="false" text="Trabajo" />
                   <CheckBox fx:id="checkOcio" layoutX="28.0" layoutY="408.0" mnemonicParsing="false" text="Ocio" />
-                  <CheckBox fx:id="CheckFamilia" layoutX="28.0" layoutY="434.0" mnemonicParsing="false" text="Familia" />
+                  <CheckBox fx:id="CheckFamilia" layoutX="28.0" layoutY="438.0" mnemonicParsing="false" text="Familia" />
                   <CheckBox fx:id="checkVacaciones" layoutX="28.0" layoutY="464.0" mnemonicParsing="false" text="vacaciones" />
                </children>
             </Pane>
