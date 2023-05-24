@@ -37,10 +37,25 @@ public class LoginController {
         UsuarioModel b = new UsuarioModel();
 
         if (b.ComprobarUsuarioLogin(u1) == true){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Estas en la database");
-            alert.setHeaderText("Estas en la database");
-            alert.showAndWait();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("InterfazPrincipal.fxml"));
+
+                Parent root = loader.load();
+
+                InterfazPrincipal controller = loader.getController();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                stage.setScene(scene);
+                stage.show();
+
+                Stage myStage = (Stage) this.botonRegistrar.getScene().getWindow();
+                myStage.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("noestas en la database");

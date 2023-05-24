@@ -5,9 +5,8 @@ import java.util.Date;
 
 public class Tarea extends Agenda {
 
+
     private Integer IdTarea;
-    private Agenda IdAgendaTarea;
-    private Usuario IdUsuarioTarea;
     private Date FechaTarea;
     private Date FechaFin;
     private System TipoTarea;
@@ -19,15 +18,13 @@ public class Tarea extends Agenda {
 
     /*constructores*/
 
-    public Tarea() {
-        super(id, usser, tareas, NombreAgenda);
+    public Tarea(int id, String usser, ArrayList<Tarea> tareas, String nombreAgenda) {
+        super(id, usser, tareas, nombreAgenda);
     }
 
-    public Tarea(Integer idTarea, Agenda idAgendaTarea, Usuario idUsuarioTarea, Date fechaTarea, Date fechaFin, System tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, Date organizadorTarea, String prioridadTarea) {
-        super(id, usser, tareas, NombreAgenda);
+    public Tarea(int id, String usser, ArrayList<Tarea> tareas, String nombreAgenda, Integer idTarea, Date fechaTarea, Date fechaFin, System tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, Date organizadorTarea, String prioridadTarea) {
+        super(id, usser, tareas, nombreAgenda);
         IdTarea = idTarea;
-        IdAgendaTarea = idAgendaTarea;
-        IdUsuarioTarea = idUsuarioTarea;
         FechaTarea = fechaTarea;
         FechaFin = fechaFin;
         TipoTarea = tipoTarea;
@@ -46,22 +43,6 @@ public class Tarea extends Agenda {
 
     public void setIdTarea(Integer idTarea) {
         IdTarea = idTarea;
-    }
-
-    public Agenda getIdAgendaTarea() {
-        return IdAgendaTarea;
-    }
-
-    public void setIdAgendaTarea(Agenda idAgendaTarea) {
-        IdAgendaTarea = idAgendaTarea;
-    }
-
-    public Usuario getIdUsuarioTarea() {
-        return IdUsuarioTarea;
-    }
-
-    public void setIdUsuarioTarea(Usuario idUsuarioTarea) {
-        IdUsuarioTarea = idUsuarioTarea;
     }
 
     public Date getFechaTarea() {
