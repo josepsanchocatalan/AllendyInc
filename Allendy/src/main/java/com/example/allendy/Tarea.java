@@ -20,9 +20,11 @@ public class Tarea extends Agenda {
     /*constructores*/
 
     public Tarea() {
+        super(id, usser, tareas, NombreAgenda);
     }
 
     public Tarea(Integer idTarea, Agenda idAgendaTarea, Usuario idUsuarioTarea, Date fechaTarea, Date fechaFin, System tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, Date organizadorTarea, String prioridadTarea) {
+        super(id, usser, tareas, NombreAgenda);
         IdTarea = idTarea;
         IdAgendaTarea = idAgendaTarea;
         IdUsuarioTarea = idUsuarioTarea;

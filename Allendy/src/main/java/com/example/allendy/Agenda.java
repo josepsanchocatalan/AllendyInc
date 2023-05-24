@@ -1,24 +1,22 @@
 package com.example.allendy;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Agenda {
 
     private Integer IdAgenda;
     private Integer IdUsuarioAgenda;
-    private Integer IdTareaAgenda;
+    private Tarea[] TareasAgenda;
     private String NombreAgenda;
 
     /*constructores*/
-    public Agenda() {
+    public Agenda(int id, String usser, ArrayList<Tarea> tareas, String nombreAgenda) {
     }
 
-    public Agenda(Integer idAgenda, Integer idUsuarioAgenda, Integer idTareaAgenda, String nombreAgenda) {
+    public Agenda(Integer idAgenda, Integer idUsuarioAgenda, Tarea[] TareasAgenda, String nombreAgenda) {
         this.IdAgenda = idAgenda;
         this.IdUsuarioAgenda = idUsuarioAgenda;
-        this.IdTareaAgenda = idTareaAgenda;
+        this.TareasAgenda = TareasAgenda;
         NombreAgenda = nombreAgenda;
     }
 
@@ -40,12 +38,12 @@ public class Agenda {
         this.IdUsuarioAgenda = idUsuarioAgenda;
     }
 
-    public Integer getIdTareaAgenda() {
-        return IdTareaAgenda;
+    public Tarea[] getIdTareaAgenda() {
+        return TareasAgenda;
     }
 
-    public void setIdTareaAgenda(Integer idTareaAgenda) {
-        this.IdTareaAgenda = idTareaAgenda;
+    public void setIdTareaAgenda(Tarea[] idTareaAgenda) {
+        this.TareasAgenda = idTareaAgenda;
     }
 
     public String getNombreAgenda() {

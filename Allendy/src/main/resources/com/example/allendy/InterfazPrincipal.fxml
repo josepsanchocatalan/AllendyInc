@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="584.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.InterfazPrincipal">
+   <children>
+      <HBox layoutX="-2.0" layoutY="-4.0" prefHeight="592.0" prefWidth="995.0">
+         <children>
+            <Pane prefHeight="592.0" prefWidth="408.0">
+               <children>
+                  <DatePicker fx:id="Calendario" layoutX="64.0" layoutY="44.0" onAction="#initialice" prefHeight="25.0" prefWidth="258.0" showWeekNumbers="true" />
+                  <Button fx:id="BotonCrearAgenda" layoutX="18.0" layoutY="553.0" mnemonicParsing="false" onAction="#OnBotonCrearAgenda" prefHeight="25.0" prefWidth="99.0" text="Crear Agenda" />
+                  <Button fx:id="BotonEditarAgenda" layoutX="144.0" layoutY="553.0" mnemonicParsing="false" onAction="#onBotonEditarAgenda" prefHeight="25.0" prefWidth="109.0" text="editar Agenda" />
+                  <Button fx:id="BotonBorrarAgenda" layoutX="280.0" layoutY="553.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="99.0" text="Borrar Agenda" />
+                  <Button fx:id="BotonNuevaTarea" layoutX="199.0" layoutY="376.0" mnemonicParsing="false" onAction="#onBotonNuevaTarea" prefHeight="25.0" prefWidth="139.0" text="Nueva Tarea" />
+                  <Button fx:id="botonEditarTarea" layoutX="199.0" layoutY="452.0" mnemonicParsing="false" onAction="#onBotonEditarTarea" prefHeight="25.0" prefWidth="139.0" text="Editar Tarea" />
+                  <Button fx:id="BotonBorrarTarea" layoutX="199.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBontonBorrarTarea" prefHeight="25.0" prefWidth="139.0" text="Borrar Tarea" />
+                  <CheckBox fx:id="checkTrabajo" layoutX="28.0" layoutY="380.0" mnemonicParsing="false" text="Trabajo" />
+                  <CheckBox fx:id="checkOcio" layoutX="28.0" layoutY="408.0" mnemonicParsing="false" text="Ocio" />
+                  <CheckBox fx:id="CheckFamilia" layoutX="28.0" layoutY="434.0" mnemonicParsing="false" text="Familia" />
+                  <CheckBox fx:id="checkVacaciones" layoutX="28.0" layoutY="464.0" mnemonicParsing="false" text="vacaciones" />
+               </children>
+            </Pane>
+            <ScrollPane prefHeight="592.0" prefWidth="609.0">
+               <content>
+                  <TableView fx:id="TablaTareas" prefHeight="592.0" prefWidth="600.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Tarea" />
+                      <TableColumn prefWidth="231.0" text="descripción" />
+                        <TableColumn minWidth="0.0" prefWidth="59.0" text="fecha" />
+                        <TableColumn prefWidth="69.0" text="fecha fin" />
+                        <TableColumn minWidth="0.0" prefWidth="45.0" text="hecho" />
+                        <TableColumn minWidth="3.0" prefWidth="100.0" text="asistentes" />
+                    </columns>
+                  </TableView>
+               </content>
+            </ScrollPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
