@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -38,15 +35,31 @@ public class SigninController {
     @javafx.fxml.FXML
     private Button vueltaLogin;
 
+    //Esta funcion comprueba que el usuario a registrar no este en la DB
     @javafx.fxml.FXML
     public void onRegistroButton(ActionEvent actionEvent) {
         String correo = correoElectronico.getText();
         String nCompleto = nombreCompleto.getText();
         String nUsuario = nombreUsuario.getText();
         String pass = password.getText();
-        Usuario a = new Usuario(nCompleto,nUsuario,pass,correo,"user");
-        UsuarioModel.InsertarUsuario(a);
+
+        Usuario u1 = new Usuario(nUsuario,correo, null);
+        UsuarioModel um1 = new UsuarioModel();
+        if (um1.ComprobarUsuarioRegistro(u1) == true){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setTitle("Usuario Registrado");
+            a.setHeaderText("Usuario ya registrado");
+            a.show();
+        } else {
+            Usuario a = new Usuario(nCompleto,nUsuario,pass,correo,"user");
+            UsuarioModel.InsertarUsuario(a);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Estas registrado de locos qolega");
+            alert.setHeaderText("Estas registrado de locos qolega");
+            alert.showAndWait();
+        }
     }
+
     //Esta funcion sirve para cargar la pagina loguin y cerrar la actual
     @javafx.fxml.FXML
     public void onVueltaLoguin(ActionEvent actionEvent) {

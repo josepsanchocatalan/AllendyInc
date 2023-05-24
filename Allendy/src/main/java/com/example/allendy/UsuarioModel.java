@@ -1,9 +1,6 @@
 package com.example.allendy;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UsuarioModel {
 
@@ -69,26 +66,61 @@ public class UsuarioModel {
 
         return verificacion;
     }
-    public boolean RecuperarUsuario(Usuario u1){
-        String password= u1.getPassword();
-        String correo= u1.getEmail();
+    public boolean ComprobarUsuarioRegistro(Usuario u1) {
+        String nickname = u1.getNickName();
+        String correo = u1.getEmail();
         boolean verificacion = false;
 
         DBUtil db = new DBUtil();
-        Connection con = db.getConexion();
-        try {
 
 
-            String insertSql = "select * from usuario where password=? and correo=? ";
+
+        try (Connection con = db.getConexion()){
+            String insertSql = "select count(*) as resultado from allendy.usuarios where nickname = ? and mail = ?";
             PreparedStatement stmt = con.prepareStatement(insertSql);
-
-
-            stmt.setString(1, password);
+            stmt.setString(1, nickname);
             stmt.setString(2, correo);
 
-            stmt.execute();
-            int rowsAffected = stmt.executeUpdate();
-            stmt.close();
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int rowsAffected = rs.getInt(1);
+                if (rowsAffected != 0) {
+                    verificacion = true;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return verificacion;
+    }
+
+    public boolean ComprobarUsuarioLogin(Usuario u1) {
+        String correo = u1.getEmail();
+        String pass = u1.getPassword();
+        boolean verificacion = false;
+
+        DBUtil db = new DBUtil();
+
+
+
+        try (Connection con = db.getConexion()){
+            String insertSql = "select count(*) as resultado from allendy.usuarios where mail = ? and passsword = ?";
+            PreparedStatement stmt = con.prepareStatement(insertSql);
+            stmt.setString(1, correo);
+            stmt.setString(2, pass);
+
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int rowsAffected = rs.getInt(1);
+                if (rowsAffected != 0) {
+                    verificacion = true;
+                }
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

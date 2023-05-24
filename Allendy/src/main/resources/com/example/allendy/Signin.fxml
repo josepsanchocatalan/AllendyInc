@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.SigninController">
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1000.0" spacing="20.0" style="-fx-background-color: #597EBE; -fx-alignment: center;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.SigninController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
@@ -21,7 +21,6 @@
          <children>
             <Pane layoutX="280.0" layoutY="183.0" prefHeight="429.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;">
                <children>
-                  <TextField fx:id="password" layoutX="193.0" layoutY="228.0" prefHeight="25.0" prefWidth="149.0" promptText="Password" />
                   <Text layoutX="140.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Allendy">
                      <font>
                         <Font name="Arial" size="28.0" />
@@ -47,21 +46,22 @@
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="correoElectronico" layoutX="193.0" layoutY="111.0" prefHeight="25.0" prefWidth="149.0" promptText="allendy@example.es" />
-                  <TextField fx:id="nombreCompleto" layoutX="193.0" layoutY="152.0" prefHeight="25.0" prefWidth="149.0" promptText="Arnold Schwarzenegger" />
-                  <TextField fx:id="nombreUsuario" layoutX="194.0" layoutY="190.0" prefHeight="25.0" prefWidth="149.0" promptText="SchwarzeneggerMan" />
                   <Text layoutX="32.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar contraseña">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Text>
+                  <TextField fx:id="correoElectronico" layoutX="193.0" layoutY="111.0" prefHeight="25.0" prefWidth="149.0" promptText="allendy@example.es" />
+                  <TextField fx:id="nombreCompleto" layoutX="193.0" layoutY="152.0" prefHeight="25.0" prefWidth="149.0" promptText="Arnold Schwarzenegger" />
+                  <TextField fx:id="nombreUsuario" layoutX="194.0" layoutY="190.0" prefHeight="25.0" prefWidth="149.0" promptText="SchwarzeneggerMan" />
+                  <TextField fx:id="password" layoutX="193.0" layoutY="228.0" prefHeight="25.0" prefWidth="149.0" promptText="Password" />
                   <TextField fx:id="passwordYes" layoutX="194.0" layoutY="265.0" prefHeight="25.0" prefWidth="149.0" promptText="Password" />
+                  <CheckBox fx:id="Terminos" layoutX="43.0" layoutY="319.0" mnemonicParsing="false" text="He leído y acepto el término de uso y condiciones" />
                   <Button fx:id="botonRegistrar" layoutX="149.0" layoutY="364.0" mnemonicParsing="false" onAction="#onRegistroButton" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Registrar" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="13.0" />
                      </font>
                   </Button>
-                  <CheckBox fx:id="Terminos" layoutX="43.0" layoutY="319.0" mnemonicParsing="false" text="He leído y acepto el término de uso y condiciones" />
                </children>
             </Pane>
             <ImageView fitHeight="124.0" fitWidth="119.0" layoutX="405.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" smooth="false">
