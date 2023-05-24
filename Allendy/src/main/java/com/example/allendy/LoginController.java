@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -29,13 +30,24 @@ public class LoginController {
 
     @javafx.fxml.FXML
     public void onLoginButton(ActionEvent actionEvent) {
-        String mail= correoElectronico.getText();
-        String pasword= password.getText();
+        String mail = correoElectronico.getText();
+        String pasword = password.getText();
 
-        Usuario a = new Usuario(mail,pasword);
-        UsuarioModel b= new UsuarioModel();
+        Usuario u1 = new Usuario(null, mail, pasword);
+        UsuarioModel b = new UsuarioModel();
 
-        b.RecuperarUsuario(a);
+        if (b.ComprobarUsuarioLogin(u1) == true){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Estas en la database");
+            alert.setHeaderText("Estas en la database");
+            alert.showAndWait();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("noestas en la database");
+            alert.setHeaderText("noestas en la database");
+            alert.showAndWait();
+        }
+
     }
     //Esta funcion sierve para cargar la pagina signin y cerrar la actual
     @javafx.fxml.FXML

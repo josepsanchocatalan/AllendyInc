@@ -13,16 +13,13 @@ public class Usuario {
 
 /*  constructores */
 
+    public Usuario(String nickName, String email, String password) {
+        this.Email = email;
+        this.NickName = nickName;
+        this.Password = password;
+    }
 
-
-
-    public Usuario(String email, String password) {
-        Email = email;
-        Password = password;
-
-}
-
-    public Usuario( String nombre, String nickName, String email, String password, String rol) {
+    public Usuario( String nombre, String nickName, String password, String email,String rol) {
         Nombre = nombre;
         NickName = nickName;
         Email = email;
@@ -85,6 +82,7 @@ public class Usuario {
 
     /* funciones */
     private boolean Loguin(){
+
         boolean verificacion = false;
         return verificacion;
     }
