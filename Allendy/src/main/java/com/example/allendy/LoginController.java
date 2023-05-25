@@ -29,17 +29,14 @@ public class LoginController {
     private Label welcomeText;
 
     @javafx.fxml.FXML
-    public void onLoginButton(ActionEvent actionEvent) {
+    public Usuario onLoginButton(ActionEvent actionEvent) {
         String email = correoElectronico.getText();
         String pasword = password.getText();
 
-        Usuario u1 = new Usuario(null, email, pasword);
-        UsuarioModel u2 =new UsuarioModel();
         UsuarioModel b = new UsuarioModel();
-        u2.recuperarUsuario(u1,email);
+        Usuario u1 = b.ComprobarUsuarioLogin(email,pasword);
 
-
-        if (b.ComprobarUsuarioLogin(u1) == true){
+        if (b.ComprobarUsuarioLogin(email, pasword) !=null){
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("InterfazPrincipal.fxml"));
 
@@ -69,6 +66,7 @@ public class LoginController {
             alert.setContentText("El correo o la contraseña son incorrectos");
             alert.showAndWait();
         }
+        return u1;
 
     }
     //Esta funcion sierve para cargar la pagina signin y cerrar la actual

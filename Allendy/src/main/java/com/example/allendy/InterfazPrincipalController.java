@@ -1,16 +1,21 @@
 package com.example.allendy;
 
-<<<<<<< HEAD:Allendy/src/main/java/com/example/allendy/InterfazPrincipalController.java
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
-=======
 import javafx.scene.control.*;
->>>>>>> RamaFRan:Allendy/src/main/java/com/example/allendy/InterfazPrincipal.java
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class InterfazPrincipalController {
+import java.util.ArrayList;
+
+
+public class InterfazPrincipalController extends LoginController {
     @javafx.fxml.FXML
     private DatePicker Calendario;
     @javafx.fxml.FXML
@@ -26,19 +31,27 @@ public class InterfazPrincipalController {
     @javafx.fxml.FXML
     private Button BotonBorrarTarea;
     @javafx.fxml.FXML
-    private CheckBox checkTrabajo;
-    @javafx.fxml.FXML
-    private CheckBox checkOcio;
-    @javafx.fxml.FXML
-    private CheckBox CheckFamilia;
-    @javafx.fxml.FXML
-    private CheckBox checkVacaciones;
-    @javafx.fxml.FXML
     private TableView TablaTareas;
+    @javafx.fxml.FXML
+    private TextArea DescripcionNota;
+    @javafx.fxml.FXML
+    private TextField NombreNota;
+    @javafx.fxml.FXML
+    private RadioButton checkTrabajo;
+    @javafx.fxml.FXML
+    private RadioButton checkOcio;
+    @javafx.fxml.FXML
+    private RadioButton CheckFamilia;
+    @javafx.fxml.FXML
+    private RadioButton checkVacaciones;
+    @javafx.fxml.FXML
+    private TableView tablaNotas;
+    @javafx.fxml.FXML
+    private Button BotonGuardarNota;
+    @javafx.fxml.FXML
+    private TableColumn<Nota,String> DescNota;
 
-<<<<<<< HEAD:Allendy/src/main/java/com/example/allendy/InterfazPrincipalController.java
-=======
-
+    private ObservableList<Nota> notas;
 
 
 
@@ -48,46 +61,62 @@ public class InterfazPrincipalController {
 
 
     //funciones
->>>>>>> RamaFRan:Allendy/src/main/java/com/example/allendy/InterfazPrincipal.java
+
     @javafx.fxml.FXML
-    public void initialice(ActionEvent actionEvent) {
+    public void initialize(ActionEvent actionEvent) {
         Calendario.show();
+        notas = FXCollections.observableArrayList();
+        tablaNotas.setItems(notas);
+        DescNota.setCellValueFactory(new PropertyValueFactory<>("Descripcion"));
+    }
+    @javafx.fxml.FXML
+    public void insertar(ActionEvent actionEvent) {
+        Nota a = new Nota(DescripcionNota.getText());
+        if (!notas.contains(a)) {
+            notas.add(a);
+            tablaNotas.refresh();
+        }
     }
 
     @javafx.fxml.FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
-<<<<<<< HEAD:Allendy/src/main/java/com/example/allendy/InterfazPrincipalController.java
-=======
-
-
-        Agenda a = new Agenda();
-        UsuarioModel b = new UsuarioModel();
-
-
-
-
 
         TextInputDialog tid = new TextInputDialog();
         tid.setHeaderText(null);
-        tid.setTitle("Insertar");
-        tid.setContentText("Introduce un valor");
+        tid.setTitle("Insertar nombre Agenda");
+        tid.setContentText("");
         tid.showAndWait();
         String nombreAgenda = tid.getDefaultValue();
 
+        LoginController log = new LoginController();
+        log.onLoginButton();
 
 
 
 
-
->>>>>>> RamaFRan:Allendy/src/main/java/com/example/allendy/InterfazPrincipal.java
     }
 
     @javafx.fxml.FXML
     public void onBotonEditarAgenda(ActionEvent actionEvent) {
+
+
     }
 
     @javafx.fxml.FXML
     public void onBotonNuevaTarea(ActionEvent actionEvent) {
+        TextInputDialog tid = new TextInputDialog();
+        tid.setHeaderText(null);
+        tid.setTitle("Insertar nombre Agenda");
+        tid.setContentText("");
+        tid.showAndWait();
+
+
+
+
+
+
+
+
     }
 
     @javafx.fxml.FXML
@@ -96,5 +125,13 @@ public class InterfazPrincipalController {
 
     @javafx.fxml.FXML
     public void onBontonBorrarTarea(ActionEvent actionEvent) {
+
+
     }
+
+    @javafx.fxml.FXML
+    public void onBorrarAgenda(ActionEvent actionEvent) {
+    }
+
+
 }

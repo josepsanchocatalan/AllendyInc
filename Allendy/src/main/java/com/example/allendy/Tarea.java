@@ -18,12 +18,8 @@ public class Tarea extends Agenda {
 
     /*constructores*/
 
-    public Tarea(int id, String usser, ArrayList<Tarea> tareas, String nombreAgenda) {
-        super(id, usser, tareas, nombreAgenda);
-    }
-
-    public Tarea(int id, String usser, ArrayList<Tarea> tareas, String nombreAgenda, Integer idTarea, Date fechaTarea, Date fechaFin, System tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, Date organizadorTarea, String prioridadTarea) {
-        super(id, usser, tareas, nombreAgenda);
+    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, Tarea[] TareasAgenda, String nombreAgenda, Integer idTarea, Date fechaTarea, Date fechaFin, System tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, Date organizadorTarea, String prioridadTarea) {
+        super(idAgenda, idUsuarioAgenda, TareasAgenda, nombreAgenda);
         IdTarea = idTarea;
         FechaTarea = fechaTarea;
         FechaFin = fechaFin;
@@ -34,6 +30,8 @@ public class Tarea extends Agenda {
         OrganizadorTarea = organizadorTarea;
         PrioridadTarea = prioridadTarea;
     }
+
+
 
     /*Getters y setters*/
 

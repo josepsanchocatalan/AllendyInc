@@ -31,22 +31,13 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String nickname, String email, String rol) {
+
+    public Usuario(int idUsuario, String nombre, String nickname, String password, String email, String rol) {
         Nombre = nombre;
         NickName = nickname;
         Email = email;
+        Password = password;
         Rol = rol;
-    }
-
-    public Usuario(int idUsser, String nombre, String nickname, String email, String rol) {
-        Nombre = nombre;
-        NickName = nickname;
-        Email = email;
-        Rol = rol;
-    }
-
-    public Usuario(String email) {
-        Email = email;
     }
     /* getters y setters*/
 

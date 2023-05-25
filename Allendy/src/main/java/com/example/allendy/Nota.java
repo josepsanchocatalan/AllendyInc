@@ -6,6 +6,16 @@ public class Nota {
     private Usuario IdUsuarioNota;
     private String Nombre;
 
+    private String Descripcion;
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        Descripcion = descripcion;
+    }
+
     /*constructor*/
     public Nota() {
     }
@@ -15,6 +25,11 @@ public class Nota {
         IdUsuarioNota = idUsuarioNota;
         Nombre = nombre;
     }
+
+    public Nota(String text) {
+    Descripcion=text;
+    }
+
     /*Getters y setters*/
     public Integer getIdNota() {
         return IdNota;

@@ -67,13 +67,11 @@ public class UsuarioModel {
         return verificacion;
     }
     public boolean ComprobarUsuarioRegistro(Usuario u1) {
+        Boolean verificacion = false;
         String nickname = u1.getNickName();
         String correo = u1.getEmail();
-        boolean verificacion = false;
 
         DBUtil db = new DBUtil();
-
-
 
         try (Connection con = db.getConexion()){
             String insertSql = "select count(*) as resultado from allendy.usuarios where nickname = ? and mail = ?";
@@ -97,27 +95,38 @@ public class UsuarioModel {
         return verificacion;
     }
 
-    public boolean ComprobarUsuarioLogin(Usuario u1) {
-        String correo = u1.getEmail();
-        String pass = u1.getPassword();
-        boolean verificacion = false;
+    public Usuario ComprobarUsuarioLogin(String correo, String pass) {
+        Usuario a = null;
 
         DBUtil db = new DBUtil();
 
-
+        int id_usuario=0;
+        String nombre="";
+        String nickname="";
+        String password="";
+        String email="";
+        String rol="";
 
         try (Connection con = db.getConexion()){
-            String insertSql = "select count(*) as resultado from allendy.usuarios where mail = ? and password = ?";
+            String insertSql = "select * from allendy.usuarios where mail = ? and password = ?";
             PreparedStatement stmt = con.prepareStatement(insertSql);
             stmt.setString(1, correo);
             stmt.setString(2, pass);
 
+
             ResultSet rs = stmt.executeQuery();
-            correo=rs.getString(5);
+            id_usuario=rs.getInt(1);
+            nombre=rs.getString(2);
+            nickname=rs.getString(3);
+            password=rs.getString(4);
+            email=rs.getString(5);
+            rol=rs.getString(6);
+
             if (rs.next()) {
                 int rowsAffected = rs.getInt(1);
-                if (rowsAffected != 0) {
-                    verificacion = true;
+
+                if (rowsAffected == 1) {
+                    a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
                 }
             }
 
@@ -125,7 +134,7 @@ public class UsuarioModel {
             e.printStackTrace();
         }
 
-        return verificacion;
+        return a;
     }
 
 
