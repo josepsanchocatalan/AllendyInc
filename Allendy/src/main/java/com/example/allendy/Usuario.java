@@ -27,9 +27,28 @@ public class Usuario {
         Rol = rol;
     }
 
-    /* getters y setters*/
+
     public Usuario() {
     }
+
+    public Usuario(String nombre, String nickname, String email, String rol) {
+        Nombre = nombre;
+        NickName = nickname;
+        Email = email;
+        Rol = rol;
+    }
+
+    public Usuario(int idUsser, String nombre, String nickname, String email, String rol) {
+        Nombre = nombre;
+        NickName = nickname;
+        Email = email;
+        Rol = rol;
+    }
+
+    public Usuario(String email) {
+        Email = email;
+    }
+    /* getters y setters*/
 
     public String getRol() {
         return Rol;

@@ -1,9 +1,6 @@
 package com.example.allendy;
 
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -36,8 +33,15 @@ public class InterfazPrincipal {
     private TableView TablaTareas;
 
 
+
+
+
     //variables
 
+
+
+
+    //funciones
     @javafx.fxml.FXML
     public void initialice(ActionEvent actionEvent) {
         Calendario.show();
@@ -46,6 +50,23 @@ public class InterfazPrincipal {
 
     @javafx.fxml.FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
+
+
+        Agenda a = new Agenda();
+        UsuarioModel b = new UsuarioModel();
+
+
+
+
+
+        TextInputDialog tid = new TextInputDialog();
+        tid.setHeaderText(null);
+        tid.setTitle("Insertar");
+        tid.setContentText("Introduce un valor");
+        tid.showAndWait();
+        String nombreAgenda = tid.getDefaultValue();
+
+
 
 
 

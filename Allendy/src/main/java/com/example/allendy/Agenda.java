@@ -10,15 +10,17 @@ public class Agenda {
     private String NombreAgenda;
 
     /*constructores*/
-    public Agenda(int id, String usser, ArrayList<Tarea> tareas, String nombreAgenda) {
-    }
-
     public Agenda(Integer idAgenda, Integer idUsuarioAgenda, Tarea[] TareasAgenda, String nombreAgenda) {
         this.IdAgenda = idAgenda;
         this.IdUsuarioAgenda = idUsuarioAgenda;
         this.TareasAgenda = TareasAgenda;
         NombreAgenda = nombreAgenda;
     }
+
+    public Agenda() {
+
+    }
+
 
     /*getters y setters*/
 
