@@ -112,8 +112,8 @@ public class UsuarioModel {
             stmt.setString(1, correo);
             stmt.setString(2, pass);
 
-
             ResultSet rs = stmt.executeQuery();
+            correo=rs.getString(5);
             if (rs.next()) {
                 int rowsAffected = rs.getInt(1);
                 if (rowsAffected != 0) {
@@ -127,5 +127,7 @@ public class UsuarioModel {
 
         return verificacion;
     }
+
+
 
 }

@@ -30,11 +30,14 @@ public class LoginController {
 
     @javafx.fxml.FXML
     public void onLoginButton(ActionEvent actionEvent) {
-        String mail = correoElectronico.getText();
+        String email = correoElectronico.getText();
         String pasword = password.getText();
 
-        Usuario u1 = new Usuario(null, mail, pasword);
+        Usuario u1 = new Usuario(null, email, pasword);
+        UsuarioModel u2 =new UsuarioModel();
         UsuarioModel b = new UsuarioModel();
+        u2.recuperarUsuario(u1,email);
+
 
         if (b.ComprobarUsuarioLogin(u1) == true){
             try {
@@ -52,6 +55,9 @@ public class LoginController {
 
                 Stage myStage = (Stage) this.botonRegistrar.getScene().getWindow();
                 myStage.close();
+
+                String mail= u1.getEmail();
+
 
             } catch (IOException ex) {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
