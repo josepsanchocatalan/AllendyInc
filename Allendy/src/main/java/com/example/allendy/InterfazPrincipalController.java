@@ -1,15 +1,12 @@
 package com.example.allendy;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-public class InterfazPrincipal {
+public class InterfazPrincipalController {
     @javafx.fxml.FXML
     private DatePicker Calendario;
     @javafx.fxml.FXML
@@ -35,21 +32,13 @@ public class InterfazPrincipal {
     @javafx.fxml.FXML
     private TableView TablaTareas;
 
-
-    //variables
-
     @javafx.fxml.FXML
     public void initialice(ActionEvent actionEvent) {
         Calendario.show();
-
     }
 
     @javafx.fxml.FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
-
-
-
-
     }
 
     @javafx.fxml.FXML

@@ -16,7 +16,7 @@ public class UsuarioModel {
         String rol =a.getRol();
 
         try {
-            String insertSql = "INSERT INTO allendy.usuarios ( nombre, nickname, passsword, mail, rol) VALUES (?, ?, ?, ?,?)";
+            String insertSql = "INSERT INTO allendy.usuarios ( nombre, nickname, password, mail, rol) VALUES (?, ?, ?, ?,?)";
             PreparedStatement stmt = con.prepareStatement(insertSql);
 
             stmt.setString(1, nombre);
@@ -107,7 +107,7 @@ public class UsuarioModel {
 
 
         try (Connection con = db.getConexion()){
-            String insertSql = "select count(*) as resultado from allendy.usuarios where mail = ? and passsword = ?";
+            String insertSql = "select count(*) as resultado from allendy.usuarios where mail = ? and password = ?";
             PreparedStatement stmt = con.prepareStatement(insertSql);
             stmt.setString(1, correo);
             stmt.setString(2, pass);

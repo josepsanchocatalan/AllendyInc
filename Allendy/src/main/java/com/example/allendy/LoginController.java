@@ -42,7 +42,7 @@ public class LoginController {
 
                 Parent root = loader.load();
 
-                InterfazPrincipal controller = loader.getController();
+                InterfazPrincipalController controller = loader.getController();
 
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
