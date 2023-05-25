@@ -57,9 +57,10 @@ public class LoginController {
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("noestas en la database");
-            alert.setHeaderText("noestas en la database");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setTitle("Advertencia");
+            alert.setContentText("El correo o la contraseña son incorrectos");
             alert.showAndWait();
         }
 
