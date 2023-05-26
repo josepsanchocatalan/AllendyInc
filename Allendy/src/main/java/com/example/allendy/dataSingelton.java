@@ -1,6 +1,10 @@
 package com.example.allendy;
 
 
+import com.example.allendy.Clases.Agenda;
+import com.example.allendy.Clases.Tarea;
+import com.example.allendy.Clases.Usuario;
+
 public class dataSingelton {
     private static final dataSingelton instance = new dataSingelton();
 

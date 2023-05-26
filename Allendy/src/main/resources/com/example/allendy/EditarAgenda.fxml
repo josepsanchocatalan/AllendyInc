@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="366.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.InterfazPrincipalController">
+    <Pane prefHeight="379.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <Text layoutX="100.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar agenda">
+                <font>
+                    <Font name="Arial" size="28.0" />
+                </font>
+            </Text>
+            <Text layoutX="30.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                <font>
+                    <Font name="Arial" size="13.0" />
+                </font>
+            </Text>
+            <Button fx:id="botonEditarAgenda" layoutX="159.0" layoutY="237.0" mnemonicParsing="false" onAction="#onBotonEditarAgenda" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Editar" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Arial" size="13.0" />
+                </font>
+            </Button>
+            <TextField fx:id="editarNombreAgenda" layoutX="63.0" layoutY="151.0" prefHeight="40.0" prefWidth="246.0" promptText="Introduce el nuevo nombre de la agenda" style="-fx-background-radius: 5; -fx-border-radius: 6;">
+                <font>
+                    <Font name="Arial" size="12.0" />
+                </font>
+            </TextField>
+            <Line endX="55.0" layoutX="103.0" layoutY="291.0" startX="-88.0" />
+            <Line endX="62.0" layoutX="300.0" layoutY="291.0" startX="-88.0" />
+            <Button fx:id="botonCancelarEAgenda" layoutX="150.0" layoutY="321.0" mnemonicParsing="false" onAction="#onBotonCancelarEAgenda" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancalar" textAlignment="CENTER" textFill="WHITE">
+                <font>
+                    <Font name="Arial" size="13.0" />
+                </font>
+            </Button>
+            <Text layoutX="181.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
+        </children>
+    </Pane>
+
+
+</AnchorPane>

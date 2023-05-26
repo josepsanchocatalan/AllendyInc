@@ -1,14 +1,14 @@
 package com.example.allendy;
 
 
+import com.example.allendy.Clases.Agenda;
+import com.example.allendy.Clases.Nota;
+import com.example.allendy.Clases.Tarea;
+import com.example.allendy.Clases.Usuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableView;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -16,40 +16,6 @@ import java.util.ArrayList;
 
 
 public class InterfazPrincipalController extends LoginController {
-    @javafx.fxml.FXML
-    private DatePicker Calendario;
-    @javafx.fxml.FXML
-    private Button BotonCrearAgenda;
-    @javafx.fxml.FXML
-    private Button BotonEditarAgenda;
-    @javafx.fxml.FXML
-    private Button BotonBorrarAgenda;
-    @javafx.fxml.FXML
-    private Button BotonNuevaTarea;
-    @javafx.fxml.FXML
-    private Button botonEditarTarea;
-    @javafx.fxml.FXML
-    private Button BotonBorrarTarea;
-    @javafx.fxml.FXML
-    private TableView TablaTareas;
-    @javafx.fxml.FXML
-    private TextArea DescripcionNota;
-    @javafx.fxml.FXML
-    private TextField NombreNota;
-    @javafx.fxml.FXML
-    private RadioButton checkTrabajo;
-    @javafx.fxml.FXML
-    private RadioButton checkOcio;
-    @javafx.fxml.FXML
-    private RadioButton CheckFamilia;
-    @javafx.fxml.FXML
-    private RadioButton checkVacaciones;
-    @javafx.fxml.FXML
-    private TableView tablaNotas;
-    @javafx.fxml.FXML
-    private Button BotonGuardarNota;
-    @javafx.fxml.FXML
-    private TableColumn<Nota,String> DescNota;
 
     private ObservableList<Nota> notas;
 
@@ -62,22 +28,24 @@ public class InterfazPrincipalController extends LoginController {
     Agenda nuevaAgenda= new Agenda();
 
     ArrayList<Tarea> listaTareas=new ArrayList<Tarea>();
-
-
-
-
+    @javafx.fxml.FXML
+    private Button botonEditarNota;
+    @javafx.fxml.FXML
+    private TextField editarNombreNota;
+    @javafx.fxml.FXML
+    private Button botonCancelarNotaPopUp;
 
 
     //funciones
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void initialice(ActionEvent actionEvent) {
         Calendario.show();
         notas = FXCollections.observableArrayList();
         tablaNotas.setItems(notas);
         DescNota.setCellValueFactory(new PropertyValueFactory<>("Descripcion"));
     }
-    @javafx.fxml.FXML
+    @Deprecated
     public void insertar(ActionEvent actionEvent) {
         Nota nota = new Nota(DescripcionNota.getText());
         if (!notas.contains(nota)) {
@@ -87,7 +55,7 @@ public class InterfazPrincipalController extends LoginController {
 
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
 
        // nuevaAgenda=new Agenda(a.getIdUsuario(),nombreAgenda, listaTareas,);
@@ -99,13 +67,13 @@ public class InterfazPrincipalController extends LoginController {
 
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void onBotonEditarAgenda(ActionEvent actionEvent) {
 
 
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void onBotonNuevaTarea(ActionEvent actionEvent) {
         TextInputDialog tid = new TextInputDialog();
         tid.setHeaderText(null);
@@ -122,19 +90,46 @@ public class InterfazPrincipalController extends LoginController {
 
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void onBotonEditarTarea(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void onBontonBorrarTarea(ActionEvent actionEvent) {
 
 
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void onBorrarAgenda(ActionEvent actionEvent) {
     }
 
 
+    @Deprecated
+    public void onBotonCancelarETarea(ActionEvent actionEvent) {
+    }
+
+    @Deprecated
+    public void onBotonCrearAgenda(ActionEvent actionEvent) {
+    }
+
+    @Deprecated
+    public void onBotonCancelarCAgenda(ActionEvent actionEvent) {
+    }
+
+    @Deprecated
+    public void onBotonEditarAgenda(ActionEvent actionEvent) {
+    }
+
+    @Deprecated
+    public void onBotonCancelarEAgenda(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void onBotonEditarNota(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
+    public void onBotonCancelarNotaPopUp(ActionEvent actionEvent) {
+    }
 }

@@ -1,4 +1,7 @@
-package com.example.allendy;
+package com.example.allendy.ClasesModel;
+
+import com.example.allendy.Clases.Usuario;
+import com.example.allendy.DBUtil;
 
 import java.sql.*;
 

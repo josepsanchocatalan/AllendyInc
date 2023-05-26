@@ -1,5 +1,7 @@
 package com.example.allendy;
 
+import com.example.allendy.Clases.Usuario;
+import com.example.allendy.ClasesModel.UsuarioModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

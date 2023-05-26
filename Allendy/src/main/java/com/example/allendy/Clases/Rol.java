@@ -1,6 +1,6 @@
-package com.example.allendy;
+package com.example.allendy.Clases;
 
-public class Rol  extends Usuario{
+public class Rol  extends Usuario {
 
     private Usuario Usser;
     private boolean Rol;

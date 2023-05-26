@@ -8,4 +8,8 @@ module com.example.allendy {
 
     opens com.example.allendy to javafx.fxml;
     exports com.example.allendy;
+    exports com.example.allendy.Clases;
+    opens com.example.allendy.Clases to javafx.fxml;
+    exports com.example.allendy.ClasesModel;
+    opens com.example.allendy.ClasesModel to javafx.fxml;
 }

@@ -1,35 +1,20 @@
-package com.example.allendy;
+package com.example.allendy.ClasesModel;
+
+import com.example.allendy.Clases.Rol;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class TareaModel {
+public class RolModel {
 
-    public boolean InsertarTarea(Tarea t1){
+    public boolean InsertarRol(Rol r1){
         boolean verificacion = false;
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
-            String query = "";
-
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.execute();
-
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-
-        return verificacion;
-    }
-    public boolean EliminarTarea(Tarea t1){
-        boolean verificacion = false;
-
-        try {
-            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
+            Connection conn = DriverManager.getConnection("","","");
 
             String query = "";
 
@@ -42,12 +27,12 @@ public class TareaModel {
 
         return verificacion;
     }
-    public boolean ModificarTarea(Tarea t1){
+    public boolean EliminarRol(Rol r1){
         boolean verificacion = false;
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
+            Connection conn = DriverManager.getConnection("","","");
 
             String query = "";
 
@@ -60,12 +45,30 @@ public class TareaModel {
 
         return verificacion;
     }
-    public boolean RecuperarTarea(Tarea t1){
+    public boolean ModificarRol(Rol r1){
         boolean verificacion = false;
 
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/allendy","allendy","allendy");
+            Connection conn = DriverManager.getConnection("","","");
+
+            String query = "";
+
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.execute();
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        return verificacion;
+    }
+    public boolean RecuperarRol(Rol r1){
+        boolean verificacion = false;
+
+        try {
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+            Connection conn = DriverManager.getConnection("","","");
 
             String query = "";
 

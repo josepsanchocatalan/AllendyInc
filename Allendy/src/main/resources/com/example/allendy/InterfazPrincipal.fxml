@@ -30,7 +30,7 @@
                   <TextArea fx:id="DescripcionNota" layoutX="17.0" layoutY="360.0" prefHeight="136.0" prefWidth="179.0" />
                   <Label layoutX="21.0" layoutY="288.0" text="Nota" />
                   <Label layoutX="18.0" layoutY="336.0" text="descripción" />
-                  <Button fx:id="BotonGuardarNota" layoutX="198.0" layoutY="311.0" mnemonicParsing="false" text="Guardar Nota" />
+                  <Button fx:id="BotonGuardarNota" layoutX="198.0" layoutY="311.0" mnemonicParsing="false" onAction="#onBotonGuardraNota" text="Guardar Nota" />
                   <ScrollPane layoutX="226.0" layoutY="360.0" prefHeight="136.0" prefWidth="131.0">
                      <content>
                         <TableView fx:id="tablaNotas" prefHeight="178.0" prefWidth="129.0">
