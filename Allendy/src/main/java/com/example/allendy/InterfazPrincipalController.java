@@ -15,7 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.util.ArrayList;
 
 
-public class InterfazPrincipalController extends LoginController {
+public class InterfazPrincipalController {
 
     private ObservableList<Nota> notas;
 
@@ -29,11 +29,37 @@ public class InterfazPrincipalController extends LoginController {
 
     ArrayList<Tarea> listaTareas=new ArrayList<Tarea>();
     @javafx.fxml.FXML
-    private Button botonEditarNota;
+    private DatePicker Calendario;
     @javafx.fxml.FXML
-    private TextField editarNombreNota;
+    private Button BotonCrearAgenda;
     @javafx.fxml.FXML
-    private Button botonCancelarNotaPopUp;
+    private Button BotonEditarAgenda;
+    @javafx.fxml.FXML
+    private Button BotonBorrarAgenda;
+    @javafx.fxml.FXML
+    private Button BotonNuevaTarea;
+    @javafx.fxml.FXML
+    private Button botonEditarTarea;
+    @javafx.fxml.FXML
+    private Button BotonBorrarTarea;
+    @javafx.fxml.FXML
+    private TextArea DescNota;
+    @javafx.fxml.FXML
+    private Button BotonGuardarNota;
+    @javafx.fxml.FXML
+    private TableView tablaNotas;
+    @javafx.fxml.FXML
+    private TextField NombreNota;
+    @javafx.fxml.FXML
+    private TableView TablaTareas;
+    @javafx.fxml.FXML
+    private RadioButton checkTrabajo;
+    @javafx.fxml.FXML
+    private RadioButton checkOcio;
+    @javafx.fxml.FXML
+    private RadioButton CheckFamilia;
+    @javafx.fxml.FXML
+    private RadioButton checkVacaciones;
 
 
     //funciones
@@ -43,11 +69,11 @@ public class InterfazPrincipalController extends LoginController {
         Calendario.show();
         notas = FXCollections.observableArrayList();
         tablaNotas.setItems(notas);
-        DescNota.setCellValueFactory(new PropertyValueFactory<>("Descripcion"));
+        tablaNotas.setRowFactory(new PropertyValueFactory<>("Descripcion"));
     }
     @Deprecated
     public void insertar(ActionEvent actionEvent) {
-        Nota nota = new Nota(DescripcionNota.getText());
+        Nota nota = new Nota(DescNota.getText());
         if (!notas.contains(nota)) {
             notas.add(nota);
             tablaNotas.refresh();
@@ -81,55 +107,22 @@ public class InterfazPrincipalController extends LoginController {
         tid.setContentText("");
         tid.showAndWait();
 
-
-
-
-
-
-
-
     }
 
-    @Deprecated
+    @javafx.fxml.FXML
+    public void datepickerFuncion(ActionEvent actionEvent) {
+    }
+
+    @javafx.fxml.FXML
     public void onBotonEditarTarea(ActionEvent actionEvent) {
     }
 
-    @Deprecated
+    @javafx.fxml.FXML
     public void onBontonBorrarTarea(ActionEvent actionEvent) {
-
-
-    }
-
-    @Deprecated
-    public void onBorrarAgenda(ActionEvent actionEvent) {
-    }
-
-
-    @Deprecated
-    public void onBotonCancelarETarea(ActionEvent actionEvent) {
-    }
-
-    @Deprecated
-    public void onBotonCrearAgenda(ActionEvent actionEvent) {
-    }
-
-    @Deprecated
-    public void onBotonCancelarCAgenda(ActionEvent actionEvent) {
-    }
-
-    @Deprecated
-    public void onBotonEditarAgenda(ActionEvent actionEvent) {
-    }
-
-    @Deprecated
-    public void onBotonCancelarEAgenda(ActionEvent actionEvent) {
     }
 
     @javafx.fxml.FXML
-    public void onBotonEditarNota(ActionEvent actionEvent) {
+    public void onBotonGuardraNota(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
-    public void onBotonCancelarNotaPopUp(ActionEvent actionEvent) {
-    }
-}
+

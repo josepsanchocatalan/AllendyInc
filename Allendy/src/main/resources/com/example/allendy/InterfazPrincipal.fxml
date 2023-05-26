@@ -20,20 +20,20 @@
          <children>
             <Pane prefHeight="592.0" prefWidth="412.0">
                <children>
-                  <DatePicker fx:id="Calendario" layoutX="64.0" layoutY="44.0" onAction="#initialice" prefHeight="25.0" prefWidth="258.0" showWeekNumbers="true" />
+                  <DatePicker fx:id="Calendario" layoutX="64.0" layoutY="44.0" onAction="#datepickerFuncion" prefHeight="25.0" prefWidth="258.0" showWeekNumbers="true" />
                   <Button fx:id="BotonCrearAgenda" layoutX="18.0" layoutY="553.0" mnemonicParsing="false" onAction="#OnBotonCrearAgenda" prefHeight="25.0" prefWidth="99.0" text="Crear Agenda" />
                   <Button fx:id="BotonEditarAgenda" layoutX="133.0" layoutY="553.0" mnemonicParsing="false" onAction="#onBotonEditarAgenda" prefHeight="25.0" prefWidth="109.0" text="editar Agenda" />
                   <Button fx:id="BotonBorrarAgenda" layoutX="251.0" layoutY="553.0" mnemonicParsing="false" onAction="#onBorrarAgenda" prefHeight="25.0" prefWidth="99.0" text="Borrar Agenda" />
                   <Button fx:id="BotonNuevaTarea" layoutX="14.0" layoutY="510.0" mnemonicParsing="false" onAction="#onBotonNuevaTarea" prefHeight="25.0" prefWidth="109.0" text="Nueva Tarea" />
                   <Button fx:id="botonEditarTarea" layoutX="133.0" layoutY="510.0" mnemonicParsing="false" onAction="#onBotonEditarTarea" prefHeight="25.0" prefWidth="109.0" text="Editar Tarea" />
                   <Button fx:id="BotonBorrarTarea" layoutX="253.0" layoutY="510.0" mnemonicParsing="false" onAction="#onBontonBorrarTarea" prefHeight="25.0" prefWidth="99.0" text="Borrar Tarea" />
-                  <TextArea fx:id="DescripcionNota" layoutX="17.0" layoutY="360.0" prefHeight="136.0" prefWidth="179.0" />
+                  <TextArea fx:id="DescNota" layoutX="17.0" layoutY="360.0" prefHeight="136.0" prefWidth="179.0" />
                   <Label layoutX="21.0" layoutY="288.0" text="Nota" />
                   <Label layoutX="18.0" layoutY="336.0" text="descripción" />
                   <Button fx:id="BotonGuardarNota" layoutX="198.0" layoutY="311.0" mnemonicParsing="false" onAction="#onBotonGuardraNota" text="Guardar Nota" />
                   <ScrollPane layoutX="226.0" layoutY="360.0" prefHeight="136.0" prefWidth="131.0">
                      <content>
-                        <TableView fx:id="tablaNotas" prefHeight="178.0" prefWidth="129.0">
+                        <TableView fx:id="tablaNotas" prefHeight="135.0" prefWidth="129.0">
                            <columns>
                               <TableColumn prefWidth="128.0" text="Notas" />
                            </columns>

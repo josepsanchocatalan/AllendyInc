@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="366.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.InterfazPrincipalController">
+<AnchorPane prefHeight="366.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.editarAgenda">
     <Pane prefHeight="379.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
         <children>
             <Text layoutX="100.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar agenda">
@@ -21,7 +21,7 @@
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <Button fx:id="botonEditarAgenda" layoutX="159.0" layoutY="237.0" mnemonicParsing="false" onAction="#onBotonEditarAgenda" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Editar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonEditarAgenda" layoutX="159.0" layoutY="237.0" mnemonicParsing="false" onAction="#onBotonEditarAgendaPopUp" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Editar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
@@ -33,7 +33,7 @@
             </TextField>
             <Line endX="55.0" layoutX="103.0" layoutY="291.0" startX="-88.0" />
             <Line endX="62.0" layoutX="300.0" layoutY="291.0" startX="-88.0" />
-            <Button fx:id="botonCancelarEAgenda" layoutX="150.0" layoutY="321.0" mnemonicParsing="false" onAction="#onBotonCancelarEAgenda" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancalar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonCancelarEAgenda" layoutX="150.0" layoutY="321.0" mnemonicParsing="false" onAction="#onBotonCancelarAgendaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancalar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
