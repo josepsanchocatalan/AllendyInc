@@ -15,15 +15,11 @@ import java.util.logging.Logger;
 public class SigninController {
 
     @javafx.fxml.FXML
-    private TextField password;
-    @javafx.fxml.FXML
     private TextField correoElectronico;
     @javafx.fxml.FXML
     private TextField nombreCompleto;
     @javafx.fxml.FXML
     private TextField nombreUsuario;
-    @javafx.fxml.FXML
-    private TextField passwordYes;
     @javafx.fxml.FXML
     private Button botonRegistrar;
     @javafx.fxml.FXML
@@ -34,6 +30,10 @@ public class SigninController {
     private Pane rootPane;
     @javafx.fxml.FXML
     private Button vueltaLogin;
+    @javafx.fxml.FXML
+    private PasswordField password;
+    @javafx.fxml.FXML
+    private PasswordField passwordYes;
 
     //Esta funcion comprueba que el usuario a registrar no este en la DB
     @javafx.fxml.FXML

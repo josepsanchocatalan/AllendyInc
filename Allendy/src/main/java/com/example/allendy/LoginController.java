@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -20,13 +17,17 @@ public class LoginController {
     @javafx.fxml.FXML
     private TextField correoElectronico;
     @javafx.fxml.FXML
-    private TextField password;
-    @javafx.fxml.FXML
     private Button botonRegistrar;
     @javafx.fxml.FXML
     private Button OlvidoContrasenya;
     @javafx.fxml.FXML
     private Label welcomeText;
+    @javafx.fxml.FXML
+    private Pane rootPane;
+    @javafx.fxml.FXML
+    private PasswordField password;
+    @javafx.fxml.FXML
+    private Button vueltaSignIn;
 
     @javafx.fxml.FXML
     public void onLoginButton(ActionEvent actionEvent) {
