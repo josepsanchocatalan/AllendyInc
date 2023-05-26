@@ -10,9 +10,9 @@ import java.sql.*;
 
 public class DBUtil {
     private Connection con;
-    private  String cadenaConexion = "jdbc:mysql://10.51.1.45:3307/allendy";
+    private  String cadenaConexion = "jdbc:mysql://localhost:3306/allendy";
     private  String nombreUsuario = "root";
-    private  String password = "Allendy2023";
+    private  String password = "123456789";
 
     public Connection getConexion() {
 

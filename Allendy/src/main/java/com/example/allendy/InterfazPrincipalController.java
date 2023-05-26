@@ -54,8 +54,16 @@ public class InterfazPrincipalController extends LoginController {
     private ObservableList<Nota> notas;
 
 
-
     //variables
+    dataSingelton data=dataSingelton.getInstance();
+
+    Usuario a = data.getUsuario();
+
+    Agenda nuevaAgenda= new Agenda();
+
+    ArrayList<Tarea> listaTareas=new ArrayList<Tarea>();
+
+
 
 
 
@@ -63,7 +71,7 @@ public class InterfazPrincipalController extends LoginController {
     //funciones
 
     @javafx.fxml.FXML
-    public void initialize(ActionEvent actionEvent) {
+    public void initialice(ActionEvent actionEvent) {
         Calendario.show();
         notas = FXCollections.observableArrayList();
         tablaNotas.setItems(notas);
@@ -71,25 +79,20 @@ public class InterfazPrincipalController extends LoginController {
     }
     @javafx.fxml.FXML
     public void insertar(ActionEvent actionEvent) {
-        Nota a = new Nota(DescripcionNota.getText());
-        if (!notas.contains(a)) {
-            notas.add(a);
+        Nota nota = new Nota(DescripcionNota.getText());
+        if (!notas.contains(nota)) {
+            notas.add(nota);
             tablaNotas.refresh();
         }
+
     }
 
     @javafx.fxml.FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
 
-        TextInputDialog tid = new TextInputDialog();
-        tid.setHeaderText(null);
-        tid.setTitle("Insertar nombre Agenda");
-        tid.setContentText("");
-        tid.showAndWait();
-        String nombreAgenda = tid.getDefaultValue();
+       // nuevaAgenda=new Agenda(a.getIdUsuario(),nombreAgenda, listaTareas,);
 
-        LoginController log = new LoginController();
-        log.onLoginButton();
+
 
 
 

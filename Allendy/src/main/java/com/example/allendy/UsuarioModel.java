@@ -94,9 +94,39 @@ public class UsuarioModel {
 
         return verificacion;
     }
+    public boolean ComprobarUsuarioLogin(Usuario u1) {
+        String correo = u1.getEmail();
+        String pass = u1.getPassword();
+        boolean verificacion = false;
 
-    public Usuario ComprobarUsuarioLogin(String correo, String pass) {
-        Usuario a = null;
+        DBUtil db = new DBUtil();
+
+
+        try (Connection con = db.getConexion()) {
+            String insertSql = "select count(*) as resultado from allendy.usuarios where mail = ? and password = ?";
+            PreparedStatement stmt = con.prepareStatement(insertSql);
+            stmt.setString(1, correo);
+            stmt.setString(2, pass);
+
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int rowsAffected = rs.getInt(1);
+                if (rowsAffected != 0) {
+                    verificacion = true;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return verificacion;
+    }
+
+
+    public Usuario recuperarUsuario(String correo) {
+        Usuario a = new Usuario();
 
         DBUtil db = new DBUtil();
 
@@ -108,27 +138,42 @@ public class UsuarioModel {
         String rol="";
 
         try (Connection con = db.getConexion()){
-            String insertSql = "select * from allendy.usuarios where mail = ? and password = ?";
+            String insertSql = "select * from allendy.usuarios where mail = ? ;";
             PreparedStatement stmt = con.prepareStatement(insertSql);
             stmt.setString(1, correo);
-            stmt.setString(2, pass);
+
 
 
             ResultSet rs = stmt.executeQuery();
-            id_usuario=rs.getInt(1);
-            nombre=rs.getString(2);
-            nickname=rs.getString(3);
-            password=rs.getString(4);
-            email=rs.getString(5);
-            rol=rs.getString(6);
+            //boolean ultimo = rs.last();
+            rs.next();
+            if (true)
+            {
+                id_usuario = rs.getInt(1);
+                nombre = rs.getString(2);
+                nickname = rs.getString(3);
+                password = rs.getString(4);
+                email = rs.getString(5);
+                rol = rs.getString(6);
+                a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
+            }
+            else {
+                a = null;
+            }
 
-            if (rs.next()) {
+            /*
+            if (rowsAffected == 1) {
+                a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
+            }
+           if (rs.next()) {
                 int rowsAffected = rs.getInt(1);
 
                 if (rowsAffected == 1) {
                     a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
+                }else {
+                    a=null;
                 }
-            }
+            }*/
 
         } catch (SQLException e) {
             e.printStackTrace();

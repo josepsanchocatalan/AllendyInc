@@ -33,6 +33,7 @@ public class Usuario {
 
 
     public Usuario(int idUsuario, String nombre, String nickname, String password, String email, String rol) {
+        this.IdUsuario= idUsuario;
         Nombre = nombre;
         NickName = nickname;
         Email = email;

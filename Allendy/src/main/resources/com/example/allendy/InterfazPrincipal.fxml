@@ -34,9 +34,9 @@
                   <ScrollPane layoutX="226.0" layoutY="360.0" prefHeight="136.0" prefWidth="131.0">
                      <content>
                         <TableView fx:id="tablaNotas" prefHeight="178.0" prefWidth="129.0">
-                          <columns>
-                            <TableColumn prefWidth="128.0" text="Notas" />
-                          </columns>
+                           <columns>
+                              <TableColumn prefWidth="128.0" text="Notas" />
+                           </columns>
                         </TableView>
                      </content>
                   </ScrollPane>
@@ -46,14 +46,14 @@
             <ScrollPane prefHeight="592.0" prefWidth="559.0">
                <content>
                   <TableView fx:id="TablaTareas" prefHeight="590.0" prefWidth="521.0">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Tarea" />
-                      <TableColumn prefWidth="112.0" text="descripción" />
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="Tarea" />
+                        <TableColumn prefWidth="112.0" text="descripción" />
                         <TableColumn minWidth="0.0" prefWidth="101.0" text="fecha" />
                         <TableColumn prefWidth="72.0" text="fecha fin" />
                         <TableColumn minWidth="0.0" prefWidth="49.0" text="hecho" />
                         <TableColumn minWidth="3.0" prefWidth="118.0" text="asistentes" />
-                    </columns>
+                     </columns>
                   </TableView>
                </content>
             </ScrollPane>
