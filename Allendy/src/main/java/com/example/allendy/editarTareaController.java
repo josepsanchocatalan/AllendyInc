@@ -3,7 +3,7 @@ package com.example.allendy;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
-public class editarTarea {
+public class editarTareaController {
     @javafx.fxml.FXML
     private Button botonEditarTarea;
     @javafx.fxml.FXML

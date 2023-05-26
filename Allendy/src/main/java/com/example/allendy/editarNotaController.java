@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class editarNota {
+public class editarNotaController {
     @javafx.fxml.FXML
     private Button botonEditarNota;
     @javafx.fxml.FXML

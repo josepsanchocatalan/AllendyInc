@@ -21,13 +21,13 @@ public class InterfazPrincipalController {
 
 
     //variables
-    dataSingelton data=dataSingelton.getInstance();
+    dataSingelton data = dataSingelton.getInstance();
 
     Usuario a = data.getUsuario();
 
-    Agenda nuevaAgenda= new Agenda();
+    Agenda nuevaAgenda = new Agenda();
 
-    ArrayList<Tarea> listaTareas=new ArrayList<Tarea>();
+    ArrayList<Tarea> listaTareas = new ArrayList<Tarea>();
     @javafx.fxml.FXML
     private DatePicker Calendario;
     @javafx.fxml.FXML
@@ -71,6 +71,7 @@ public class InterfazPrincipalController {
         tablaNotas.setItems(notas);
         tablaNotas.setRowFactory(new PropertyValueFactory<>("Descripcion"));
     }
+
     @Deprecated
     public void insertar(ActionEvent actionEvent) {
         Nota nota = new Nota(DescNota.getText());
@@ -84,11 +85,7 @@ public class InterfazPrincipalController {
     @Deprecated
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
 
-       // nuevaAgenda=new Agenda(a.getIdUsuario(),nombreAgenda, listaTareas,);
-
-
-
-
+        // nuevaAgenda=new Agenda(a.getIdUsuario(),nombreAgenda, listaTareas,);
 
 
     }
@@ -124,5 +121,7 @@ public class InterfazPrincipalController {
     @javafx.fxml.FXML
     public void onBotonGuardraNota(ActionEvent actionEvent) {
     }
+
+}
 
 

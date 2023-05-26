@@ -3,7 +3,7 @@ package com.example.allendy;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 
-public class crearTareraPop {
+public class crearTareraPopController {
     @javafx.fxml.FXML
     private Button botonCrearTarea;
     @javafx.fxml.FXML

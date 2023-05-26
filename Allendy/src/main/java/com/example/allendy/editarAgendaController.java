@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class editarAgenda {
+public class editarAgendaController {
     @javafx.fxml.FXML
     private Button botonEditarAgenda;
     @javafx.fxml.FXML
