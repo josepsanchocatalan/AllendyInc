@@ -11,7 +11,7 @@ import java.sql.*;
 public class DBUtil {
     private Connection con;
     private  String cadenaConexion = "jdbc:mysql://10.51.1.45:3307/allendy";
-    private  String nombreUsuario = "allendy";
+    private  String nombreUsuario = "root";
     private  String password = "Allendy2023";
 
     public Connection getConexion() {

@@ -98,7 +98,8 @@ public class InterfazPrincipalController {
         Calendario.show();
         notas = FXCollections.observableArrayList();
         tablaNotas.setItems(notas);
-        tablaNotas.setRowFactory(new PropertyValueFactory<>("Descripcion"));
+        nombreNota.setCellValueFactory(new PropertyValueFactory<>("Notas"));
+        descripcionNota.setCellValueFactory(new PropertyValueFactory<>("Descripcion"));
 
         tareas = FXCollections.observableArrayList();
         TablaTareas.setItems(tareas);
