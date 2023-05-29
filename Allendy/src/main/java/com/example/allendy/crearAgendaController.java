@@ -15,7 +15,7 @@ public class crearAgendaController {
     @javafx.fxml.FXML
     private Button botonCrearAgenda;
     @javafx.fxml.FXML
-    private TextField nombreAgenda;
+    private TextField nombreAgendaCrear;
     @javafx.fxml.FXML
     private Button botonCancelarCAgenda;
 
@@ -24,21 +24,22 @@ public class crearAgendaController {
 
     Usuario a = data.getUsuario();
     ArrayList<Tarea> ListaTareas=new ArrayList<Tarea>();
-    String NombreAgenda=nombreAgenda.getText();
+
 
     @javafx.fxml.FXML
     public void onBotonCrearAgendaPop(ActionEvent actionEvent) {
-        Agenda NuevaAgenda = new Agenda(a.getIdUsuario(),ListaTareas,NombreAgenda );
-        DBUtil db=new DBUtil();
-        AgendaModel b= new AgendaModel();
+        String NombreAgenda = null;
+        Agenda NuevaAgenda = new Agenda(a.getIdUsuario(), ListaTareas, NombreAgenda);
+        DBUtil db = new DBUtil();
+        AgendaModel b = new AgendaModel();
         data.setAgenda(NuevaAgenda);
 
         b.InsertarAgenda(NuevaAgenda);
         dataSingelton data = dataSingelton.getInstance();
 
         Usuario a = data.getUsuario();
-        ArrayList<Tarea> ListaTareas=new ArrayList<Tarea>();
-        String NombreAgenda=nombreAgenda.getText();
+        ArrayList<Tarea> ListaTareas = new ArrayList<Tarea>();
+        NombreAgenda = nombreAgendaCrear.getText();
 
         Stage myStage = (Stage) this.botonCrearAgenda.getScene().getWindow();
         myStage.close();

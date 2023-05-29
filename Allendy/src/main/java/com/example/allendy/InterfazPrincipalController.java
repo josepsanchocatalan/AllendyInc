@@ -129,7 +129,7 @@ public class InterfazPrincipalController {
 
     }
 
-    @FXML
+    @Deprecated
     public void insertar(ActionEvent actionEvent) {
         Nota nota = new Nota(DescNota.getText());
         if (!notas.contains(nota)) {
@@ -141,14 +141,15 @@ public class InterfazPrincipalController {
 
     @FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
+
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("crearAgenda.fxml"));
+            FXMLLoader loaderAgenda = new FXMLLoader(getClass().getResource("crearAgenda.fxml"));
 
-            Parent root = loader.load();
+            Parent rootAgenda = loaderAgenda.load();
 
-            crearAgendaController controller = loader.getController();
+            crearAgendaController controller = loaderAgenda.getController();
 
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(rootAgenda);
             Stage stage = new Stage();
 
             stage.setScene(scene);
@@ -156,10 +157,7 @@ public class InterfazPrincipalController {
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null,ex);
-}
-
-
-
+        }
     }
 
     @FXML
@@ -202,8 +200,6 @@ public class InterfazPrincipalController {
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null,ex);
         }
-
-
 
     }
 
