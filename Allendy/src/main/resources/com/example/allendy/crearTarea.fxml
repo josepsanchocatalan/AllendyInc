@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -14,7 +15,7 @@
 <AnchorPane prefHeight="457.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.crearTareraPopController">
     <Pane prefHeight="457.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
         <children>
-            <Text layoutX="114.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear tarea">
+            <Text layoutX="115.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear tarea">
                 <font>
                     <Font name="Arial" size="28.0" />
                 </font>
@@ -29,7 +30,7 @@
                     <Font name="Arial" size="13.0" />
                 </font>
             </Button>
-            <TextField fx:id="nombreTarea" layoutX="68.0" layoutY="105.0" prefHeight="38.0" prefWidth="238.0" promptText="Introduce el nombre de la tarea" style="-fx-background-radius: 5; -fx-border-radius: 6;">
+            <TextField fx:id="nombreTarea" layoutX="75.0" layoutY="45.0" prefHeight="38.0" prefWidth="238.0" promptText="Introduce la descripción de la tarea" style="-fx-background-radius: 5; -fx-border-radius: 6;">
                 <font>
                     <Font name="Arial" size="12.0" />
                 </font>
@@ -42,18 +43,18 @@
                 </font>
             </Button>
             <Text layoutX="178.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
-            <DatePicker fx:id="FechaTarea" layoutX="154.0" layoutY="161.0" />
-            <Text layoutX="46.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Inicio">
+            <DatePicker fx:id="FechaTarea" layoutX="154.0" layoutY="103.0" />
+            <Text layoutX="60.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Inicio">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <Text layoutX="46.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin">
+            <Text layoutX="61.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <DatePicker fx:id="FechaFin" layoutX="154.0" layoutY="195.0" />
+            <DatePicker fx:id="FechaFin" layoutX="154.0" layoutY="138.0" />
             <RadioButton fx:id="prioridadAltaCrear" layoutX="60.0" layoutY="279.0" mnemonicParsing="false" text="Alta">
                 <toggleGroup>
                     <ToggleGroup fx:id="prioridad" />
@@ -66,6 +67,18 @@
                     <Font name="Arial" size="14.0" />
                 </font>
             </Text>
+         <Label layoutX="129.0" layoutY="173.0" prefHeight="25.0" prefWidth="99.0" text="tipo tarea">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <RadioButton fx:id="checkTrabajoPop" layoutX="58.0" layoutY="217.0" mnemonicParsing="false" text="Trabajo">
+            <toggleGroup>
+               <ToggleGroup fx:id="Tipo" />
+            </toggleGroup>
+         </RadioButton>
+         <RadioButton fx:id="checkOcioPop" layoutX="151.0" layoutY="217.0" mnemonicParsing="false" text="Ocio" toggleGroup="$Tipo" />
+         <RadioButton fx:id="CheckFamiliaPop" layoutX="247.0" layoutY="218.0" mnemonicParsing="false" text="Familia" toggleGroup="$Tipo" />
         </children>
     </Pane>
 </AnchorPane>

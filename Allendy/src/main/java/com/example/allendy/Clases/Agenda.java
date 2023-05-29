@@ -1,20 +1,26 @@
 package com.example.allendy.Clases;
 
+import java.util.ArrayList;
+
 public class Agenda {
 
     private Integer IdAgenda;
     private Integer IdUsuarioAgenda;
-    private Tarea[] TareasAgenda;
+    private ArrayList<Tarea> TareasAgenda;
     private String NombreAgenda;
 
     /*constructores*/
-    public Agenda(Integer idAgenda, Integer idUsuarioAgenda, Tarea[] TareasAgenda, String nombreAgenda) {
+    public Agenda(Integer idAgenda, Integer idUsuarioAgenda, ArrayList<Tarea> TareasAgenda, String nombreAgenda) {
         this.IdAgenda = idAgenda;
         this.IdUsuarioAgenda = idUsuarioAgenda;
         this.TareasAgenda = TareasAgenda;
         NombreAgenda = nombreAgenda;
     }
-
+    public Agenda(Integer idUsuarioAgenda, ArrayList<Tarea> listaTareas, String nombreAgenda) {
+        this.IdUsuarioAgenda = idUsuarioAgenda;
+        this.TareasAgenda = TareasAgenda;
+        NombreAgenda = nombreAgenda;
+    }
     public Agenda() {
 
     }
@@ -38,11 +44,11 @@ public class Agenda {
         this.IdUsuarioAgenda = idUsuarioAgenda;
     }
 
-    public Tarea[] getIdTareaAgenda() {
+    public ArrayList<Tarea>  getTareaAgenda() {
         return TareasAgenda;
     }
 
-    public void setIdTareaAgenda(Tarea[] idTareaAgenda) {
+    public void setTareaAgenda(ArrayList<Tarea> idTareaAgenda) {
         this.TareasAgenda = idTareaAgenda;
     }
 
@@ -59,3 +65,5 @@ public class Agenda {
 
 
 }
+
+

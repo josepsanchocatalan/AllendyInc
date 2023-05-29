@@ -1,5 +1,10 @@
 package com.example.allendy.Clases;
 
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,18 +12,19 @@ public class Tarea extends Agenda {
 
 
     private Integer IdTarea;
-    private Date FechaTarea;
-    private Date FechaFin;
-    private System TipoTarea;
+    private LocalDate FechaTarea;
+    private LocalDate FechaFin;
+    private String TipoTarea;
     private String DescripcionTarea;
     private boolean CheckTarea;
     private ArrayList<Usuario> Asistentes;
-    private Date OrganizadorTarea;
+    private String OrganizadorTarea;
     private String PrioridadTarea;
+
 
     /*constructores*/
 
-    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, Tarea[] TareasAgenda, String nombreAgenda, Integer idTarea, Date fechaTarea, Date fechaFin, System tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, Date organizadorTarea, String prioridadTarea) {
+    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, ArrayList<Tarea>  TareasAgenda, String nombreAgenda, Integer idTarea, LocalDate fechaTarea, LocalDate fechaFin, String tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, String organizadorTarea, String prioridadTarea) {
         super(idAgenda, idUsuarioAgenda, TareasAgenda, nombreAgenda);
         IdTarea = idTarea;
         FechaTarea = fechaTarea;
@@ -30,6 +36,22 @@ public class Tarea extends Agenda {
         OrganizadorTarea = organizadorTarea;
         PrioridadTarea = prioridadTarea;
     }
+
+    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, ArrayList<Tarea>  TareasAgenda, String nombreAgenda, LocalDate fechaTarea, LocalDate fechaFin, String tipoTarea, String descripcionTarea, boolean checkTarea, String organizadorTarea, String prioridadTarea) {
+        super(idAgenda, idUsuarioAgenda, TareasAgenda, nombreAgenda);
+
+        FechaTarea = fechaTarea;
+        FechaFin = fechaFin;
+        TipoTarea = tipoTarea;
+        DescripcionTarea = descripcionTarea;
+        CheckTarea = checkTarea;
+
+        OrganizadorTarea = organizadorTarea;
+        PrioridadTarea = prioridadTarea;
+    }
+
+
+
 
 
 
@@ -43,27 +65,27 @@ public class Tarea extends Agenda {
         IdTarea = idTarea;
     }
 
-    public Date getFechaTarea() {
+    public LocalDate getFechaTarea() {
         return FechaTarea;
     }
 
-    public void setFechaTarea(Date fechaTarea) {
+    public void setFechaTarea(LocalDate fechaTarea) {
         FechaTarea = fechaTarea;
     }
 
-    public Date getFechaFin() {
+    public LocalDate getFechaFin() {
         return FechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(LocalDate fechaFin) {
         FechaFin = fechaFin;
     }
 
-    public System getTipoTarea() {
+    public String getTipoTarea() {
         return TipoTarea;
     }
 
-    public void setTipoTarea(System tipoTarea) {
+    public void setTipoTarea(String tipoTarea) {
         TipoTarea = tipoTarea;
     }
 
@@ -71,7 +93,7 @@ public class Tarea extends Agenda {
         return DescripcionTarea;
     }
 
-    public void setDescripcionTarea(String descripcionTarea) {
+    public void DescripcionTarea(String descripcionTarea) {
         DescripcionTarea = descripcionTarea;
     }
 
@@ -91,11 +113,11 @@ public class Tarea extends Agenda {
         Asistentes = asistentes;
     }
 
-    public Date getOrganizadorTarea() {
+    public String getOrganizadorTarea() {
         return OrganizadorTarea;
     }
 
-    public void setOrganizadorTarea(Date organizadorTarea) {
+    public void setOrganizadorTarea(String organizadorTarea) {
         OrganizadorTarea = organizadorTarea;
     }
 

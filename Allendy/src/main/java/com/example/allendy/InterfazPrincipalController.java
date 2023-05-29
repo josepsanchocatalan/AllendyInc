@@ -5,9 +5,11 @@ import com.example.allendy.Clases.Agenda;
 import com.example.allendy.Clases.Nota;
 import com.example.allendy.Clases.Tarea;
 import com.example.allendy.Clases.Usuario;
+import com.example.allendy.ClasesModel.NotaModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 public class InterfazPrincipalController {
 
     private ObservableList<Nota> notas;
+    private ObservableList<Tarea> tareas;
 
 
     //variables
@@ -59,20 +62,57 @@ public class InterfazPrincipalController {
     @javafx.fxml.FXML
     private RadioButton CheckFamilia;
     @javafx.fxml.FXML
-    private RadioButton checkVacaciones;
+    private RadioButton checkPrioridadAlta;
+    @javafx.fxml.FXML
+    private RadioButton checkPrioridadMedia;
+    @javafx.fxml.FXML
+    private RadioButton CheckPrioridadBAja;
+    @javafx.fxml.FXML
+    private ToggleGroup prioridad;
+    @javafx.fxml.FXML
+    private ToggleGroup TipoTarea;
+    @javafx.fxml.FXML
+    private TableColumn nombreNota;
+    @javafx.fxml.FXML
+    private TableColumn descripcionNota;
+    @javafx.fxml.FXML
+    private Button botonBorrar;
+    @FXML
+    private TableColumn descTarea;
+    @FXML
+    private TableColumn fechaInicio;
+    @FXML
+    private TableColumn fechaFin;
+    @FXML
+    private TableColumn hecho;
+    @FXML
+    private TableColumn asistentes;
+    @FXML
+    private TableColumn nTarea;
 
 
     //funciones
 
-    @Deprecated
-    public void initialice(ActionEvent actionEvent) {
+    @FXML
+    public void initialize() {
         Calendario.show();
         notas = FXCollections.observableArrayList();
         tablaNotas.setItems(notas);
         tablaNotas.setRowFactory(new PropertyValueFactory<>("Descripcion"));
+
+        tareas = FXCollections.observableArrayList();
+        TablaTareas.setItems(tareas);
+        nTarea.setCellValueFactory(new PropertyValueFactory<>("Tarea"));
+        descTarea.setCellValueFactory(new PropertyValueFactory<>("Descripción"));
+        fechaInicio.setCellValueFactory(new PropertyValueFactory<>("Fecha Inicio"));
+        fechaFin.setCellValueFactory(new PropertyValueFactory<>("Fecha Fin"));
+        hecho.setCellValueFactory(new PropertyValueFactory<>("Hecho"));
+        asistentes.setCellValueFactory(new PropertyValueFactory<>("Asistentes"));
+
+
     }
 
-    @Deprecated
+    @FXML
     public void insertar(ActionEvent actionEvent) {
         Nota nota = new Nota(DescNota.getText());
         if (!notas.contains(nota)) {
@@ -82,21 +122,21 @@ public class InterfazPrincipalController {
 
     }
 
-    @Deprecated
+    @FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
 
-        // nuevaAgenda=new Agenda(a.getIdUsuario(),nombreAgenda, listaTareas,);
+
 
 
     }
 
-    @Deprecated
+    @FXML
     public void onBotonEditarAgenda(ActionEvent actionEvent) {
 
 
     }
 
-    @Deprecated
+    @FXML
     public void onBotonNuevaTarea(ActionEvent actionEvent) {
         TextInputDialog tid = new TextInputDialog();
         tid.setHeaderText(null);
@@ -120,8 +160,36 @@ public class InterfazPrincipalController {
 
     @javafx.fxml.FXML
     public void onBotonGuardraNota(ActionEvent actionEvent) {
+        Nota a = new Nota(data.getUsuario(),NombreNota.getText(),DescNota.getText());
+        if (!notas.contains(a)) {
+            notas.add(a);
+            tablaNotas.refresh();
+        }
+
+
+        Usuario idUser = data.getUsuario();
+        String nombre = NombreNota.getText();
+        String desc = DescNota.getText();
+
+        Nota n1 = new Nota(idUser,nombre,desc);
+        NotaModel.InsertarNota(n1);
     }
 
+
+
+
+
+
+
+    @javafx.fxml.FXML
+    public void onBorrarAgenda(ActionEvent actionEvent) {
+    }
+
+
+    @javafx.fxml.FXML
+    public void onButtonBorrarNota(ActionEvent actionEvent) {
+
+    }
 }
 
 

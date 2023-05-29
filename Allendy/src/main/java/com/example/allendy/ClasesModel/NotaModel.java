@@ -9,65 +9,69 @@ import java.sql.SQLException;
 
 public class NotaModel {
 
-    public boolean InsertarNota(Nota n1){
+    @javafx.fxml.FXML
+    public static  void InsertarNota(Nota n1){
         boolean verificacion = false;
 
         DBUtil db = new DBUtil();
         Connection con = db.getConexion();
 
+
+        Integer idUser= n1.getIdUsuarioNota().getIdUsuario();
+        String nombre= n1.getNombre();
+        String descripcion = n1.getDescripcion();
+
+
         try {
+            String insertSql = "INSERT INTO allendy.notas (IdUsuarioNota, Nombre, Descripcion) VALUES (?, ?, ?)";
+            PreparedStatement stmt = con.prepareStatement(insertSql);
+            stmt.setInt(1, idUser);
+            stmt.setString(2, nombre);
+            stmt.setString(3, descripcion);
 
-
-            String query = "";
-
-            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
-
-        }catch(SQLException e){
+            stmt.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return verificacion;
-    }
-    public boolean EliminarNota(Nota n1){
-        boolean verificacion = false;
 
+    }
+    public static void EliminarNota(Nota n1) {
         DBUtil db = new DBUtil();
         Connection con = db.getConexion();
-
+        Integer idNota = n1.getIdNota();
         try {
+            String insertSql = "DELETE FROM allendy.notas where IdNota = ?";
+            PreparedStatement stmt = con.prepareStatement(insertSql);
+            stmt.setInt(1, idNota);
 
-
-            String query = "";
-
-            PreparedStatement stmt = con.prepareStatement(query);
             stmt.execute();
-
-        }catch(SQLException e){
+            stmt.close();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return verificacion;
     }
-    public boolean ModificarNota(Nota n1){
-        boolean verificacion = false;
+        public static void ModificarNota(Nota n1){
+            DBUtil db = new DBUtil();
+            Connection con = db.getConexion();
+            Integer idNota= n1.getIdNota();
+            String nombre = n1.getNombre();
+            String descripcion = n1.getDescripcion();
 
-        DBUtil db = new DBUtil();
-        Connection con = db.getConexion();
+            try {
+                String insertSql = "UPDATE allendy.notas SET Nombre = ?, Descripcion = ? where Id=?";
+                PreparedStatement stmt = con.prepareStatement(insertSql);
+                stmt.setInt(3, idNota);
+                stmt.setString(1, nombre);
+                stmt.setString(2, descripcion);
+                stmt.execute();
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
-        try {
-
-            String query = "";
-
-            PreparedStatement stmt = con.prepareStatement(query);
-            stmt.execute();
-
-        }catch(SQLException e){
-            e.printStackTrace();
         }
-
-        return verificacion;
-    }
     public boolean RecuperarNota(Nota n1){
         boolean verificacion = false;
 

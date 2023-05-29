@@ -9,6 +9,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -27,47 +28,63 @@
                   <Button fx:id="BotonNuevaTarea" layoutX="14.0" layoutY="510.0" mnemonicParsing="false" onAction="#onBotonNuevaTarea" prefHeight="25.0" prefWidth="109.0" text="Nueva Tarea" />
                   <Button fx:id="botonEditarTarea" layoutX="133.0" layoutY="510.0" mnemonicParsing="false" onAction="#onBotonEditarTarea" prefHeight="25.0" prefWidth="109.0" text="Editar Tarea" />
                   <Button fx:id="BotonBorrarTarea" layoutX="253.0" layoutY="510.0" mnemonicParsing="false" onAction="#onBontonBorrarTarea" prefHeight="25.0" prefWidth="99.0" text="Borrar Tarea" />
-                  <TextArea fx:id="DescNota" layoutX="17.0" layoutY="360.0" prefHeight="136.0" prefWidth="179.0" />
+                  <TextArea fx:id="DescNota" layoutX="17.0" layoutY="360.0" prefHeight="136.0" prefWidth="149.0" />
                   <Label layoutX="21.0" layoutY="288.0" text="Nota" />
                   <Label layoutX="18.0" layoutY="336.0" text="descripción" />
-                  <Button fx:id="BotonGuardarNota" layoutX="198.0" layoutY="311.0" mnemonicParsing="false" onAction="#onBotonGuardraNota" text="Guardar Nota" />
-                  <ScrollPane layoutX="226.0" layoutY="360.0" prefHeight="136.0" prefWidth="131.0">
+                  <Button fx:id="BotonGuardarNota" layoutX="174.0" layoutY="311.0" mnemonicParsing="false" onAction="#onBotonGuardraNota" text="Guardar Nota" />
+                  <ScrollPane layoutX="174.0" layoutY="360.0" prefHeight="136.0" prefWidth="201.0">
                      <content>
-                        <TableView fx:id="tablaNotas" prefHeight="135.0" prefWidth="129.0">
+                        <TableView fx:id="tablaNotas" prefHeight="135.0" prefWidth="208.0">
                            <columns>
-                              <TableColumn prefWidth="128.0" text="Notas" />
+                              <TableColumn fx:id="nombreNota" prefWidth="62.0" text="Notas" />
+                              <TableColumn fx:id="descripcionNota" prefWidth="145.0" text="descripción" />
                            </columns>
                         </TableView>
                      </content>
                   </ScrollPane>
                   <TextField fx:id="NombreNota" layoutX="18.0" layoutY="311.0" />
+                  <Button fx:id="botonBorrar" layoutX="277.0" layoutY="311.0" mnemonicParsing="false" onAction="#onButtonBorrarNota" prefHeight="25.0" prefWidth="88.0" text="Borrar Nota" />
                </children>
             </Pane>
             <ScrollPane prefHeight="592.0" prefWidth="559.0">
                <content>
                   <TableView fx:id="TablaTareas" prefHeight="590.0" prefWidth="521.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Tarea" />
-                        <TableColumn prefWidth="112.0" text="descripción" />
-                        <TableColumn minWidth="0.0" prefWidth="101.0" text="fecha" />
-                        <TableColumn prefWidth="72.0" text="fecha fin" />
-                        <TableColumn minWidth="0.0" prefWidth="49.0" text="hecho" />
-                        <TableColumn minWidth="3.0" prefWidth="118.0" text="asistentes" />
+                        <TableColumn fx:id="nTarea" prefWidth="75.0" text="Tarea" />
+                        <TableColumn fx:id="descTarea" prefWidth="112.0" text="descripción" />
+                        <TableColumn fx:id="fechaInicio" minWidth="0.0" prefWidth="101.0" text="fecha" />
+                        <TableColumn fx:id="fechaFin" prefWidth="72.0" text="fecha fin" />
+                        <TableColumn fx:id="hecho" minWidth="0.0" prefWidth="49.0" text="hecho" />
+                        <TableColumn fx:id="asistentes" minWidth="3.0" prefWidth="118.0" text="asistentes" />
                      </columns>
                   </TableView>
                </content>
             </ScrollPane>
             <Pane prefHeight="592.0" prefWidth="183.0">
                <children>
-                  <Label layoutX="16.0" layoutY="14.0" text="Filtros de tarea">
+                  <Label layoutX="16.0" layoutY="14.0" prefHeight="25.0" prefWidth="99.0" text="Prioridad">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="checkTrabajo" layoutX="40.0" layoutY="59.0" mnemonicParsing="false" text="Trabajo" />
-                  <RadioButton fx:id="checkOcio" layoutX="41.0" layoutY="89.0" mnemonicParsing="false" text="Ocio" />
-                  <RadioButton fx:id="CheckFamilia" layoutX="41.0" layoutY="117.0" mnemonicParsing="false" text="Familia" />
-                  <RadioButton fx:id="checkVacaciones" layoutX="42.0" layoutY="148.0" mnemonicParsing="false" text="vacaciones" />
+                  <RadioButton fx:id="checkPrioridadAlta" layoutX="40.0" layoutY="59.0" mnemonicParsing="false" text="Alta">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="prioridad" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="checkPrioridadMedia" layoutX="41.0" layoutY="89.0" mnemonicParsing="false" text="Media" toggleGroup="$prioridad" />
+                  <RadioButton fx:id="CheckPrioridadBAja" layoutX="41.0" layoutY="117.0" mnemonicParsing="false" text="baja" toggleGroup="$prioridad" />
+                  <Label layoutX="15.0" layoutY="172.0" prefHeight="25.0" prefWidth="99.0" text="tipo tarea">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="checkTrabajo" layoutX="44.0" layoutY="213.0" mnemonicParsing="false" text="Trabajo">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="TipoTarea" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="checkOcio" layoutX="45.0" layoutY="245.0" mnemonicParsing="false" text="Ocio" toggleGroup="$TipoTarea" />
+                  <RadioButton fx:id="CheckFamilia" layoutX="46.0" layoutY="279.0" mnemonicParsing="false" text="Familia" toggleGroup="$TipoTarea" />
                </children>
             </Pane>
          </children>

@@ -19,7 +19,17 @@ public class Nota {
     /*constructor*/
     public Nota() {
     }
-
+    public Nota(Integer idNota, Usuario idUsuarioNota, String nombre, String descripcion) {
+        IdNota = idNota;
+        IdUsuarioNota = idUsuarioNota;
+        Nombre = nombre;
+        Descripcion = descripcion;
+    }
+    public Nota (Usuario idUsuarioNota, String nombre, String descripcion){
+        IdUsuarioNota = idUsuarioNota;
+        Nombre = nombre;
+        Descripcion = descripcion;
+    }
     public Nota(Integer idNota, Usuario idUsuarioNota, String nombre) {
         IdNota = idNota;
         IdUsuarioNota = idUsuarioNota;
@@ -71,4 +81,24 @@ public class Nota {
         boolean verificacion = false;
         return verificacion;
     }
+    @Override
+    public boolean equals(Object o) {
+
+        Nota other = (Nota) o;
+
+        if(this == other)
+            return true;
+        if(other == null)
+            return false;
+
+        if(this.Nombre.equals(other.Nombre) &&
+                this.Descripcion.equals(other.Descripcion))
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }
