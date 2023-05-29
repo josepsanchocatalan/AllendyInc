@@ -5,16 +5,26 @@ import com.example.allendy.Clases.Agenda;
 import com.example.allendy.Clases.Nota;
 import com.example.allendy.Clases.Tarea;
 import com.example.allendy.Clases.Usuario;
+import com.example.allendy.ClasesModel.AgendaModel;
 import com.example.allendy.ClasesModel.NotaModel;
+import com.example.allendy.ClasesModel.TareaModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class InterfazPrincipalController {
@@ -28,7 +38,13 @@ public class InterfazPrincipalController {
 
     Usuario a = data.getUsuario();
 
-    Agenda nuevaAgenda = new Agenda();
+    Agenda nuevaAgenda = data.getAgenda();
+
+    Tarea nuevaTarea= data.getTarea();
+
+    AgendaModel b=new AgendaModel();
+
+    TareaModel t=new TareaModel();
 
     ArrayList<Tarea> listaTareas = new ArrayList<Tarea>();
     @javafx.fxml.FXML
@@ -125,7 +141,22 @@ public class InterfazPrincipalController {
 
     @FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("crearAgenda.fxml"));
 
+            Parent root = loader.load();
+
+            crearAgendaController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null,ex);
+}
 
 
 
@@ -134,29 +165,89 @@ public class InterfazPrincipalController {
     @FXML
     public void onBotonEditarAgenda(ActionEvent actionEvent) {
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditarAgenda.fxml"));
+
+            Parent root = loader.load();
+
+            editarAgendaController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null,ex);
+        }
 
     }
 
     @FXML
     public void onBotonNuevaTarea(ActionEvent actionEvent) {
-        TextInputDialog tid = new TextInputDialog();
-        tid.setHeaderText(null);
-        tid.setTitle("Insertar nombre Agenda");
-        tid.setContentText("");
-        tid.showAndWait();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("crearTarea.fxml"));
+
+            Parent root = loader.load();
+
+            crearTareraPopController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null,ex);
+        }
+
+
 
     }
 
     @javafx.fxml.FXML
     public void datepickerFuncion(ActionEvent actionEvent) {
+
+        LocalDate FechaSelected=Calendario.getValue();
+
     }
 
     @javafx.fxml.FXML
     public void onBotonEditarTarea(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editarTarea.fxml"));
+
+            Parent root = loader.load();
+
+            editarTareaController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null,ex);
+        }
     }
 
     @javafx.fxml.FXML
     public void onBontonBorrarTarea(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Advertencia");
+        alert.setContentText("Seguro quieres borrar la Agenda?");
+        alert.showAndWait();
+
+        ButtonType resultado=alert.getResult();
+
+        if (alert.getResult() == ButtonType.OK) {
+            t.EliminarTarea(nuevaTarea);
+        }
+
     }
 
     @javafx.fxml.FXML
@@ -184,6 +275,20 @@ public class InterfazPrincipalController {
 
     @javafx.fxml.FXML
     public void onBorrarAgenda(ActionEvent actionEvent) {
+
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Advertencia");
+        alert.setContentText("Seguro quieres borrar la Agenda?");
+        alert.showAndWait();
+
+        ButtonType resultado=alert.getResult();
+
+        if (alert.getResult() == ButtonType.OK) {
+            b.EliminarAgenda(nuevaAgenda);
+      }
+
     }
 
 

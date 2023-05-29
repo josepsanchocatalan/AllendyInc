@@ -93,7 +93,7 @@ public class Tarea extends Agenda {
         return DescripcionTarea;
     }
 
-    public void DescripcionTarea(String descripcionTarea) {
+    public void setDescripcionTarea(String descripcionTarea) {
         DescripcionTarea = descripcionTarea;
     }
 

@@ -6,6 +6,7 @@ import com.example.allendy.Clases.Usuario;
 import com.example.allendy.ClasesModel.TareaModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -68,11 +69,12 @@ public class crearTareraPopController {
         } else if (checkOcioPop.isSelected()) {
             TipoTarea="Ocio";
 
-        }else if(prioridadAltaCrear.isSelected()){
+        }else if(checkTrabajoPop.isSelected()){
             TipoTarea="Trabajo";
         }else{
             TipoTarea=null;
         }
+
         if(prioridadAltaCrear.isSelected()){
             Prioridad="Alta";
         } else if (prioridadMediaCrear.isSelected()) {
@@ -88,9 +90,13 @@ public class crearTareraPopController {
         ListaTareas.add(nuevaTarea);
         t.InsertarTarea(nuevaTarea);
 
+        Stage myStage = (Stage) this.botonCrearTarea.getScene().getWindow();
+        myStage.close();
     }
 
     @javafx.fxml.FXML
     public void onBotonCancelarTareaPop(ActionEvent actionEvent) {
+        Stage myStage = (Stage) this.botonCancelarTarea.getScene().getWindow();
+        myStage.close();
     }
 }

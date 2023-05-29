@@ -4,6 +4,7 @@ import com.example.allendy.Clases.Agenda;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class editarAgendaController {
     @javafx.fxml.FXML
@@ -19,10 +20,15 @@ public class editarAgendaController {
         Agenda a= data.getAgenda();
         a.setNombreAgenda(editarNombreAgenda.getText());
 
+        Stage myStage = (Stage) this.botonEditarAgenda.getScene().getWindow();
+        myStage.close();
+
 
     }
 
     @javafx.fxml.FXML
     public void onBotonCancelarAgendaPop(ActionEvent actionEvent) {
+        Stage myStage = (Stage) this.botonCancelarEAgenda.getScene().getWindow();
+        myStage.close();
     }
 }
