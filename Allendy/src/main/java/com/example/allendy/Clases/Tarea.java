@@ -1,132 +1,117 @@
 package com.example.allendy.Clases;
 
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Tarea extends Agenda {
+    private Integer idTarea;
+    private LocalDate fechaTarea;
+    private LocalDate fechaFin;
+    private String tipoTarea;
+    private String descripcionTarea;
+    private String asistentes;
+    private String prioridadTarea;
 
-
-    private Integer IdTarea;
-    private LocalDate FechaTarea;
-    private LocalDate FechaFin;
-    private String TipoTarea;
-    private String DescripcionTarea;
-    private boolean CheckTarea;
-    private ArrayList<Usuario> Asistentes;
-    private String OrganizadorTarea;
-    private String PrioridadTarea;
-
-
-    /*constructores*/
-
-    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, ArrayList<Tarea>  TareasAgenda, String nombreAgenda, Integer idTarea, LocalDate fechaTarea, LocalDate fechaFin, String tipoTarea, String descripcionTarea, boolean checkTarea, ArrayList<Usuario> asistentes, String organizadorTarea, String prioridadTarea) {
+    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, ArrayList<Tarea> TareasAgenda, String nombreAgenda, Integer idTarea, LocalDate fechaTarea, LocalDate fechaFin, String tipoTarea, String descripcionTarea, String asistentes, String prioridadTarea) {
         super(idAgenda, idUsuarioAgenda, TareasAgenda, nombreAgenda);
-        IdTarea = idTarea;
-        FechaTarea = fechaTarea;
-        FechaFin = fechaFin;
-        TipoTarea = tipoTarea;
-        DescripcionTarea = descripcionTarea;
-        CheckTarea = checkTarea;
-        Asistentes = asistentes;
-        OrganizadorTarea = organizadorTarea;
-        PrioridadTarea = prioridadTarea;
+        this.idTarea = idTarea;
+        this.fechaTarea = fechaTarea;
+        this.fechaFin = fechaFin;
+        this.tipoTarea = tipoTarea;
+        this.descripcionTarea = descripcionTarea;
+        this.asistentes = asistentes;
+        this.prioridadTarea = prioridadTarea;
     }
 
-    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, ArrayList<Tarea>  TareasAgenda, String nombreAgenda, LocalDate fechaTarea, LocalDate fechaFin, String tipoTarea, String descripcionTarea, boolean checkTarea, String organizadorTarea, String prioridadTarea) {
+    public Tarea(Integer idAgenda, Integer idUsuarioAgenda, ArrayList<Tarea> TareasAgenda, String nombreAgenda,
+                 LocalDate fechaTarea, LocalDate fechaFin, String tipoTarea, String descripcionTarea,
+                 boolean checkTarea, String organizadorTarea, String prioridadTarea) {
         super(idAgenda, idUsuarioAgenda, TareasAgenda, nombreAgenda);
-
-        FechaTarea = fechaTarea;
-        FechaFin = fechaFin;
-        TipoTarea = tipoTarea;
-        DescripcionTarea = descripcionTarea;
-        CheckTarea = checkTarea;
-
-        OrganizadorTarea = organizadorTarea;
-        PrioridadTarea = prioridadTarea;
+        this.fechaTarea = fechaTarea;
+        this.fechaFin = fechaFin;
+        this.tipoTarea = tipoTarea;
+        this.descripcionTarea = descripcionTarea;
+        this.prioridadTarea = prioridadTarea;
     }
 
+    public Tarea() {
+    }
 
+    public Tarea(int idTarea1, String descripcionTarea, LocalDate fechaTarea, LocalDate fechaFin, String tipoTarea, String prioridadTarea) {
+        this.idTarea = idTarea1;
+        this.fechaTarea = fechaTarea;
+        this.fechaFin = fechaFin;
+        this.tipoTarea = tipoTarea;
+        this.descripcionTarea = descripcionTarea;
+        this.prioridadTarea = prioridadTarea;
+    }
 
-
-
+    public Tarea(String descripcion, int idtarea, LocalDate fechaInicio, LocalDate fechafin, String tipo, String asistente, String prioridad) {
+        idTarea = idtarea;
+        fechaTarea = fechaInicio;
+        fechaFin = fechafin;
+        tipoTarea = tipo;
+        descripcionTarea = descripcion;
+        asistentes=asistente;
+        prioridadTarea = prioridad;
+    }
 
     /*Getters y setters*/
 
     public Integer getIdTarea() {
-        return IdTarea;
+        return idTarea;
     }
 
     public void setIdTarea(Integer idTarea) {
-        IdTarea = idTarea;
+        this.idTarea = idTarea;
     }
 
     public LocalDate getFechaTarea() {
-        return FechaTarea;
+        return fechaTarea;
     }
 
     public void setFechaTarea(LocalDate fechaTarea) {
-        FechaTarea = fechaTarea;
+        this.fechaTarea = fechaTarea;
     }
 
     public LocalDate getFechaFin() {
-        return FechaFin;
+        return fechaFin;
     }
 
     public void setFechaFin(LocalDate fechaFin) {
-        FechaFin = fechaFin;
+        this.fechaFin = fechaFin;
     }
 
     public String getTipoTarea() {
-        return TipoTarea;
+        return tipoTarea;
     }
 
     public void setTipoTarea(String tipoTarea) {
-        TipoTarea = tipoTarea;
+        this.tipoTarea = tipoTarea;
     }
 
     public String getDescripcionTarea() {
-        return DescripcionTarea;
+        return descripcionTarea;
     }
 
     public void setDescripcionTarea(String descripcionTarea) {
-        DescripcionTarea = descripcionTarea;
+        this.descripcionTarea = descripcionTarea;
     }
 
-    public boolean isCheckTarea() {
-        return CheckTarea;
+    public String getAsistentes() {
+        return asistentes;
     }
 
-    public void setCheckTarea(boolean checkTarea) {
-        CheckTarea = checkTarea;
-    }
-
-    public ArrayList<Usuario> getAsistentes() {
-        return Asistentes;
-    }
-
-    public void setAsistentes(ArrayList<Usuario> asistentes) {
-        Asistentes = asistentes;
-    }
-
-    public String getOrganizadorTarea() {
-        return OrganizadorTarea;
-    }
-
-    public void setOrganizadorTarea(String organizadorTarea) {
-        OrganizadorTarea = organizadorTarea;
+    public void setAsistentes(String asistentes) {
+        this.asistentes = asistentes;
     }
 
     public String getPrioridadTarea() {
-        return PrioridadTarea;
+        return prioridadTarea;
     }
 
     public void setPrioridadTarea(String prioridadTarea) {
-        PrioridadTarea = prioridadTarea;
+        this.prioridadTarea = prioridadTarea;
     }
 
     /*funciones */

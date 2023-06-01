@@ -10,9 +10,6 @@ public class dataSingelton {
 
     private Usuario usuario;
 
-    private Agenda agenda;
-
-    private Tarea tarea;
 
 
     //getters y setters
@@ -31,20 +28,5 @@ public class dataSingelton {
         this.usuario = usuario;
     }
 
-    public Agenda getAgenda() {
-        return agenda;
-    }
-
-    public void setAgenda(Agenda agenda) {
-        this.agenda = agenda;
-    }
-
-    public Tarea getTarea() {
-        return tarea;
-    }
-
-    public void setTarea(Tarea tarea) {
-        this.tarea = tarea;
-    }
 
 }

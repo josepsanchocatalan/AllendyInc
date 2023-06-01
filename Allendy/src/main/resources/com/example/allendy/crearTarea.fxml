@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -25,7 +26,7 @@
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <Button fx:id="botonCrearTarea" layoutX="156.0" layoutY="316.0" mnemonicParsing="false" onAction="#onBotonCrearTareaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Crear" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonCrearTarea" layoutX="75.0" layoutY="400.0" mnemonicParsing="false" onAction="#onBotonCrearTareaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Crear" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
@@ -37,7 +38,7 @@
             </TextField>
             <Line endX="55.0" layoutX="100.0" layoutY="370.0" startX="-88.0" />
             <Line endX="62.0" layoutX="297.0" layoutY="370.0" startX="-88.0" />
-            <Button fx:id="botonCancelarTarea" layoutX="147.0" layoutY="400.0" mnemonicParsing="false" onAction="#onBotonCancelarTareaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonCancelarTarea" layoutX="204.0" layoutY="400.0" mnemonicParsing="false" onAction="#onBotonCancelarTareaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
@@ -79,6 +80,7 @@
          </RadioButton>
          <RadioButton fx:id="checkOcioPop" layoutX="151.0" layoutY="217.0" mnemonicParsing="false" text="Ocio" toggleGroup="$TipoTarea" />
          <RadioButton fx:id="CheckFamiliaPop" layoutX="247.0" layoutY="218.0" mnemonicParsing="false" text="Familia" toggleGroup="$TipoTarea" />
+         <ComboBox fx:id="comboBoxEmails" layoutX="108.0" layoutY="316.0" prefWidth="150.0" />
         </children>
     </Pane>
 </AnchorPane>

@@ -4,6 +4,7 @@ import com.example.allendy.Clases.Agenda;
 import com.example.allendy.Clases.Tarea;
 import com.example.allendy.Clases.Usuario;
 import com.example.allendy.ClasesModel.TareaModel;
+import com.example.allendy.InterfazPrincipalController;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -11,12 +12,17 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import com.example.allendy.ClasesModel.AgendaModel;
+import com.example.allendy.ClasesModel.UsuarioModel;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import static com.example.allendy.ClasesModel.TareaModel.mostrarTareasUsuario;
+
 
 public class crearTareraPopController {
     @javafx.fxml.FXML
     private Button botonCrearTarea;
-    @javafx.fxml.FXML
-    private TextField DescripcionTarea;
     @javafx.fxml.FXML
     private Button botonCancelarTarea;
     @javafx.fxml.FXML
@@ -37,61 +43,90 @@ public class crearTareraPopController {
     private RadioButton checkOcioPop;
     @javafx.fxml.FXML
     private RadioButton CheckFamiliaPop;
+
+    dataSingelton data = dataSingelton.getInstance();
     @javafx.fxml.FXML
-    private ToggleGroup Tipo;
+    private TextField nombreTarea;
+    @javafx.fxml.FXML
+    private ToggleGroup TipoTarea;
+    @javafx.fxml.FXML
+    private ComboBox comboBoxEmails;
 
+    boolean primeraVez;
+    InterfazPrincipalController actualziar;
 
-
-
-
+    public void initialize(){
+      //  primeraVez = true;
+        UsuarioModel um = new UsuarioModel();
+        ObservableList<String> correos = FXCollections.observableArrayList();
+        correos.setAll(um.recuperarCorreos());
+        comboBoxEmails.setItems(correos);
+    }
 
 
 
     @javafx.fxml.FXML
     public void onBotonCrearTareaPop(ActionEvent actionEvent) {
-
-
-        TareaModel t=new TareaModel();
-        dataSingelton data = dataSingelton.getInstance();
-        Agenda agenda = data.getAgenda();
+        AgendaModel am= new AgendaModel();
+        TareaModel tm=new TareaModel();
         Usuario a = data.getUsuario();
-        ArrayList<Tarea> ListaTareas=agenda.getTareaAgenda();
-        LocalDate FechaInicio=FechaTarea.getValue();
-        LocalDate FechaFinal=FechaFin.getValue();
-        String Descripcion=DescripcionTarea.getText();
+        Agenda agenda = am.RecuperarAgenda(a.getIdUsuario());
 
+        TareaModel t = new TareaModel();
+        data = dataSingelton.getInstance();
+        ArrayList<Tarea> ListaTareas = mostrarTareasUsuario(a.getIdUsuario());
+        LocalDate FechaInicio = FechaTarea.getValue();
+        LocalDate FechaFinal = FechaFin.getValue();
+        String Descripcion = nombreTarea.getText();
+        String asistente = "";
 
         String TipoTarea;
         String Prioridad;
 
-        if(CheckFamiliaPop.isSelected()){
-            TipoTarea="famila";
+        if (CheckFamiliaPop.isSelected()) {
+            TipoTarea = "famila";
         } else if (checkOcioPop.isSelected()) {
-            TipoTarea="Ocio";
+            TipoTarea = "Ocio";
 
-        }else if(checkTrabajoPop.isSelected()){
-            TipoTarea="Trabajo";
-        }else{
-            TipoTarea=null;
+        } else if (checkTrabajoPop.isSelected()) {
+            TipoTarea = "Trabajo";
+        } else {
+            TipoTarea = null;
         }
 
-        if(prioridadAltaCrear.isSelected()){
-            Prioridad="Alta";
+        if (prioridadAltaCrear.isSelected()) {
+            Prioridad = "Alta";
         } else if (prioridadMediaCrear.isSelected()) {
-            Prioridad="media";
+            Prioridad = "media";
 
-        }else if(prioridadBajaCrear.isSelected()){
-            Prioridad="baja";
-        }else{
-            Prioridad=null;
+        } else if (prioridadBajaCrear.isSelected()) {
+            Prioridad = "baja";
+        } else {
+            Prioridad = null;
         }
 
-        Tarea nuevaTarea=new Tarea(agenda.getIdAgenda(), a.getIdUsuario(),ListaTareas,agenda.getNombreAgenda(),FechaInicio,FechaFinal,TipoTarea,Descripcion,false,a.getEmail(),Prioridad);
+        if(comboBoxEmails.getValue() != null){
+            asistente = comboBoxEmails.getValue().toString();
+        }
+
+        Tarea nuevaTarea = new Tarea(agenda.getIdAgenda(), a.getIdUsuario(), ListaTareas, agenda.getNombreAgenda(), FechaInicio, FechaFinal, TipoTarea, Descripcion, false, asistente, Prioridad);
         ListaTareas.add(nuevaTarea);
         t.InsertarTarea(nuevaTarea);
 
+
+
         Stage myStage = (Stage) this.botonCrearTarea.getScene().getWindow();
         myStage.close();
+
+
+            InterfazPrincipalController actualziar = new InterfazPrincipalController();
+            //actualziar = new InterfazPrincipalController();
+
+            //primeraVez = false;
+
+
+        actualziar.mostrarTareasUsuario();
+
     }
 
     @javafx.fxml.FXML

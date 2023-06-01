@@ -9,7 +9,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.ArrayList;import com.example.allendy.ClasesModel.AgendaModel;
 
 public class editarTareaController {
     @javafx.fxml.FXML
@@ -46,12 +46,15 @@ public class editarTareaController {
 
         TareaModel t=new TareaModel();
         dataSingelton data = dataSingelton.getInstance();
+        AgendaModel am=new AgendaModel();
 
-        Tarea nuevaTarea=data.getTarea();
 
 
-        Agenda agenda = data.getAgenda();
+
+
         Usuario a = data.getUsuario();
+        Agenda agenda = am.RecuperarAgenda(a.getIdUsuario());
+        Tarea nuevaTarea=t.RecuperarTarea(a.getIdUsuario());
 
         LocalDate FechaInicio=editarFechaTarea.getValue();
         LocalDate FechaFinal=editarFechaFinTarea.getValue();
@@ -98,4 +101,6 @@ public class editarTareaController {
         Stage myStage = (Stage) this.botonCancelarTareaPopUp.getScene().getWindow();
         myStage.close();
     }
+
+
 }

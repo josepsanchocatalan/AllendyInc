@@ -21,9 +21,21 @@ public class Agenda {
         this.TareasAgenda = TareasAgenda;
         NombreAgenda = nombreAgenda;
     }
+    //Esto es de fran
+    public Agenda(Integer idUsuarioAgenda,  String nombreAgenda) {
+        this.IdUsuarioAgenda = idUsuarioAgenda;
+        this.NombreAgenda = nombreAgenda;
+    }
+    //Esto es de fran
+    public Agenda(Integer idAgenda, Integer idUsuarioAgenda,  String nombreAgenda) {
+        this.IdAgenda = idAgenda;
+        this.IdUsuarioAgenda = idUsuarioAgenda;
+        this.NombreAgenda = nombreAgenda;
+    }
     public Agenda() {
 
     }
+
 
 
     /*getters y setters*/

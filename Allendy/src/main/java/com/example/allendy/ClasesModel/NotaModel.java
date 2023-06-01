@@ -1,11 +1,16 @@
 package com.example.allendy.ClasesModel;
 
 import com.example.allendy.Clases.Nota;
+import com.example.allendy.Clases.Tarea;
+import com.example.allendy.Clases.Usuario;
 import com.example.allendy.DBUtil;
+import com.example.allendy.dataSingelton;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class NotaModel {
 
@@ -37,10 +42,10 @@ public class NotaModel {
 
 
     }
-    public static void EliminarNota(Nota n1) {
+    public static void EliminarNota(Integer id) {
         DBUtil db = new DBUtil();
         Connection con = db.getConexion();
-        Integer idNota = n1.getIdNota();
+        Integer idNota = id;
         try {
             String insertSql = "DELETE FROM allendy.notas where IdNota = ?";
             PreparedStatement stmt = con.prepareStatement(insertSql);
@@ -72,25 +77,32 @@ public class NotaModel {
             }
 
         }
-    public boolean RecuperarNota(Nota n1){
-        boolean verificacion = false;
 
+
+
+    public static ArrayList<Nota> mostrarNotasUsuario(Usuario usuario) throws SQLException {
         DBUtil db = new DBUtil();
         Connection con = db.getConexion();
 
-        try {
+        // Consulta SQL modificada para obtener solo las notas del usuario
+        String query = "SELECT * FROM notas WHERE IdUsuarioNota = ?";
+        PreparedStatement stmt = con.prepareStatement(query);
+        stmt.setInt(1, usuario.getIdUsuario());
+        ResultSet rs = stmt.executeQuery();
 
+        ArrayList<Nota> notasUsuario = new ArrayList<>();
 
-            String query = "";
-
-            PreparedStatement stmt = con.prepareStatement(query);
-            stmt.execute();
-
-        }catch(SQLException e){
-            e.printStackTrace();
+        while (rs.next()) {
+            Nota nota = new Nota();
+            nota.setNombre(rs.getString("Nombre"));
+            nota.setDescripcion(rs.getString("Descripcion"));
+            nota.setIdNota(rs.getInt("IdNota"));
+            notasUsuario.add(nota);
         }
 
-        return verificacion;
+        return notasUsuario;
     }
+
+
 
 }

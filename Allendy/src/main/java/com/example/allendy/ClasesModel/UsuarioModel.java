@@ -2,8 +2,10 @@ package com.example.allendy.ClasesModel;
 
 import com.example.allendy.Clases.Usuario;
 import com.example.allendy.DBUtil;
+import com.example.allendy.dataSingelton;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class UsuarioModel {
 
@@ -183,6 +185,33 @@ public class UsuarioModel {
         }
 
         return a;
+    }
+
+    public ArrayList<String> recuperarCorreos(){
+        ArrayList<String> correos = new ArrayList<String>();
+        DBUtil db = new DBUtil();
+        Connection con = db.getConexion();
+        PreparedStatement stmt = null;
+
+        dataSingelton data = dataSingelton.getInstance();
+        Usuario a = data.getUsuario();
+        String usuarioActivo = a.getEmail();
+
+        try {
+            stmt = con.prepareStatement("select * from allendy.usuarios");
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()){
+                if (usuarioActivo.equals(rs.getString("mail"))){
+                } else {
+                    correos.add(rs.getString("mail"));
+                }
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return correos;
     }
 
 
