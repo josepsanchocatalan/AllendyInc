@@ -24,6 +24,7 @@ public class editarAgendaController {
         Usuario usser=data.getUsuario();
         Agenda a=am.RecuperarAgenda(usser.getIdUsuario());
         a.setNombreAgenda(editarNombreAgenda.getText());
+        am.ModificarAgenda(a);
 
         Stage myStage = (Stage) this.botonEditarAgenda.getScene().getWindow();
         myStage.close();

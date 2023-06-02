@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -8,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="370.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.editarNotaController">
+<AnchorPane prefHeight="462.0" prefWidth="436.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.editarNotaController">
 
-    <Pane prefHeight="379.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <Pane layoutX="22.0" layoutY="16.0" prefHeight="435.0" prefWidth="398.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
         <children>
-            <Text layoutX="118.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar nota">
+            <Text layoutX="127.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar nota">
                 <font>
                     <Font name="Arial" size="28.0" />
                 </font>
@@ -22,24 +25,35 @@
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <Button fx:id="botonEditarNota" layoutX="159.0" layoutY="237.0" mnemonicParsing="false" onAction="#onBotonEditarNotaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Editar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonEditarNota" layoutX="159.0" layoutY="291.0" mnemonicParsing="false" onAction="#onBotonEditarNotaPop" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;" text="Editar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
             </Button>
-            <TextField fx:id="editarNombreNota" layoutX="63.0" layoutY="151.0" prefHeight="40.0" prefWidth="246.0" promptText="Introduce el nuevo nombre de la tarea" style="-fx-background-radius: 5; -fx-border-radius: 6;">
+            <TextField fx:id="editarNombreNota" layoutX="111.0" layoutY="131.0" prefHeight="40.0" prefWidth="221.0" promptText="Introduce el nuevo nombre de la nota" style="-fx-background-radius: 5; -fx-border-radius: 6;">
                 <font>
                     <Font name="Arial" size="12.0" />
                 </font>
             </TextField>
-            <Line endX="55.0" layoutX="103.0" layoutY="291.0" startX="-88.0" />
-            <Line endX="62.0" layoutX="300.0" layoutY="291.0" startX="-88.0" />
-            <Button fx:id="botonCancelarNotaPopUp" layoutX="150.0" layoutY="321.0" mnemonicParsing="false" onAction="#onBotonCancelarNotaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancalar" textAlignment="CENTER" textFill="WHITE">
+            <Line endX="55.0" layoutX="112.0" layoutY="345.0" startX="-88.0" />
+            <Button fx:id="botonCancelarNotaPopUp" layoutX="158.0" layoutY="380.0" mnemonicParsing="false" onAction="#onBotonCancelarNotaPop" style="-fx-background-color: #D83F3F; -fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
             </Button>
-            <Text layoutX="181.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
+            <Text layoutX="190.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
+         <Line endX="55.0" layoutX="310.0" layoutY="344.0" startX="-88.0" />
+         <TextField fx:id="idNota" layoutX="111.0" layoutY="100.0" prefHeight="25.0" prefWidth="107.0" />
+         <Label layoutX="38.0" layoutY="104.0" text="Id Nota" />
+         <Label layoutX="36.0" layoutY="143.0" text="Nombre" />
+         <TextArea fx:id="nuevaDescripcion" layoutX="111.0" layoutY="180.0" prefHeight="90.0" prefWidth="221.0" promptText="Introduce la descripción" />
+         <Label layoutX="36.0" layoutY="180.0" text="Descripción" />
         </children>
     </Pane>
 

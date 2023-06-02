@@ -57,26 +57,26 @@ public class AgendaModel {
     }
 
     //Funcion modificar agenda
-    public boolean ModificarAgenda(Agenda a1){
-        boolean verificacion = false;
-
+    public static void ModificarAgenda(Agenda a1){
 
         DBUtil db = new DBUtil();
         Connection con = db.getConexion();
 
+        Integer iduserAg= a1.getIdUsuarioAgenda();
+        String nombre = a1.getNombreAgenda();
+
         try {
-
-
-            String query = "";
-
+            String query = "Update allendy.Agenda set NombreAgenda =?  where id_agendaAgenda = ?";
             PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(2, iduserAg);
+            stmt.setString(1, nombre);
+
             stmt.execute();
 
         }catch(SQLException e){
             e.printStackTrace();
         }
 
-        return verificacion;
     }
 
     //Funcion recuperar agenda

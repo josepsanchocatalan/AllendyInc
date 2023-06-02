@@ -5,10 +5,13 @@ import com.example.allendy.Clases.Tarea;
 import com.example.allendy.Clases.Usuario;
 import com.example.allendy.ClasesModel.TareaModel;
 import com.example.allendy.InterfazPrincipalController;
+
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.scene.text.*;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,6 +46,8 @@ public class crearTareraPopController {
     private RadioButton checkOcioPop;
     @javafx.fxml.FXML
     private RadioButton CheckFamiliaPop;
+    @javafx.fxml.FXML
+    private Text tareasCreadas;
 
     dataSingelton data = dataSingelton.getInstance();
     @javafx.fxml.FXML
@@ -67,24 +72,34 @@ public class crearTareraPopController {
 
     @javafx.fxml.FXML
     public void onBotonCrearTareaPop(ActionEvent actionEvent) {
+
         AgendaModel am= new AgendaModel();
         TareaModel tm=new TareaModel();
         Usuario a = data.getUsuario();
         Agenda agenda = am.RecuperarAgenda(a.getIdUsuario());
 
+        //LocalDate FechaInicio =FechaTarea.setValue(Instant.now());
+       // LocalDate FechaFinal = FechaFin.setValue(Instant.now);
+
         TareaModel t = new TareaModel();
         data = dataSingelton.getInstance();
         ArrayList<Tarea> ListaTareas = mostrarTareasUsuario(a.getIdUsuario());
-        LocalDate FechaInicio = FechaTarea.getValue();
+       LocalDate FechaInicio = FechaTarea.getValue();
         LocalDate FechaFinal = FechaFin.getValue();
         String Descripcion = nombreTarea.getText();
         String asistente = "";
+
+        if (FechaInicio.isEqual(null)&& FechaFinal.isEqual(null) && Descripcion == ""){
+            Alert aviso = new Alert(Alert.AlertType.WARNING);
+            aviso.setHeaderText("Tienes que poner datos para introducir una tarea");
+            aviso.show();
+        }
 
         String TipoTarea;
         String Prioridad;
 
         if (CheckFamiliaPop.isSelected()) {
-            TipoTarea = "famila";
+            TipoTarea = "Familia";
         } else if (checkOcioPop.isSelected()) {
             TipoTarea = "Ocio";
 
@@ -97,10 +112,10 @@ public class crearTareraPopController {
         if (prioridadAltaCrear.isSelected()) {
             Prioridad = "Alta";
         } else if (prioridadMediaCrear.isSelected()) {
-            Prioridad = "media";
+            Prioridad = "Media";
 
         } else if (prioridadBajaCrear.isSelected()) {
-            Prioridad = "baja";
+            Prioridad = "Baja";
         } else {
             Prioridad = null;
         }
@@ -109,23 +124,26 @@ public class crearTareraPopController {
             asistente = comboBoxEmails.getValue().toString();
         }
 
-        Tarea nuevaTarea = new Tarea(agenda.getIdAgenda(), a.getIdUsuario(), ListaTareas, agenda.getNombreAgenda(), FechaInicio, FechaFinal, TipoTarea, Descripcion, false, asistente, Prioridad);
-        ListaTareas.add(nuevaTarea);
-        t.InsertarTarea(nuevaTarea);
 
+        if (FechaInicio.isBefore(FechaFinal)){
 
+            Tarea nuevaTarea = new Tarea(agenda.getIdAgenda(), a.getIdUsuario(), ListaTareas, agenda.getNombreAgenda(), FechaInicio, FechaFinal, TipoTarea, Descripcion, false, asistente, Prioridad);
+            ListaTareas.add(nuevaTarea);
+            t.InsertarTarea(nuevaTarea);
+        }else{
+            Alert fechasNoValidas= new Alert(Alert.AlertType.ERROR);
+            fechasNoValidas.setContentText("las fechas no son validas, modifiquelas");
+            fechasNoValidas.showAndWait();
+        }
 
         Stage myStage = (Stage) this.botonCrearTarea.getScene().getWindow();
         myStage.close();
 
 
-            InterfazPrincipalController actualziar = new InterfazPrincipalController();
-            //actualziar = new InterfazPrincipalController();
-
-            //primeraVez = false;
+        Usuario idUser = data.getUsuario();
+        Integer iduser = Integer.valueOf(idUser.getIdUsuario());
 
 
-        actualziar.mostrarTareasUsuario();
 
     }
 

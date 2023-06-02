@@ -8,6 +8,11 @@ public class Nota {
 
     private String Descripcion;
 
+    public Nota(String nuevoNombre, String nuevaDesc) {
+        this.Nombre = nuevoNombre;
+        this.Descripcion = nuevaDesc;
+    }
+
     public String getDescripcion() {
         return Descripcion;
     }

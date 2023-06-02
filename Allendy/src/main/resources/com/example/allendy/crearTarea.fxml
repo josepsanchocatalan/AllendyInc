@@ -13,10 +13,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="457.0" prefWidth="366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.crearTareraPopController">
-    <Pane prefHeight="457.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="719.0" prefWidth="404.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.crearTareraPopController">
+    <Pane layoutX="17.0" layoutY="17.0" prefHeight="681.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #FAFCFF; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
         <children>
-            <Text layoutX="115.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear tarea">
+            <Text layoutX="114.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crear tarea">
                 <font>
                     <Font name="Arial" size="28.0" />
                 </font>
@@ -26,61 +26,69 @@
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <Button fx:id="botonCrearTarea" layoutX="75.0" layoutY="400.0" mnemonicParsing="false" onAction="#onBotonCrearTareaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Crear" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonCrearTarea" layoutX="50.0" layoutY="613.0" mnemonicParsing="false" onAction="#onBotonCrearTareaPop" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Crear" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Button>
-            <TextField fx:id="nombreTarea" layoutX="75.0" layoutY="45.0" prefHeight="38.0" prefWidth="238.0" promptText="Introduce la descripción de la tarea" style="-fx-background-radius: 5; -fx-border-radius: 6;">
+            <TextField fx:id="nombreTarea" alignment="CENTER" layoutX="53.0" layoutY="79.0" prefHeight="102.0" prefWidth="273.0" promptText="Introduce la descripción de la tarea" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #E8EDF2; -fx-border-color: #A6B5B6;">
                 <font>
                     <Font name="Arial" size="12.0" />
                 </font>
             </TextField>
-            <Line endX="55.0" layoutX="100.0" layoutY="370.0" startX="-88.0" />
-            <Line endX="62.0" layoutX="297.0" layoutY="370.0" startX="-88.0" />
-            <Button fx:id="botonCancelarTarea" layoutX="204.0" layoutY="400.0" mnemonicParsing="false" onAction="#onBotonCancelarTareaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
+            <Line endX="61.0" layoutX="99.0" layoutY="583.0" startX="-88.0" />
+            <Line endX="62.0" layoutX="296.0" layoutY="583.0" startX="-88.0" />
+            <Button fx:id="botonCancelarTarea" layoutX="247.0" layoutY="613.0" mnemonicParsing="false" onAction="#onBotonCancelarTareaPop" style="-fx-background-color: #D83F3F; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Button>
-            <Text layoutX="178.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
-            <DatePicker fx:id="FechaTarea" layoutX="154.0" layoutY="103.0" />
-            <Text layoutX="60.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Inicio">
+            <Text layoutX="180.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
+            <DatePicker fx:id="FechaTarea" layoutX="151.0" layoutY="196.0" />
+            <Text layoutX="57.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Inicio">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <Text layoutX="61.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin">
+            <Text layoutX="58.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Fin">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <DatePicker fx:id="FechaFin" layoutX="154.0" layoutY="138.0" />
-            <RadioButton fx:id="prioridadAltaCrear" layoutX="60.0" layoutY="279.0" mnemonicParsing="false" text="Alta">
-                <toggleGroup>
-                    <ToggleGroup fx:id="prioridad" />
-                </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="prioridadMediaCrear" layoutX="151.0" layoutY="279.0" mnemonicParsing="false" text="Media" toggleGroup="$prioridad" />
-            <RadioButton fx:id="prioridadBajaCrear" layoutX="247.0" layoutY="279.0" mnemonicParsing="false" text="Baja" toggleGroup="$prioridad" />
-            <Text layoutX="128.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nivel de prioridad">
-                <font>
-                    <Font name="Arial" size="14.0" />
-                </font>
-            </Text>
-         <Label layoutX="129.0" layoutY="173.0" prefHeight="25.0" prefWidth="99.0" text="tipo tarea">
-            <font>
-               <Font size="20.0" />
-            </font>
-         </Label>
-         <RadioButton fx:id="checkTrabajoPop" layoutX="58.0" layoutY="217.0" mnemonicParsing="false" text="Trabajo">
-            <toggleGroup>
-               <ToggleGroup fx:id="TipoTarea" />
-            </toggleGroup>
-         </RadioButton>
-         <RadioButton fx:id="checkOcioPop" layoutX="151.0" layoutY="217.0" mnemonicParsing="false" text="Ocio" toggleGroup="$TipoTarea" />
-         <RadioButton fx:id="CheckFamiliaPop" layoutX="247.0" layoutY="218.0" mnemonicParsing="false" text="Familia" toggleGroup="$TipoTarea" />
-         <ComboBox fx:id="comboBoxEmails" layoutX="108.0" layoutY="316.0" prefWidth="150.0" />
+            <DatePicker fx:id="FechaFin" layoutX="151.0" layoutY="231.0" />
+         <Pane layoutX="46.0" layoutY="284.0" prefHeight="83.0" prefWidth="273.0" style="-fx-background-color: #E8EDF2; -fx-background-radius: 10; -fx-border-color: #A6B5B6; -fx-border-radius: 10;">
+            <children>
+               <Label layoutX="97.0" layoutY="14.0" prefHeight="25.0" prefWidth="79.0" text="Tipo tarea">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+               <RadioButton fx:id="checkTrabajoPop" layoutX="14.0" layoutY="52.0" mnemonicParsing="false" text="Trabajo">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="TipoTarea" />
+                  </toggleGroup>
+               </RadioButton>
+               <RadioButton fx:id="checkOcioPop" layoutX="114.0" layoutY="52.0" mnemonicParsing="false" text="Ocio" toggleGroup="$TipoTarea" />
+               <RadioButton fx:id="CheckFamiliaPop" layoutX="200.0" layoutY="51.0" mnemonicParsing="false" text="Familia" toggleGroup="$TipoTarea" />
+            </children>
+         </Pane>
+         <Pane layoutX="46.0" layoutY="381.0" prefHeight="83.0" prefWidth="273.0" style="-fx-background-color: #E8EDF2; -fx-background-radius: 10; -fx-border-color: #A6B5B6; -fx-border-radius: 10;">
+            <children>
+               <Label layoutX="70.0" layoutY="14.0" prefHeight="25.0" prefWidth="133.0" text="Nivel de prioridad">
+                  <font>
+                     <Font size="16.0" />
+                  </font>
+               </Label>
+                  <RadioButton fx:id="prioridadAltaCrear" layoutX="18.0" layoutY="52.0" mnemonicParsing="false" text="Alta">
+                  <toggleGroup>
+                          <ToggleGroup fx:id="prioridad" />
+                  </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="prioridadMediaCrear" layoutX="110.0" layoutY="51.0" mnemonicParsing="false" text="Media" toggleGroup="$prioridad" />
+                  <RadioButton fx:id="prioridadBajaCrear" layoutX="213.0" layoutY="51.0" mnemonicParsing="false" text="Baja" toggleGroup="$prioridad" />
+            </children>
+         </Pane>
+         <ComboBox fx:id="comboBoxEmails" layoutX="110.0" layoutY="507.0" prefWidth="150.0" />
         </children>
     </Pane>
 </AnchorPane>

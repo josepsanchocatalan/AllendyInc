@@ -8,10 +8,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="366.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.editarAgendaController">
-    <Pane prefHeight="379.0" prefWidth="371.0" style="-fx-border-color: black; -fx-background-color: #E8EDF2; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="382.0" prefWidth="434.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.editarAgendaController">
+    <Pane layoutX="18.0" layoutY="16.0" prefHeight="351.0" prefWidth="398.0" style="-fx-border-color: black; -fx-background-color: #FAFCFF; -fx-border-width: 2; -fx-border-radius: 5; -fx-background-radius: 6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
         <children>
-            <Text layoutX="100.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar agenda">
+            <Text layoutX="111.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar agenda">
                 <font>
                     <Font name="Arial" size="28.0" />
                 </font>
@@ -21,24 +21,24 @@
                     <Font name="Arial" size="13.0" />
                 </font>
             </Text>
-            <Button fx:id="botonEditarAgenda" layoutX="159.0" layoutY="237.0" mnemonicParsing="false" onAction="#onBotonEditarAgendaPopUp" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Editar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="botonEditarAgenda" layoutX="162.0" layoutY="186.0" mnemonicParsing="false" onAction="#onBotonEditarAgendaPopUp" prefHeight="26.0" prefWidth="72.0" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;" text="Editar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Button>
-            <TextField fx:id="editarNombreAgenda" layoutX="63.0" layoutY="151.0" prefHeight="40.0" prefWidth="246.0" promptText="Introduce el nuevo nombre de la agenda" style="-fx-background-radius: 5; -fx-border-radius: 6;">
+            <TextField fx:id="editarNombreAgenda" layoutX="82.0" layoutY="116.0" prefHeight="40.0" prefWidth="233.0" promptText="Introduce el nuevo nombre de la agenda" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #E8EDF2; -fx-border-color: #A6B5B6;">
                 <font>
                     <Font name="Arial" size="12.0" />
                 </font>
             </TextField>
-            <Line endX="55.0" layoutX="103.0" layoutY="291.0" startX="-88.0" />
-            <Line endX="62.0" layoutX="300.0" layoutY="291.0" startX="-88.0" />
-            <Button fx:id="botonCancelarEAgenda" layoutX="150.0" layoutY="321.0" mnemonicParsing="false" onAction="#onBotonCancelarAgendaPop" style="-fx-background-color: #6495ED; -fx-border-color: black; -fx-border-radius: 5; -fx-background-radius: 6;" text="Cancalar" textAlignment="CENTER" textFill="WHITE">
+            <Line endX="62.0" layoutX="118.0" layoutY="251.0" startX="-88.0" />
+            <Button fx:id="botonCancelarEAgenda" layoutX="162.0" layoutY="285.0" mnemonicParsing="false" onAction="#onBotonCancelarAgendaPop" style="-fx-background-color: #D83F3F; -fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;" text="Cancelar" textAlignment="CENTER" textFill="WHITE">
                 <font>
                     <Font name="Arial" size="13.0" />
                 </font>
             </Button>
-            <Text layoutX="181.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
+            <Text layoutX="194.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O" />
+         <Line endX="62.0" layoutX="305.0" layoutY="251.0" startX="-88.0" />
         </children>
     </Pane>
 

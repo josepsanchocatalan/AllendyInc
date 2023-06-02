@@ -83,22 +83,6 @@ public class InterfazPrincipalController {
     @javafx.fxml.FXML
     private TableView TablaTareas;
     @javafx.fxml.FXML
-    private RadioButton checkTrabajo;
-    @javafx.fxml.FXML
-    private RadioButton checkOcio;
-    @javafx.fxml.FXML
-    private RadioButton CheckFamilia;
-    @javafx.fxml.FXML
-    private RadioButton checkPrioridadAlta;
-    @javafx.fxml.FXML
-    private RadioButton checkPrioridadMedia;
-    @javafx.fxml.FXML
-    private RadioButton CheckPrioridadBAja;
-    @javafx.fxml.FXML
-    private ToggleGroup prioridad;
-    @javafx.fxml.FXML
-    private ToggleGroup TipoTarea;
-    @javafx.fxml.FXML
     private TableColumn nombreNota;
     @javafx.fxml.FXML
     private TableColumn descripcionNota;
@@ -123,7 +107,25 @@ public class InterfazPrincipalController {
     @FXML
     private Text notasCreadas;
     @FXML
-    private int contador = 0;
+    private Text nombreUsuario;
+    @FXML
+    private Text agendasCreadas;
+    @FXML
+    private Text tareasCreadas;
+    @FXML
+    private TableView tablaAgenda;
+    @FXML
+    private TableColumn columnaAgenda;
+    @FXML
+    private TableColumn columnaNombre;
+    @FXML
+    private Button botonAlonsista;
+    @FXML
+    private ComboBox filtrarTipo;
+    @FXML
+    private ComboBox filtrarPrioridad;
+    @FXML
+    private Button botonRestaurar;
 
 
     //funciones
@@ -149,9 +151,31 @@ public class InterfazPrincipalController {
         tipotarea.setCellValueFactory(new PropertyValueFactory<>("tipoTarea"));
         prioridadtarea.setCellValueFactory(new PropertyValueFactory<>("prioridadTarea"));
 
+        String nickName = a.getNickName();
+        nombreUsuario.setText(a.getNickName());
+
+        Usuario idUser = data.getUsuario();
+        Integer iduser = Integer.valueOf(idUser.getIdUsuario());
+        notasCreadas.setText(NotaModel.ContadorNota(iduser));
+        tareasCreadas.setText(TareaModel.ContadorTarea(iduser));
 
         mostrarNotasUsuario();
         mostrarTareasUsuario();
+
+        filtrarTipo.getItems().add("");
+        filtrarTipo.getItems().add("Trabajo");
+        filtrarTipo.getItems().add("Ocio");
+        filtrarTipo.getItems().add("Familia");
+
+        filtrarPrioridad.getItems().add("");
+        filtrarPrioridad.getItems().add("Alta");
+        filtrarPrioridad.getItems().add("Media");
+        filtrarPrioridad.getItems().add("Baja");
+
+
+
+
+
 
     }
 
@@ -224,6 +248,12 @@ public class InterfazPrincipalController {
             stage.setScene(scene);
             stage.show();
 
+            mostrarTareasUsuario();
+
+           stage.setOnHiding(event-> {
+               mostrarTareasUsuario();
+           });
+
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -259,17 +289,19 @@ public class InterfazPrincipalController {
 
     @javafx.fxml.FXML
     public void onBontonBorrarTarea(ActionEvent actionEvent) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText(null);
-        alert.setTitle("Advertencia");
-        alert.setContentText("Seguro quieres borrar la Tarea?");
-        alert.showAndWait();
+        TareaModel tm = new TareaModel();
+        TextInputDialog dialogoTexto = new TextInputDialog("numero de la Tarea");
+        dialogoTexto.setTitle("Borrar Tarea");
+        dialogoTexto.setHeaderText("Introduzca el numero de tarea para borrarla");
+        dialogoTexto.setContentText("numero de Tarea");
+        dialogoTexto.showAndWait();
 
-        ButtonType resultado = alert.getResult();
+        int idTarea= Integer.parseInt(dialogoTexto.getResult());
 
-        if (alert.getResult() == ButtonType.OK) {
-            t.EliminarTarea(nuevaTarea);
-        }
+        tm.EliminarTarea(idTarea);
+
+            mostrarTareasUsuario();
+
 
     }
 
@@ -285,12 +317,14 @@ public class InterfazPrincipalController {
         String nombre = NombreNota.getText();
         String desc = DescNota.getText();
 
+
         Nota n1 = new Nota(idUser, nombre, desc);
         NotaModel.InsertarNota(n1);
 
-        contador++;
 
-        notasCreadas.setText(String.valueOf(contador));
+        Integer iduser = Integer.valueOf(idUser.getIdUsuario());
+
+        notasCreadas.setText(NotaModel.ContadorNota(iduser));
 
         mostrarNotasUsuario();
     }
@@ -339,7 +373,7 @@ public class InterfazPrincipalController {
     }
 
     @FXML
-    public void mostrarTareasUsuario() {
+    public void  mostrarTareasUsuario() {
         // Obtén las tareas del usuario desde el modelo de tareas
         ArrayList<Tarea> tareasUsuario = TareaModel.mostrarTareasUsuario(a.getIdUsuario());
         // Limpia la lista actual de tareas
@@ -349,10 +383,57 @@ public class InterfazPrincipalController {
          // Obtén el usuario actual de alguna manera
     }
 
+
+
     public void onFiltrarPor(ActionEvent actionEvent) {
+
+    }
+    @FXML
+    public void onBotonAlonsista(ActionEvent actionEvent) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setHeaderText("Allendy Corp");
+        a.setContentText("Allendy es una aplicación de escritorio enfocada en las redes sociales, en la que puedes crear agendas y dentro de ellas poner tareas, objetivos e incluso organizar eventos como una boda. Esta aplicación te permite hacer una agenda más enfocada al trabajo y otra más personal. Podrás compartir, editar y borrar tareas, así como ver los objetivos de los demás usuarios que tengan el perfil en público.");
+        a.show();
     }
 
-    public void onBotonAlonsista(ActionEvent actionEvent) {
+
+    @FXML
+    public void onFiltrarTipo(ActionEvent actionEvent) {
+        String TipoFiltrado= (String) filtrarTipo.getValue();
+
+        TareaModel tm=new TareaModel();
+        ArrayList <Tarea> tareasFiltrado=tm.filtradoTareasTipo(TipoFiltrado);
+        // Limpia la lista actual de tareas
+        tareas.clear();
+        // Agrega las tareas del usuario a la lista
+        tareas.addAll(tareasFiltrado);
+        // Obtén el usuario actual de alguna manera
+
+
+    }
+
+    @FXML
+    public void onFiltrarPrioridad(ActionEvent actionEvent) {
+        String PrioridadFiltrado= (String) filtrarPrioridad.getValue();
+        TareaModel tm=new TareaModel();
+        ArrayList <Tarea> tareasFiltradasTipo=tm.filtradoTareasPrioridad(PrioridadFiltrado);
+
+
+        // Limpia la lista actual de tareas
+        tareas.clear();
+        // Agrega las tareas del usuario a la lista
+        tareas.addAll(tareasFiltradasTipo);
+        // Obtén el usuario actual de alguna manera
+    }
+
+    @FXML
+    public void OnbotonRestaurar(ActionEvent actionEvent) {
+
+        mostrarTareasUsuario();
+
+        filtrarTipo.setValue("");
+        filtrarPrioridad.setValue("");
+
     }
 }
 

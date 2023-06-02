@@ -34,7 +34,7 @@ public class TareaModel {
 
         try {
 //Aqui falta poner los datos que hemos llamado antes
-            String insertSql = "INSERT INTO allendy.tarea ( id_agendaTarea, id_usuarioTarea,fecha_tarea,fecha_fin,descripcion,tipo,asistentes,prioridad ) VALUES (?,?,?,?,?,?,?,?)";
+            String insertSql = "INSERT INTO allendy.tarea (id_agendaTarea, id_usuarioTarea,fecha_tarea,fecha_fin,descripcion,tipo,asistentes,prioridad ) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(insertSql);
 
             //cambiar campos a los de la tabla
@@ -60,14 +60,14 @@ public class TareaModel {
     }
 
 
-    public static void EliminarTarea(Tarea t1) {
-        Integer idTarea = t1.getIdTarea();
+    public static void EliminarTarea(int idTarea) {
+
         DBUtil db = new DBUtil();
         Connection con = null;
         PreparedStatement stmt = null;
         try {
             con = db.getConexion();
-            stmt = con.prepareStatement("DELETE FROM allendy.notas where Id_tarea = ?");
+            stmt = con.prepareStatement("DELETE FROM allendy.tarea where id_tarea = ?");
             stmt.setInt(1, idTarea);
             stmt.execute();
         } catch (SQLException e) {
@@ -108,21 +108,20 @@ public class TareaModel {
         String descripcion = t1.getDescripcionTarea();
         String Tipo = t1.getTipoTarea();
         String Prioridad = t1.getPrioridadTarea();
-
+        int nTarea = t1.getIdTarea();
 
         try {
 //Aqui falta poner los datos que hemos llamado antes
-            String insertSql = "Update Table allendy.tarea (id_tarea, id_agendaTarea, id_usuarioTarea,fecha_tarea,fecha_fin,descripcion,tipo,check,asistentes ) VALUES (?,?,?,?,?,?,?,?)";
+            String insertSql = "Update allendy.tarea set fecha_tarea =?,fecha_fin = ?,descripcion=?,tipo=?,asistentes=?,prioridad=?  where id_tarea = ?; ";
             PreparedStatement stmt = con.prepareStatement(insertSql);
 
-
-            stmt.setInt(2, id_Agenda);
-            stmt.setInt(3, id_usuario);
-            stmt.setString(4, String.valueOf(Fecha_Tarea));
-            stmt.setString(5, String.valueOf(fecha_Fin));
-            stmt.setString(6, descripcion);
-            stmt.setString(7, Tipo);
-            stmt.setString(9, Prioridad);
+            stmt.setString(1, String.valueOf(Fecha_Tarea));
+            stmt.setString(2, String.valueOf(fecha_Fin));
+            stmt.setString(3, descripcion);
+            stmt.setString(4, Tipo);
+            stmt.setString(5, Tipo);
+            stmt.setString(6, Prioridad);
+            stmt.setInt(7, nTarea);
 
 
             stmt.execute();
@@ -266,7 +265,7 @@ public class TareaModel {
         Connection con = db.getConexion();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM allendy.tarea WHERE tipo = ?");
+            stmt = con.prepareStatement("SELECT * FROM allendy.tarea WHERE prioridad = ?");
             stmt.setString(1, prioridad);
             rs = stmt.executeQuery();
 
@@ -291,6 +290,32 @@ public class TareaModel {
 
         }
         return tareasUsuariofiltradas;
+    }
+
+
+    @javafx.fxml.FXML
+    public static String ContadorTarea(Integer idUsuario) {
+
+        DBUtil db = new DBUtil();
+
+
+        Integer idUser = idUsuario;
+        String t = "";
+
+        try (Connection con = db.getConexion()) {
+            String insertSql = "select count(*) from allendy.tarea where id_usuarioTarea = ?";
+            PreparedStatement stmt = con.prepareStatement(insertSql);
+            stmt.setInt(1, idUser);
+
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                t = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return t;
+
     }
 
 

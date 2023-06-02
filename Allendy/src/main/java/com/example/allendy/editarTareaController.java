@@ -25,26 +25,28 @@ public class editarTareaController {
     @javafx.fxml.FXML
     private RadioButton prioridadAlta;
     @javafx.fxml.FXML
-    private ToggleGroup editarPrioridad;
-    @javafx.fxml.FXML
     private RadioButton prioridadMedia;
     @javafx.fxml.FXML
     private RadioButton prioridadBaja;
     @javafx.fxml.FXML
     private RadioButton checkTrabajoPop;
     @javafx.fxml.FXML
-    private ToggleGroup Tipo;
-    @javafx.fxml.FXML
     private RadioButton checkOcioPop;
     @javafx.fxml.FXML
     private RadioButton CheckFamiliaPop;
+    @javafx.fxml.FXML
+    private ToggleGroup TipoTarea;
+    @javafx.fxml.FXML
+    private ToggleGroup prioridad;
+    @javafx.fxml.FXML
+    private TextField idNtarea;
 
 
     @javafx.fxml.FXML
     public void onBotonEditarTareaPop(ActionEvent actionEvent) {
 
 
-        TareaModel t=new TareaModel();
+        TareaModel tm=new TareaModel();
         dataSingelton data = dataSingelton.getInstance();
         AgendaModel am=new AgendaModel();
 
@@ -54,11 +56,12 @@ public class editarTareaController {
 
         Usuario a = data.getUsuario();
         Agenda agenda = am.RecuperarAgenda(a.getIdUsuario());
-        Tarea nuevaTarea=t.RecuperarTarea(a.getIdUsuario());
+        Tarea nuevaTarea=tm.RecuperarTarea(a.getIdUsuario());
 
         LocalDate FechaInicio=editarFechaTarea.getValue();
         LocalDate FechaFinal=editarFechaFinTarea.getValue();
         String Descripcion=editarNombreTarea.getText();
+        String ntarea = idNtarea.getText();
 
         String TipoTarea;
         String Prioridad;
@@ -90,7 +93,8 @@ public class editarTareaController {
         nuevaTarea.setPrioridadTarea(Prioridad);
         nuevaTarea.setTipoTarea(TipoTarea);
         nuevaTarea.setDescripcionTarea(Descripcion);
-        t.ModificarTarea(nuevaTarea);
+        nuevaTarea.setIdTarea(Integer.valueOf(ntarea));
+        tm.ModificarTarea(nuevaTarea);
 
         Stage myStage = (Stage) this.botonEditarTarea.getScene().getWindow();
         myStage.close();
