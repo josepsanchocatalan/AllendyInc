@@ -458,7 +458,7 @@ public class InterfazPrincipalController {
             stage.show();
 
             stage.setOnHiding(event-> {
-                mostrarTareasUsuario();
+                mostrarNotasUsuario();
             });
 
         } catch (IOException ex) {

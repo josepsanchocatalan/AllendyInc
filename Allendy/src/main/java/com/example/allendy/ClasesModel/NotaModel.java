@@ -67,7 +67,7 @@ public class NotaModel {
         String descripcion = n1.getDescripcion();
 
         try {
-            String insertSql = "UPDATE allendy.notas SET Nombre = ?, Descripcion = ? where Id=?";
+            String insertSql = "UPDATE allendy.notas SET Nombre = ?, Descripcion = ? where IdNota = ?";
             PreparedStatement stmt = con.prepareStatement(insertSql);
             stmt.setInt(3, idNota);
             stmt.setString(1, nombre);
