@@ -28,10 +28,12 @@ public class editarNotaController {
         dataSingelton data = dataSingelton.getInstance();
         Usuario a = data.getUsuario();
         Nota nuevaNota = nm.RecuperarNota(a.getIdUsuario());
+        String nNota = idNota.getText();
         String nombre = editarNombreNota.getText();
         String descripcion = nuevaDescripcion.getText();
         nuevaNota.setNombre(nombre);
         nuevaNota.setDescripcion(descripcion);
+        nuevaNota.setIdNota(Integer.valueOf(nNota));
         nm.ModificarNota(nuevaNota);
         Stage myStage = (Stage) this.botonEditarNota.getScene().getWindow();
         myStage.close();

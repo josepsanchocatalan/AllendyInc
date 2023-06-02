@@ -8,6 +8,12 @@ public class Nota {
 
     private String Descripcion;
 
+    public Nota(Integer idNota ,String nuevoNombre, String nuevaDesc) {
+        this.Nombre = nuevoNombre;
+        this.Descripcion = nuevaDesc;
+        this.IdNota = idNota;
+    }
+
     public Nota(String nuevoNombre, String nuevaDesc) {
         this.Nombre = nuevoNombre;
         this.Descripcion = nuevaDesc;
