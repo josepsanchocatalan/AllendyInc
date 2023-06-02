@@ -53,6 +53,7 @@
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
+            <Button fx:id="asd" layoutX="253.0" layoutY="78.0" mnemonicParsing="false" onAction="#onASDbutton" text="Button" />
          </children>
       </Pane>
       <Pane layoutX="424.0" layoutY="344.0" prefHeight="289.0" prefWidth="215.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">

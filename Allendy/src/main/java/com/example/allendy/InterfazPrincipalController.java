@@ -127,6 +127,9 @@ public class InterfazPrincipalController {
     @FXML
     private Button botonRestaurar;
 
+    @FXML
+    private Button asd;
+
 
     //funciones
 
@@ -281,6 +284,9 @@ public class InterfazPrincipalController {
 
             stage.setScene(scene);
             stage.show();
+            stage.setOnHiding(event-> {
+                mostrarTareasUsuario();
+            });
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -434,6 +440,30 @@ public class InterfazPrincipalController {
         filtrarTipo.setValue("");
         filtrarPrioridad.setValue("");
 
+    }
+
+    @FXML
+    public void onASDbutton(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editarNota.fxml"));
+
+            Parent root = loader.load();
+
+            editarNotaController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.show();
+
+            stage.setOnHiding(event-> {
+                mostrarTareasUsuario();
+            });
+
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
 

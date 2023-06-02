@@ -32,6 +32,7 @@ public class editarNotaController {
         String descripcion = nuevaDescripcion.getText();
         nuevaNota.setNombre(nombre);
         nuevaNota.setDescripcion(descripcion);
+        nm.ModificarNota(nuevaNota);
         Stage myStage = (Stage) this.botonEditarNota.getScene().getWindow();
         myStage.close();
     }

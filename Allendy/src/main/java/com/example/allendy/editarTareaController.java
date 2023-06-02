@@ -51,9 +51,6 @@ public class editarTareaController {
         AgendaModel am=new AgendaModel();
 
 
-
-
-
         Usuario a = data.getUsuario();
         Agenda agenda = am.RecuperarAgenda(a.getIdUsuario());
         Tarea nuevaTarea=tm.RecuperarTarea(a.getIdUsuario());

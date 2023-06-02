@@ -156,19 +156,6 @@ public class NotaModel {
                 nota = new Nota(nuevoNombre, nuevaDesc);
             }
 
-            /*
-            if (rowsAffected == 1) {
-                a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
-            }
-           if (rs.next()) {
-                int rowsAffected = rs.getInt(1);
-
-                if (rowsAffected == 1) {
-                    a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
-                }else {
-                    a=null;
-                }
-            }*/
 
         } catch (SQLException e) {
             e.printStackTrace();
