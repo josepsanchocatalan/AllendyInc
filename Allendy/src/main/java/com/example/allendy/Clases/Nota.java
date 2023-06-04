@@ -148,41 +148,6 @@ public class Nota {
         Nombre = nombre;
     }
 
-    /**
-     * Crea una nueva nota.
-     * @return true si la nota se crea exitosamente, false de lo contrario.
-     */
-    private boolean CrearNota(){
-        boolean verificacion = false;
-        return verificacion;
-    }
-
-    /**
-     * Borra la nota actual.
-     * @return true si la nota se borra exitosamente, false de lo contrario.
-     */
-    private boolean BorrarNota(){
-        boolean verificacion = false;
-        return verificacion;
-    }
-
-    /**
-     * Edita la nota actual.
-     * @return true si la nota se edita exitosamente, false de lo contrario.
-     */
-    private boolean EditarNota(){
-        boolean verificacion = false;
-        return verificacion;
-    }
-
-    /**
-     * Comparte la nota actual.
-     * @return true si la nota se comparte exitosamente, false de lo contrario.
-     */
-    private boolean CompartirNota(){
-        boolean verificacion = false;
-        return verificacion;
-    }
 
     /**
      * Verifica si dos objetos Nota son iguales.

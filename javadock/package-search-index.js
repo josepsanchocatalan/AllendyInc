@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.example.allendy","l":"com.example.allendy"},{"m":"com.example.allendy","l":"com.example.allendy.Clases"},{"m":"com.example.allendy","l":"com.example.allendy.ClasesModel"}];updateSearchResults();
