@@ -15,70 +15,70 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="1484.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.InterfazPrincipalController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1484.0" style="-fx-background-color: #597EBE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.allendy.InterfazPrincipalController">
    <children>
       <Pane layoutX="14.0" layoutY="22.0" prefHeight="289.0" prefWidth="394.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
          <children>
             <DatePicker fx:id="Calendario" layoutX="68.0" layoutY="26.0" onAction="#datepickerFuncion" prefHeight="25.0" prefWidth="258.0" promptText="Selecciona una fecha" showWeekNumbers="true" style="-fx-background-radius: 3; -fx-border-radius: 2; -fx-border-color: gray; -fx-background-color: #4FD4E1;" />
          </children>
       </Pane>
-      <Pane layoutX="14.0" layoutY="344.0" prefHeight="289.0" prefWidth="394.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
+      <Pane layoutX="14.0" layoutY="344.0" prefHeight="356.0" prefWidth="394.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
          <children>
             <TextField fx:id="NombreNota" layoutX="23.0" layoutY="43.0" promptText="Nombre de nota" style="-fx-border-color: gray; -fx-border-radius: 5;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-            <Button fx:id="BotonGuardarNota" layoutX="178.0" layoutY="42.0" mnemonicParsing="false" onAction="#onBotonGuardraNota" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #ABC4EF; -fx-border-color: gray;" text="Guardar Nota">
+            <Button fx:id="BotonGuardarNota" layoutX="180.0" layoutY="42.0" mnemonicParsing="false" onAction="#onBotonGuardraNota" prefHeight="27.0" prefWidth="88.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #ABC4EF; -fx-border-color: gray;" text="Guardar Nota">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="botonBorrar" layoutX="275.0" layoutY="42.0" mnemonicParsing="false" onAction="#onButtonBorrarNota" prefHeight="25.0" prefWidth="88.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #ABC4EF; -fx-border-color: gray;" text="Borrar Nota">
+            <Button fx:id="botonBorrar" layoutX="179.0" layoutY="76.0" mnemonicParsing="false" onAction="#onButtonBorrarNota" prefHeight="25.0" prefWidth="88.0" style="-fx-border-radius: 10; -fx-background-radius: 10; -fx-background-color: #ABC4EF; -fx-border-color: gray;" text="Borrar Nota">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Label layoutX="24.0" layoutY="20.0" text="Nota" />
-            <Label layoutX="22.0" layoutY="82.0" text="Descripción" />
-            <TextArea fx:id="DescNota" layoutX="22.0" layoutY="109.0" prefHeight="39.0" prefWidth="339.0" promptText="Introduce la descripción de la nota" style="-fx-border-color: gray; -fx-border-radius: 5;">
+            <Label layoutX="22.0" layoutY="103.0" text="Descripción" />
+            <TextArea fx:id="DescNota" layoutX="22.0" layoutY="130.0" prefHeight="58.0" prefWidth="339.0" promptText="Introduce la descripción de la nota" style="-fx-border-color: gray; -fx-border-radius: 5;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextArea>
-            <TableView fx:id="tablaNotas" layoutX="24.0" layoutY="157.0" prefHeight="124.0" prefWidth="339.0" style="-fx-border-color: #808080; -fx-border-radius: 5; -fx-background-radius: 5;">
+            <TableView fx:id="tablaNotas" layoutX="22.0" layoutY="200.0" prefHeight="133.0" prefWidth="339.0" style="-fx-border-color: #808080; -fx-border-radius: 5; -fx-background-radius: 5;">
                <columns>
                   <TableColumn fx:id="idnota" prefWidth="75.0" style="-fx-background-color: CFCFCF;" text="Id Nota" />
                   <TableColumn fx:id="nombreNota" prefWidth="62.0" style="-fx-background-color: CFCFCF;" text="Notas" />
                   <TableColumn fx:id="descripcionNota" prefWidth="199.0" style="-fx-background-color: CFCFCF;" text="Descripción" />
                </columns>
             </TableView>
-            <TextField fx:id="idborrarnota" layoutX="279.0" layoutY="7.0" prefHeight="27.0" prefWidth="80.0">
+            <TextField fx:id="idborrarnota" layoutX="275.0" layoutY="76.0" prefHeight="27.0" prefWidth="88.0" promptText="Id nota" style="-fx-border-color: gray; -fx-border-radius: 5;">
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-            <Button fx:id="asd" layoutX="253.0" layoutY="78.0" mnemonicParsing="false" onAction="#onASDbutton" text="Button" />
+            <Button fx:id="asd" layoutX="275.0" layoutY="42.0" mnemonicParsing="false" onAction="#onASDbutton" prefHeight="27.0" prefWidth="88.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #ABC4EF; -fx-border-color: gray;" text="Editar nota" />
          </children>
       </Pane>
-      <Pane layoutX="424.0" layoutY="344.0" prefHeight="289.0" prefWidth="215.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
+      <Pane layoutX="424.0" layoutY="344.0" prefHeight="356.0" prefWidth="215.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
          <children>
-            <Button fx:id="BotonNuevaTarea" layoutX="52.0" layoutY="24.0" mnemonicParsing="false" onAction="#onBotonNuevaTarea" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Nueva Tarea" textFill="#2b2b2b">
+            <Button fx:id="BotonNuevaTarea" layoutX="53.0" layoutY="62.0" mnemonicParsing="false" onAction="#onBotonNuevaTarea" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Nueva Tarea" textFill="#2b2b2b">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="BotonCrearAgenda" layoutX="51.0" layoutY="67.0" mnemonicParsing="false" onAction="#OnBotonCrearAgenda" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Nueva Agenda" textFill="#2b2b2b">
+            <Button fx:id="BotonCrearAgenda" layoutX="53.0" layoutY="101.0" mnemonicParsing="false" onAction="#OnBotonCrearAgenda" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Nueva Agenda" textFill="#2b2b2b">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="botonEditarTarea" layoutX="51.0" layoutY="112.0" mnemonicParsing="false" onAction="#onBotonEditarTarea" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Editar Tarea" textFill="#2b2b2b">
+            <Button fx:id="botonEditarTarea" layoutX="53.0" layoutY="142.0" mnemonicParsing="false" onAction="#onBotonEditarTarea" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Editar Tarea" textFill="#2b2b2b">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="BotonEditarAgenda" layoutX="53.0" layoutY="156.0" mnemonicParsing="false" onAction="#onBotonEditarAgenda" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Editar Agenda" textFill="#2b2b2b">
+            <Button fx:id="BotonEditarAgenda" layoutX="53.0" layoutY="185.0" mnemonicParsing="false" onAction="#onBotonEditarAgenda" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Editar Agenda" textFill="#2b2b2b">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="BotonBorrarTarea" layoutX="53.0" layoutY="200.0" mnemonicParsing="false" onAction="#onBontonBorrarTarea" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;" text="Borrar Tarea" textFill="#2b2b2b">
+            <Button fx:id="BotonBorrarTarea" layoutX="53.0" layoutY="229.0" mnemonicParsing="false" onAction="#onBontonBorrarTarea" prefHeight="27.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-border-radius: 10; -fx-background-radius: 10;" text="Borrar Tarea" textFill="#2b2b2b">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="BotonBorrarAgenda" layoutX="53.0" layoutY="242.0" mnemonicParsing="false" onAction="#onBorrarAgenda" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Borrar Agenda" textFill="#2b2b2b">
+            <Button fx:id="BotonBorrarAgenda" layoutX="54.0" layoutY="268.0" mnemonicParsing="false" onAction="#onBorrarAgenda" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #ABC4EF; -fx-border-color: gray; -fx-background-radius: 10; -fx-border-radius: 10;" text="Borrar Agenda" textFill="#2b2b2b">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -86,29 +86,29 @@
       </Pane>
       <Pane layoutX="424.0" layoutY="22.0" prefHeight="289.0" prefWidth="215.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
          <children>
-            <ComboBox fx:id="filtrarTipo" layoutX="33.0" layoutY="72.0" onAction="#onFiltrarTipo" prefWidth="150.0" promptText="Seleccione el tipo de Tarea" style="-fx-border-color: gray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #4FD4E1;">
+            <ComboBox fx:id="filtrarTipo" layoutX="33.0" layoutY="66.0" onAction="#onFiltrarTipo" prefWidth="150.0" promptText="Seleccione el tipo de Tarea" style="-fx-border-color: gray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #4FD4E1;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <Label layoutX="33.0" layoutY="45.0" text="Tipo de Tarea" />
-            <Label layoutX="33.0" layoutY="151.0" text="Prioridad" />
-            <ComboBox fx:id="filtrarPrioridad" layoutX="32.0" layoutY="176.0" onAction="#onFiltrarPrioridad" prefWidth="150.0" promptText="Seleccione la Prioridad" style="-fx-border-color: gray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #4FD4E1;">
+            <Label layoutX="33.0" layoutY="39.0" text="Tipo de Tarea" />
+            <Label layoutX="34.0" layoutY="119.0" text="Prioridad" />
+            <ComboBox fx:id="filtrarPrioridad" layoutX="33.0" layoutY="144.0" onAction="#onFiltrarPrioridad" prefWidth="150.0" promptText="Seleccione la Prioridad" style="-fx-border-color: gray; -fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: #4FD4E1;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="81.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="48.0" fitWidth="55.0" layoutX="81.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../imagenes/189269.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonRestaurar" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="81.0" layoutY="227.0" mnemonicParsing="false" onAction="#OnbotonRestaurar" opacity="0.0" prefHeight="48.0" prefWidth="48.0" style="-fx-background-radius: 40;">
+            <Button fx:id="botonRestaurar" contentDisplay="TEXT_ONLY" graphicTextGap="0.0" layoutX="81.0" layoutY="211.0" mnemonicParsing="false" onAction="#OnbotonRestaurar" opacity="0.0" prefHeight="48.0" prefWidth="48.0" style="-fx-background-radius: 40;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
          </children>
       </Pane>
-      <TableView fx:id="TablaTareas" layoutX="659.0" layoutY="22.0" prefHeight="610.0" prefWidth="510.0" style="-fx-background-color: #FAFCFF; -fx-border-color: #A6B5B6; -fx-border-radius: 5; -fx-background-radius: 5;">
+      <TableView fx:id="TablaTareas" layoutX="659.0" layoutY="22.0" prefHeight="677.0" prefWidth="510.0" style="-fx-background-color: #FAFCFF; -fx-border-color: #A6B5B6; -fx-border-radius: 5; -fx-background-radius: 5;">
          <columns>
             <TableColumn fx:id="idtarea" prefWidth="75.0" style="-fx-background-color: CFCFCF;" text="Tarea" />
             <TableColumn fx:id="descTarea" prefWidth="112.0" style="-fx-background-color: CFCFCF;" text="descripción" />
@@ -118,26 +118,21 @@
             <TableColumn fx:id="prioridadtarea" minWidth="3.0" prefWidth="118.0" style="-fx-background-color: CFCFCF;" text="Prioridad" />
          </columns>
       </TableView>
-      <Pane layoutX="1186.0" layoutY="22.0" prefHeight="416.0" prefWidth="281.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
+      <Pane layoutX="1184.0" layoutY="237.0" prefHeight="201.0" prefWidth="281.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
          <children>
-            <Pane layoutX="58.0" layoutY="132.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">
+            <Pane layoutX="59.0" layoutY="121.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">
                <children>
                   <Text layoutX="25.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notas creadas:" />
                   <Text fx:id="notasCreadas" layoutX="133.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </Pane>
-            <Text fx:id="nombreUsuario" layoutX="58.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombreUsuario">
-               <font>
-                  <Font name="Arial" size="24.0" />
-               </font>
-            </Text>
-            <Pane layoutX="58.0" layoutY="64.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">
+            <Pane layoutX="59.0" layoutY="53.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">
                <children>
                   <Text layoutX="13.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agendas creadas:" />
                   <Text fx:id="agendasCreadas" layoutX="133.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                </children>
             </Pane>
-            <Pane layoutX="58.0" layoutY="99.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">
+            <Pane layoutX="59.0" layoutY="88.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">
                <children>
                   <Text layoutX="25.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tareas creadas:" />
                   <Text fx:id="tareasCreadas" layoutX="133.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
@@ -145,17 +140,31 @@
             </Pane>
          </children>
       </Pane>
-      <Pane layoutX="1192.0" layoutY="455.0" prefHeight="177.0" prefWidth="273.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
+      <Pane layoutX="1184.0" layoutY="455.0" prefHeight="242.0" prefWidth="281.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
          <children>
-            <ImageView fitHeight="114.0" fitWidth="122.0" layoutX="81.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="181.0" fitWidth="174.0" layoutX="50.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../imagenes/logoAllendy.png" />
                </image>
             </ImageView>
-            <Button fx:id="botonAlonsista" layoutX="12.0" layoutY="13.0" mnemonicParsing="false" onAction="#onBotonAlonsista" opacity="0.0" prefHeight="155.0" prefWidth="251.0" style="-fx-background-radius: 200; -fx-background-color: #FAFCFF;">
+            <Button fx:id="botonAlonsista" layoutX="11.0" layoutY="12.0" mnemonicParsing="false" onAction="#onBotonAlonsista" opacity="0.0" prefHeight="219.0" prefWidth="251.0" style="-fx-background-radius: 200; -fx-background-color: #FAFCFF; -fx-background-radius: 10;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+         </children>
+      </Pane>
+      <Pane layoutX="1184.0" layoutY="22.0" prefHeight="201.0" prefWidth="281.0" style="-fx-background-color: #FAFCFF; -fx-background-radius: 9; -fx-border-radius: 7; -fx-border-color: #A6B5B6;">
+         <children>
+            <Text fx:id="nombreUsuario" layoutX="58.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nombreUsuario" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="59.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¡Bienvenido!" textAlignment="CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

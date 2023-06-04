@@ -397,8 +397,10 @@ public class InterfazPrincipalController {
     @FXML
     public void onBotonAlonsista(ActionEvent actionEvent) {
         Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setHeaderText("Allendy Corp");
-        a.setContentText("Allendy es una aplicación de escritorio enfocada en las redes sociales, en la que puedes crear agendas y dentro de ellas poner tareas, objetivos e incluso organizar eventos como una boda. Esta aplicación te permite hacer una agenda más enfocada al trabajo y otra más personal. Podrás compartir, editar y borrar tareas, así como ver los objetivos de los demás usuarios que tengan el perfil en público.");
+        a.setHeaderText("Allendy Incorporation");
+        a.setTitle("Sobre Allendy");
+        a.setContentText("Versión actual: v1.1 \n \n" + "Allendy es una sofisticada aplicación de escritorio que permite a los usuarios crear tareas, hacer un seguimiento exhaustivo de ellas y organizar su tiempo de manera eficiente. Con su interfaz intuitiva y funcionalidades avanzadas, Allendy se convierte en un asistente confiable para optimizar la productividad personal. \n \n" +
+                "Esta herramienta es imprescindible para aquellos que valoran la eficiencia y el orden en su vida profesional y personal, ayudándoles a administrar su tiempo de manera efectiva y lograr una organización impecable.");
         a.show();
     }
 

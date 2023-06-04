@@ -89,7 +89,7 @@ public class crearTareraPopController {
         String Descripcion = nombreTarea.getText();
         String asistente = "";
 
-        if (FechaInicio.isEqual(null)&& FechaFinal.isEqual(null) && Descripcion == ""){
+        if (FechaInicio == null && FechaFinal == null && Descripcion.isEmpty()){
             Alert aviso = new Alert(Alert.AlertType.WARNING);
             aviso.setHeaderText("Tienes que poner datos para introducir una tarea");
             aviso.show();
