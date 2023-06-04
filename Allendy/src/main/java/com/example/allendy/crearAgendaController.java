@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
+/**
+ * Controlador para la creación de una nueva agenda.
+ */
 public class crearAgendaController {
     @javafx.fxml.FXML
     private Button botonCrearAgenda;
@@ -19,13 +22,16 @@ public class crearAgendaController {
     @javafx.fxml.FXML
     private Button botonCancelarCAgenda;
 
-
     dataSingelton data = dataSingelton.getInstance();
 
     Usuario a = data.getUsuario();
-    ArrayList<Tarea> ListaTareas=new ArrayList<Tarea>();
+    ArrayList<Tarea> ListaTareas = new ArrayList<Tarea>();
 
-
+    /**
+     * Maneja el evento del botón "Crear Agenda".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonCrearAgendaPop(ActionEvent actionEvent) {
 
@@ -38,12 +44,15 @@ public class crearAgendaController {
         Agenda NuevaAgenda = new Agenda(a.getIdUsuario(), NombreAgenda);
         b.InsertarAgenda(NuevaAgenda);
 
-
         Stage myStage = (Stage) this.botonCrearAgenda.getScene().getWindow();
         myStage.close();
-
     }
 
+    /**
+     * Maneja el evento del botón "Cancelar Agenda".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonCancelarAgendaPop(ActionEvent actionEvent) {
         Stage myStage = (Stage) this.botonCancelarCAgenda.getScene().getWindow();

@@ -1,3 +1,7 @@
+/**
+ * Esta clase representa el modelo de Tarea en el sistema.
+ * Proporciona métodos para insertar, eliminar, modificar y recuperar tareas de la base de datos.
+ */
 package com.example.allendy.ClasesModel;
 
 import com.example.allendy.Clases.Agenda;
@@ -9,11 +13,16 @@ import com.example.allendy.dataSingelton;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;import com.example.allendy.Clases.Nota;
 
 public class TareaModel {
 
+    /**
+     * Inserta una nueva tarea en la base de datos.
+     *
+     * @param t1 La tarea a insertar.
+     */
     public static void InsertarTarea(Tarea t1) {
+        // Obtener instancias de las clases necesarias
         dataSingelton data = dataSingelton.getInstance();
         AgendaModel am = new AgendaModel();
         DBUtil db = new DBUtil();
@@ -21,7 +30,7 @@ public class TareaModel {
         Usuario a = data.getUsuario();
         Agenda Agenda = am.RecuperarAgenda(a.getIdUsuario());
 
-// llamar para recuperar datos
+        // Obtener los datos de la tarea
         int id_Agenda = Agenda.getIdAgenda();
         int id_usuario = a.getIdUsuario();
         LocalDate Fecha_Tarea = t1.getFechaTarea();
@@ -31,13 +40,9 @@ public class TareaModel {
         String Prioridad = t1.getPrioridadTarea();
         String asistentes = t1.getAsistentes();
 
-
         try {
-//Aqui falta poner los datos que hemos llamado antes
             String insertSql = "INSERT INTO allendy.tarea (id_agendaTarea, id_usuarioTarea,fecha_tarea,fecha_fin,descripcion,tipo,asistentes,prioridad ) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement stmt = con.prepareStatement(insertSql);
-
-            //cambiar campos a los de la tabla
 
             stmt.setInt(1, id_Agenda);
             stmt.setInt(2, id_usuario);
@@ -48,20 +53,19 @@ public class TareaModel {
             stmt.setString(7, asistentes);
             stmt.setString(8, Prioridad);
 
-
-//Aqui tambien
-
             stmt.execute();
             stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
     }
 
-
+    /**
+     * Elimina una tarea de la base de datos.
+     *
+     * @param idTarea El ID de la tarea a eliminar.
+     */
     public static void EliminarTarea(int idTarea) {
-
         DBUtil db = new DBUtil();
         Connection con = null;
         PreparedStatement stmt = null;
@@ -91,7 +95,11 @@ public class TareaModel {
         }
     }
 
-
+    /**
+     * Modifica una tarea en la base de datos.
+     *
+     * @param t1 La tarea modificada.
+     */
     public static void ModificarTarea(Tarea t1) {
         dataSingelton data = dataSingelton.getInstance();
         AgendaModel am = new AgendaModel();
@@ -100,7 +108,6 @@ public class TareaModel {
         Usuario a = data.getUsuario();
         Agenda Agenda = am.RecuperarAgenda(a.getIdUsuario());
 
-// llamar para recuperar datos
         int id_Agenda = Agenda.getIdAgenda();
         int id_usuario = a.getIdUsuario();
         LocalDate Fecha_Tarea = t1.getFechaTarea();
@@ -111,7 +118,6 @@ public class TareaModel {
         int nTarea = t1.getIdTarea();
 
         try {
-//Aqui falta poner los datos que hemos llamado antes
             String insertSql = "Update allendy.tarea set fecha_tarea =?,fecha_fin = ?,descripcion=?,tipo=?,asistentes=?,prioridad=?  where id_tarea = ?; ";
             PreparedStatement stmt = con.prepareStatement(insertSql);
 
@@ -123,33 +129,30 @@ public class TareaModel {
             stmt.setString(6, Prioridad);
             stmt.setInt(7, nTarea);
 
-
             stmt.execute();
             stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
     }
 
+    /**
+     * Recupera una tarea de la base de datos.
+     *
+     * @param idUsuario El ID del usuario para el que se desea recuperar la tarea.
+     * @return La tarea recuperada.
+     */
     public Tarea RecuperarTarea(int idUsuario) {
-
         Tarea tarea = new Tarea();
-
         DBUtil db = new DBUtil();
-
-
         int id_usuario = idUsuario;
-
 
         try (Connection con = db.getConexion()) {
             String insertSql = "select * from allendy.tarea where id_usuarioTarea= ? ;";
             PreparedStatement stmt = con.prepareStatement(insertSql);
             stmt.setString(1, String.valueOf(idUsuario));
 
-
             ResultSet rs = stmt.executeQuery();
-
 
             while (rs.next()) {
                 String descripcionTarea = rs.getString("descripcion");
@@ -160,24 +163,8 @@ public class TareaModel {
                 String Asistentes = rs.getString("asistentes");
                 String prioridad = rs.getString("prioridad");
 
-
                 tarea = new Tarea(descripcionTarea, idtarea, fechaInicio, fechafin, Tipo, Asistentes, prioridad);
             }
-
-            /*
-            if (rowsAffected == 1) {
-                a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
-            }
-           if (rs.next()) {
-                int rowsAffected = rs.getInt(1);
-
-                if (rowsAffected == 1) {
-                    a = new Usuario(id_usuario,nombre,nickname,password,email,rol);
-                }else {
-                    a=null;
-                }
-            }*/
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -185,10 +172,14 @@ public class TareaModel {
         return tarea;
     }
 
-
+    /**
+     * Recupera todas las tareas de un usuario.
+     *
+     * @param idUsuario El ID del usuario.
+     * @return Una lista de tareas del usuario.
+     */
     public static ArrayList<Tarea> mostrarTareasUsuario(int idUsuario) {
         ArrayList<Tarea> tareasUsuario = new ArrayList<>();
-
         PreparedStatement stmt = null;
         ResultSet rs = null;
         DBUtil db = new DBUtil();
@@ -201,7 +192,6 @@ public class TareaModel {
 
             while (rs.next()) {
                 int idTarea1 = rs.getInt("id_tarea");
-                //int idAgenda = rs.getInt("id_agendaTarea");
                 LocalDate fechaTarea = rs.getDate("fecha_tarea").toLocalDate();
                 LocalDate fechaFin = rs.getDate("fecha_fin").toLocalDate();
                 String descripcionTarea = rs.getString("descripcion");
@@ -210,20 +200,24 @@ public class TareaModel {
                 String prioridadTarea = rs.getString("prioridad");
 
                 Tarea tarea = new Tarea(idTarea1, descripcionTarea, fechaTarea, fechaFin, tipoTarea, prioridadTarea);
-
                 tarea.setAsistentes(asistentes);
 
                 tareasUsuario.add(tarea);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
         return tareasUsuario;
     }
+
+    /**
+     * Filtra las tareas por tipo.
+     *
+     * @param tipo El tipo de tarea por el que se desea filtrar.
+     * @return Una lista de tareas filtradas por tipo.
+     */
     public static ArrayList<Tarea> filtradoTareasTipo(String tipo) {
         ArrayList<Tarea> tareasUsuariofiltradas = new ArrayList<>();
-
         PreparedStatement stmt = null;
         ResultSet rs = null;
         DBUtil db = new DBUtil();
@@ -236,7 +230,6 @@ public class TareaModel {
 
             while (rs.next()) {
                 int idTarea1 = rs.getInt("id_tarea");
-                //int idAgenda = rs.getInt("id_agendaTarea");
                 LocalDate fechaTarea = rs.getDate("fecha_tarea").toLocalDate();
                 LocalDate fechaFin = rs.getDate("fecha_fin").toLocalDate();
                 String descripcionTarea = rs.getString("descripcion");
@@ -245,20 +238,24 @@ public class TareaModel {
                 String prioridadTarea = rs.getString("prioridad");
 
                 Tarea tarea = new Tarea(idTarea1, descripcionTarea, fechaTarea, fechaFin, tipoTarea, prioridadTarea);
-
                 tarea.setAsistentes(asistentes);
 
                 tareasUsuariofiltradas.add(tarea);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
         return tareasUsuariofiltradas;
     }
-    public static ArrayList<Tarea> filtradoTareasPrioridad (String prioridad) {
-        ArrayList<Tarea> tareasUsuariofiltradas = new ArrayList<>();
 
+    /**
+     * Filtra las tareas por prioridad.
+     *
+     * @param prioridad La prioridad de tarea por la que se desea filtrar.
+     * @return Una lista de tareas filtradas por prioridad.
+     */
+    public static ArrayList<Tarea> filtradoTareasPrioridad(String prioridad) {
+        ArrayList<Tarea> tareasUsuariofiltradas = new ArrayList<>();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         DBUtil db = new DBUtil();
@@ -271,7 +268,6 @@ public class TareaModel {
 
             while (rs.next()) {
                 int idTarea1 = rs.getInt("id_tarea");
-                //int idAgenda = rs.getInt("id_agendaTarea");
                 LocalDate fechaTarea = rs.getDate("fecha_tarea").toLocalDate();
                 LocalDate fechaFin = rs.getDate("fecha_fin").toLocalDate();
                 String descripcionTarea = rs.getString("descripcion");
@@ -280,18 +276,21 @@ public class TareaModel {
                 String prioridadTarea = rs.getString("prioridad");
 
                 Tarea tarea = new Tarea(idTarea1, descripcionTarea, fechaTarea, fechaFin, tipoTarea, prioridadTarea);
-
                 tarea.setAsistentes(asistentes);
 
                 tareasUsuariofiltradas.add(tarea);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
         return tareasUsuariofiltradas;
     }
-
+    /**
+     * Filtra las tareas por prioridad.
+     *
+     * @param idUsuario del cual se desea contar las tareas.
+     * @return cuenta  tareas .
+     */
 
     @javafx.fxml.FXML
     public static String ContadorTarea(Integer idUsuario) {
@@ -322,6 +321,4 @@ public class TareaModel {
 
 
 }
-
-
 

@@ -16,6 +16,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Controlador para la funcionalidad de inicio de sesión.
+ */
 public class LoginController {
 
     @javafx.fxml.FXML
@@ -31,6 +34,11 @@ public class LoginController {
 
     dataSingelton data=dataSingelton.getInstance();
 
+    /**
+     * Acción ejecutada al hacer clic en el botón de inicio de sesión.
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onLoginButton(ActionEvent actionEvent) {
         String mail = correoElectronico.getText();
@@ -40,7 +48,7 @@ public class LoginController {
         UsuarioModel b = new UsuarioModel();
         data.setUsuario(b.recuperarUsuario(mail));
 
-        if (b.ComprobarUsuarioLogin(u1) == true){
+        if (b.ComprobarUsuarioLogin(u1)) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("InterfazPrincipal.fxml"));
 
@@ -66,12 +74,14 @@ public class LoginController {
             alert.setTitle("Advertencia");
             alert.setContentText("El correo o la contraseña son incorrectos");
             alert.showAndWait();
-
         }
-
-
     }
-    //Esta funcion sierve para cargar la pagina signin y cerrar la actual
+
+    /**
+     * Carga la página de registro y cierra la página actual.
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onVueltaSignIn(ActionEvent actionEvent) {
         try {

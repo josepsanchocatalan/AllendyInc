@@ -7,8 +7,16 @@ import com.example.allendy.dataSingelton;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Clase que representa el modelo de datos para la clase Usuario.
+ */
 public class UsuarioModel {
 
+    /**
+     * Inserta un nuevo usuario en la base de datos.
+     *
+     * @param a El objeto Usuario a insertar.
+     */
     public static void InsertarUsuario(Usuario a){
 
         DBUtil db = new DBUtil();
@@ -36,6 +44,13 @@ public class UsuarioModel {
         }
 
     }
+
+    /**
+     * Elimina un usuario de la base de datos.
+     *
+     * @param u1 El objeto Usuario a eliminar.
+     * @return true si el usuario fue eliminado exitosamente, false en caso contrario.
+     */
     public boolean EliminarUsuario(Usuario u1){
         boolean verificacion = false;
         DBUtil db = new DBUtil();
@@ -52,6 +67,13 @@ public class UsuarioModel {
 
         return verificacion;
     }
+
+    /**
+     * Modifica un usuario en la base de datos.
+     *
+     * @param u1 El objeto Usuario modificado.
+     * @return true si el usuario fue modificado exitosamente, false en caso contrario.
+     */
     public boolean ModificarUsuario(Usuario u1){
         boolean verificacion = false;
 
@@ -71,6 +93,13 @@ public class UsuarioModel {
 
         return verificacion;
     }
+
+    /**
+     * Comprueba si un usuario ya está registrado en la base de datos.
+     *
+     * @param u1 El objeto Usuario a comprobar.
+     * @return true si el usuario está registrado, false en caso contrario.
+     */
     public boolean ComprobarUsuarioRegistro(Usuario u1) {
         Boolean verificacion = false;
         String nickname = u1.getNickName();
@@ -99,6 +128,13 @@ public class UsuarioModel {
 
         return verificacion;
     }
+
+    /**
+     * Comprueba las credenciales de inicio de sesión de un usuario.
+     *
+     * @param u1 El objeto Usuario con las credenciales a comprobar.
+     * @return true si las credenciales son válidas, false en caso contrario.
+     */
     public boolean ComprobarUsuarioLogin(Usuario u1) {
         String correo = u1.getEmail();
         String pass = u1.getPassword();
@@ -129,7 +165,12 @@ public class UsuarioModel {
         return verificacion;
     }
 
-
+    /**
+     * Recupera un usuario de la base de datos basado en su correo electrónico.
+     *
+     * @param correo El correo electrónico del usuario a recuperar.
+     * @return El objeto Usuario recuperado, o null si no se encontró ningún usuario.
+     */
     public Usuario recuperarUsuario(String correo) {
         Usuario a = new Usuario();
 
@@ -187,6 +228,11 @@ public class UsuarioModel {
         return a;
     }
 
+    /**
+     * Recupera una lista de correos electrónicos de todos los usuarios, excepto el usuario activo.
+     *
+     * @return Una lista de correos electrónicos de los usuarios.
+     */
     public ArrayList<String> recuperarCorreos(){
         ArrayList<String> correos = new ArrayList<String>();
         DBUtil db = new DBUtil();
@@ -213,7 +259,4 @@ public class UsuarioModel {
         }
         return correos;
     }
-
-
-
 }

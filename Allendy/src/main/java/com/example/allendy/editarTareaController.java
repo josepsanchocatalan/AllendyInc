@@ -3,13 +3,13 @@ package com.example.allendy;
 import com.example.allendy.Clases.Agenda;
 import com.example.allendy.Clases.Tarea;
 import com.example.allendy.Clases.Usuario;
+import com.example.allendy.ClasesModel.AgendaModel;
 import com.example.allendy.ClasesModel.TareaModel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
-import java.util.ArrayList;import com.example.allendy.ClasesModel.AgendaModel;
 
 public class editarTareaController {
     @javafx.fxml.FXML
@@ -41,48 +41,46 @@ public class editarTareaController {
     @javafx.fxml.FXML
     private TextField idNtarea;
 
-
+    /**
+     * Maneja el evento del botón "Editar Tarea".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonEditarTareaPop(ActionEvent actionEvent) {
-
-
-        TareaModel tm=new TareaModel();
+        TareaModel tm = new TareaModel();
         dataSingelton data = dataSingelton.getInstance();
-        AgendaModel am=new AgendaModel();
-
-
+        AgendaModel am =new AgendaModel();
         Usuario a = data.getUsuario();
         Agenda agenda = am.RecuperarAgenda(a.getIdUsuario());
-        Tarea nuevaTarea=tm.RecuperarTarea(a.getIdUsuario());
+        Tarea nuevaTarea = tm.RecuperarTarea(a.getIdUsuario());
 
-        LocalDate FechaInicio=editarFechaTarea.getValue();
-        LocalDate FechaFinal=editarFechaFinTarea.getValue();
-        String Descripcion=editarNombreTarea.getText();
+        LocalDate FechaInicio = editarFechaTarea.getValue();
+        LocalDate FechaFinal = editarFechaFinTarea.getValue();
+        String Descripcion = editarNombreTarea.getText();
         String ntarea = idNtarea.getText();
 
         String TipoTarea;
         String Prioridad;
 
-        if(CheckFamiliaPop.isSelected()){
-            TipoTarea="famila";
+        if (CheckFamiliaPop.isSelected()) {
+            TipoTarea = "Familia";
         } else if (checkOcioPop.isSelected()) {
-            TipoTarea="Ocio";
-
-        }else if(checkTrabajoPop.isSelected()){
-            TipoTarea="Trabajo";
-        }else{
-            TipoTarea=null;
+            TipoTarea = "Ocio";
+        } else if (checkTrabajoPop.isSelected()) {
+            TipoTarea = "Trabajo";
+        } else {
+            TipoTarea = null;
         }
 
-        if(prioridadAlta.isSelected()){
-            Prioridad="Alta";
+        if (prioridadAlta.isSelected()) {
+            Prioridad = "Alta";
         } else if (prioridadMedia.isSelected()) {
-            Prioridad="media";
-
-        }else if(prioridadBaja.isSelected()){
-            Prioridad="baja";
-        }else{
-            Prioridad=null;
+            Prioridad = "Media";
+        } else if (prioridadBaja.isSelected()) {
+            Prioridad = "Baja";
+        } else {
+            Prioridad = null;
         }
 
         nuevaTarea.setFechaTarea(editarFechaTarea.getValue());
@@ -97,11 +95,14 @@ public class editarTareaController {
         myStage.close();
     }
 
+    /**
+     * Maneja el evento del botón "Cancelar Tarea".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonCancelarETareaPop(ActionEvent actionEvent) {
         Stage myStage = (Stage) this.botonCancelarTareaPopUp.getScene().getWindow();
         myStage.close();
     }
-
-
 }

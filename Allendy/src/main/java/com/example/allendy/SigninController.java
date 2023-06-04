@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Controlador para la funcionalidad de registro de usuarios.
+ */
 public class SigninController {
 
     @javafx.fxml.FXML
@@ -37,7 +40,11 @@ public class SigninController {
     @javafx.fxml.FXML
     private Button vueltaLogin;
 
-    //Esta funcion comprueba que el usuario a registrar no este en la DB
+    /**
+     * Acción ejecutada al hacer clic en el botón de registro.
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onRegistroButton(ActionEvent actionEvent) {
         String correo = correoElectronico.getText();
@@ -52,11 +59,11 @@ public class SigninController {
 
             if(Terminos.isSelected()) {
 
-                if (um1.ComprobarUsuarioRegistro(u1) == true){
+                if (um1.ComprobarUsuarioRegistro(u1)){
                     Alert alert = new Alert(Alert.AlertType.WARNING);
                     alert.setHeaderText(null);
                     alert.setTitle("Advertencia");
-                    alert.setContentText("El usuario ya esta registrado");
+                    alert.setContentText("El usuario ya está registrado");
                     alert.showAndWait();
 
                 } else {
@@ -64,10 +71,10 @@ public class SigninController {
                     UsuarioModel.InsertarUsuario(a);
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setTitle("Informacion");
+                    alert.setTitle("Información");
                     alert.setContentText("Usuario registrado exitosamente");
                     alert.showAndWait();
-                    
+
                     try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
 
@@ -93,7 +100,7 @@ public class SigninController {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setHeaderText(null);
                 alert.setTitle("Advertencia");
-                alert.setContentText("Debes aceptar los terminos y condiciones");
+                alert.setContentText("Debes aceptar los términos y condiciones");
                 alert.showAndWait();
             }
 
@@ -102,14 +109,18 @@ public class SigninController {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText(null);
             alert.setTitle("Advertencia");
-            alert.setContentText("Las contraseñas deben de coincidir");
+            alert.setContentText("Las contraseñas deben coincidir");
             alert.showAndWait();
         }
     }
 
-    //Esta funcion sirve para cargar la pagina loguin y cerrar la actual
+    /**
+     * Carga la página de inicio de sesión y cierra la página actual.
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
-    public void onVueltaLoguin(ActionEvent actionEvent) {
+    public void onVueltaLogin(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
 

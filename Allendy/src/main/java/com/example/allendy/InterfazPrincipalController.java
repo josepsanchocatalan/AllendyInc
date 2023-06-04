@@ -36,7 +36,9 @@ import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+/**
+ * Controlador para la interfaz principal de la aplicación.
+ */
 public class InterfazPrincipalController {
 
     private ObservableList<Nota> notas;
@@ -134,6 +136,10 @@ public class InterfazPrincipalController {
     //funciones
 
 
+    /**
+     * Método de inicialización que se llama después de cargar el archivo FXML.
+     * Se encarga de configurar los elementos de la interfaz y cargar los datos iniciales.
+     */
     @FXML
     public void initialize() {
 
@@ -193,6 +199,10 @@ public class InterfazPrincipalController {
 
     }
 
+    /**
+     * Maneja el evento de creación de una nueva agenda.
+     * Abre una ventana para crear una nueva agenda.
+     */
     @FXML
     public void OnBotonCrearAgenda(ActionEvent actionEvent) {
 
@@ -214,6 +224,10 @@ public class InterfazPrincipalController {
         }
     }
 
+    /**
+     * Maneja el evento de edición de una agenda existente.
+     * Abre una ventana para editar una agenda existente.
+     */
     @FXML
     public void onBotonEditarAgenda(ActionEvent actionEvent) {
 
@@ -236,6 +250,10 @@ public class InterfazPrincipalController {
 
     }
 
+    /**
+     * Maneja el evento de creación de una nueva tarea.
+     * Abre una ventana para crear una nueva tarea.
+     */
     @FXML
     public void onBotonNuevaTarea(ActionEvent actionEvent) {
         try {
@@ -253,9 +271,9 @@ public class InterfazPrincipalController {
 
             mostrarTareasUsuario();
 
-           stage.setOnHiding(event-> {
-               mostrarTareasUsuario();
-           });
+            stage.setOnHiding(event-> {
+                mostrarTareasUsuario();
+            });
 
         } catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -306,7 +324,7 @@ public class InterfazPrincipalController {
 
         tm.EliminarTarea(idTarea);
 
-            mostrarTareasUsuario();
+        mostrarTareasUsuario();
 
 
     }
@@ -362,6 +380,9 @@ public class InterfazPrincipalController {
     }
 
 
+    /**
+     * Muestra las notas del usuario en la tabla de notas.
+     */
     @FXML
     public void mostrarNotasUsuario() {
         try {
@@ -378,6 +399,9 @@ public class InterfazPrincipalController {
         }
     }
 
+    /**
+     * Muestra las tareas del usuario en la tabla de tareas.
+     */
     @FXML
     public void  mostrarTareasUsuario() {
         // Obtén las tareas del usuario desde el modelo de tareas
@@ -386,7 +410,7 @@ public class InterfazPrincipalController {
         tareas.clear();
         // Agrega las tareas del usuario a la lista
         tareas.addAll(tareasUsuario);
-         // Obtén el usuario actual de alguna manera
+        // Obtén el usuario actual de alguna manera
     }
 
 
@@ -405,6 +429,11 @@ public class InterfazPrincipalController {
     }
 
 
+
+    /**
+     * Maneja el evento de filtrar por tipo de tarea.
+     * Filtra las tareas según el tipo seleccionado y las muestra en la tabla de tareas.
+     */
     @FXML
     public void onFiltrarTipo(ActionEvent actionEvent) {
         String TipoFiltrado= (String) filtrarTipo.getValue();
@@ -420,6 +449,11 @@ public class InterfazPrincipalController {
 
     }
 
+    /**
+     * Maneja el evento de filtrar por prioridad de tarea.
+     * Filtra las tareas según la prioridad seleccionada y las muestra en la tabla de tareas.
+     */
+
     @FXML
     public void onFiltrarPrioridad(ActionEvent actionEvent) {
         String PrioridadFiltrado= (String) filtrarPrioridad.getValue();
@@ -434,6 +468,9 @@ public class InterfazPrincipalController {
         // Obtén el usuario actual de alguna manera
     }
 
+    /**
+     * Restaura la visualización de todas las tareas sin filtrar.
+     */
     @FXML
     public void OnbotonRestaurar(ActionEvent actionEvent) {
 
@@ -444,6 +481,10 @@ public class InterfazPrincipalController {
 
     }
 
+    /**
+     * Maneja el evento del botón ASD.
+     * Abre una ventana para editar una nota existente.
+     */
     @FXML
     public void onASDbutton(ActionEvent actionEvent) {
         try {

@@ -10,6 +10,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Controlador para la edición de una nota existente.
+ */
 public class editarNotaController {
     @javafx.fxml.FXML
     private Button botonEditarNota;
@@ -22,6 +25,11 @@ public class editarNotaController {
     @javafx.fxml.FXML
     private TextArea nuevaDescripcion;
 
+    /**
+     * Maneja el evento del botón "Editar Nota".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonEditarNotaPop(ActionEvent actionEvent) {
         NotaModel nm = new NotaModel();
@@ -39,6 +47,11 @@ public class editarNotaController {
         myStage.close();
     }
 
+    /**
+     * Maneja el evento del botón "Cancelar Nota".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonCancelarNotaPop(ActionEvent actionEvent) {
         Stage myStage = (Stage) this.botonCancelarNotaPopUp.getScene().getWindow();

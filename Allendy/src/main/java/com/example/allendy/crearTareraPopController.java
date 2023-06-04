@@ -60,16 +60,22 @@ public class crearTareraPopController {
     boolean primeraVez;
     InterfazPrincipalController actualziar;
 
+    /**
+     * Inicializa la interfaz de usuario de creación de tarea.
+     */
     public void initialize(){
-      //  primeraVez = true;
+        //  primeraVez = true;
         UsuarioModel um = new UsuarioModel();
         ObservableList<String> correos = FXCollections.observableArrayList();
         correos.setAll(um.recuperarCorreos());
         comboBoxEmails.setItems(correos);
     }
 
-
-
+    /**
+     * Maneja el evento del botón "Crear Tarea".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonCrearTareaPop(ActionEvent actionEvent) {
 
@@ -79,12 +85,12 @@ public class crearTareraPopController {
         Agenda agenda = am.RecuperarAgenda(a.getIdUsuario());
 
         //LocalDate FechaInicio =FechaTarea.setValue(Instant.now());
-       // LocalDate FechaFinal = FechaFin.setValue(Instant.now);
+        // LocalDate FechaFinal = FechaFin.setValue(Instant.now);
 
         TareaModel t = new TareaModel();
         data = dataSingelton.getInstance();
         ArrayList<Tarea> ListaTareas = mostrarTareasUsuario(a.getIdUsuario());
-       LocalDate FechaInicio = FechaTarea.getValue();
+        LocalDate FechaInicio = FechaTarea.getValue();
         LocalDate FechaFinal = FechaFin.getValue();
         String Descripcion = nombreTarea.getText();
         String asistente = "";
@@ -124,7 +130,6 @@ public class crearTareraPopController {
             asistente = comboBoxEmails.getValue().toString();
         }
 
-
         if (FechaInicio.isBefore(FechaFinal)){
 
             Tarea nuevaTarea = new Tarea(agenda.getIdAgenda(), a.getIdUsuario(), ListaTareas, agenda.getNombreAgenda(), FechaInicio, FechaFinal, TipoTarea, Descripcion, false, asistente, Prioridad);
@@ -139,14 +144,16 @@ public class crearTareraPopController {
         Stage myStage = (Stage) this.botonCrearTarea.getScene().getWindow();
         myStage.close();
 
-
         Usuario idUser = data.getUsuario();
         Integer iduser = Integer.valueOf(idUser.getIdUsuario());
 
-
-
     }
 
+    /**
+     * Maneja el evento del botón "Cancelar Tarea".
+     *
+     * @param actionEvent El evento de acción generado por el botón.
+     */
     @javafx.fxml.FXML
     public void onBotonCancelarTareaPop(ActionEvent actionEvent) {
         Stage myStage = (Stage) this.botonCancelarTarea.getScene().getWindow();
