@@ -129,7 +129,7 @@
             <Pane layoutX="59.0" layoutY="53.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">
                <children>
                   <Text layoutX="13.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agendas creadas:" />
-                  <Text fx:id="agendasCreadas" layoutX="133.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                  <Text fx:id="agendasCreadas" layoutX="133.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" />
                </children>
             </Pane>
             <Pane layoutX="59.0" layoutY="88.0" prefHeight="27.0" prefWidth="164.0" style="-fx-background-radius: 5; -fx-border-radius: 5; -fx-background-color: #4FD4E1; -fx-border-color: #444444;">

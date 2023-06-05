@@ -273,6 +273,7 @@ public class InterfazPrincipalController {
 
             stage.setOnHiding(event-> {
                 mostrarTareasUsuario();
+                notasCreadas.setText(NotaModel.ContadorNota(data.getUsuario().getIdUsuario()));
             });
 
         } catch (IOException ex) {

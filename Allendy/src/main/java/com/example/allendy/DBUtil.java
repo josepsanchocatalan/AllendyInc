@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public class DBUtil {
     private Connection con;
-    private String cadenaConexion = "jdbc:mysql://localhost:3307/allendy";
+    private String cadenaConexion = "jdbc:mysql://10.51.1.45:3307/allendy";
     private String nombreUsuario = "root";
     private String password = "Allendy2023";
 
